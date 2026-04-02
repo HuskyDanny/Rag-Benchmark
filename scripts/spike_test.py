@@ -6,6 +6,7 @@ from datetime import datetime, timezone
 
 from dotenv import load_dotenv
 from graphiti_core import Graphiti
+from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.llm_client.config import LLMConfig
 from graphiti_core.llm_client.openai_generic_client import OpenAIGenericClient
 from graphiti_core.nodes import EntityNode
@@ -23,16 +24,26 @@ async def main():
     user = os.getenv("NEO4J_USER", "neo4j")
     password = os.getenv("NEO4J_PASSWORD", "password")
 
+    api_key = os.getenv("OPENAI_API_KEY")
+    base_url = os.getenv("OPENAI_BASE_URL")
+
     llm_config = LLMConfig(
-        api_key=os.getenv("OPENAI_API_KEY"),
-        base_url=os.getenv("OPENAI_BASE_URL"),
+        api_key=api_key,
+        base_url=base_url,
         model=os.getenv("LLM_MODEL", "Qwen/Qwen2.5-72B-Instruct"),
         small_model=os.getenv("LLM_SMALL_MODEL", "Qwen/Qwen2.5-7B-Instruct"),
     )
     llm_client = OpenAIGenericClient(config=llm_config)
 
+    embedder_config = OpenAIEmbedderConfig(
+        embedding_model=os.getenv("EMBEDDING_MODEL", "Qwen/Qwen3-Embedding-0.6B"),
+        api_key=api_key,
+        base_url=base_url,
+    )
+    embedder = OpenAIEmbedder(config=embedder_config)
+
     print(f"Connecting to Neo4j at {uri}...")
-    graphiti = Graphiti(uri, user, password, llm_client=llm_client)
+    graphiti = Graphiti(uri, user, password, llm_client=llm_client, embedder=embedder)
 
     try:
         await graphiti.build_indices_and_constraints()
