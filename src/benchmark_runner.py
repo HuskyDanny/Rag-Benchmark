@@ -140,8 +140,11 @@ async def evaluate_query(
 ) -> QueryResult:
     """Run a single query and compute all metrics."""
     query = test_case.queries[query_idx]
+    # Only apply temporal filter to hybrid — baselines run unfiltered
+    # to test whether the temporal graph adds value over flat search
+    query_time = query.query_time if strategy_name == "hybrid" else None
     returned_facts = await run_search(
-        graphiti, query.query, config, group_id, query_time=query.query_time
+        graphiti, query.query, config, group_id, query_time=query_time
     )
 
     p_at_5 = await compute_precision_at_k(returned_facts, query.expected_facts, k=5)
