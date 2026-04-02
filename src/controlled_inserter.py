@@ -1,4 +1,9 @@
-"""Phase 1: Insert known-good triplets via add_triplet()."""
+"""Phase 1: Insert known-good triplets directly into Neo4j.
+
+Uses EntityNode.save() and EntityEdge.save() to bypass Graphiti's
+LLM-based entity resolution. This is correct for Phase 1 because
+the data is known-good — no deduplication needed.
+"""
 
 from graphiti_core import Graphiti
 from graphiti_core.nodes import EntityNode
@@ -11,14 +16,16 @@ GROUP_ID = "benchmark_controlled"
 
 async def insert_test_case(graphiti: Graphiti, test_case: TestCase) -> None:
     """Insert all triplets from a test case into the graph."""
+    driver = graphiti.clients.driver
+    embedder = graphiti.embedder
     node_cache: dict[str, EntityNode] = {}
 
     for triplet in test_case.triplets:
-        source_node = _get_or_create_node(
-            node_cache, triplet.source.name, triplet.source.labels
+        source_node = await _get_or_create_node(
+            node_cache, triplet.source.name, triplet.source.labels, embedder, driver
         )
-        target_node = _get_or_create_node(
-            node_cache, triplet.target.name, triplet.target.labels
+        target_node = await _get_or_create_node(
+            node_cache, triplet.target.name, triplet.target.labels, embedder, driver
         )
 
         edge = EntityEdge(
@@ -31,19 +38,23 @@ async def insert_test_case(graphiti: Graphiti, test_case: TestCase) -> None:
             valid_at=triplet.edge.valid_at,
             invalid_at=triplet.edge.invalid_at,
         )
-
-        await graphiti.add_triplet(
-            source_node=source_node, edge=edge, target_node=target_node
-        )
+        await edge.generate_embedding(embedder)
+        await edge.save(driver)
 
 
-def _get_or_create_node(
-    cache: dict[str, EntityNode], name: str, labels: list[str]
+async def _get_or_create_node(
+    cache: dict[str, EntityNode],
+    name: str,
+    labels: list[str],
+    embedder,
+    driver,
 ) -> EntityNode:
-    """Get existing node from cache or create a new one."""
+    """Get existing node from cache or create, embed, and save a new one."""
     if name in cache:
         return cache[name]
     node = EntityNode(name=name, group_id=GROUP_ID, labels=labels)
+    await node.generate_name_embedding(embedder)
+    await node.save(driver)
     cache[name] = node
     return node
 
