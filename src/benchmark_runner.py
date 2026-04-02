@@ -12,6 +12,11 @@ from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.llm_client.config import LLMConfig
 from graphiti_core.llm_client.openai_generic_client import OpenAIGenericClient
 from graphiti_core.search.search_config import SearchConfig
+from graphiti_core.search.search_filters import (
+    SearchFilters,
+    DateFilter,
+    ComparisonOperator,
+)
 from graphiti_core.utils.maintenance.graph_data_operations import clear_data
 
 from src.models import TestCase, QueryResult, CategoryReport
@@ -83,11 +88,45 @@ async def wipe_graph(graphiti: Graphiti, group_id: str | None = None) -> None:
     await graphiti.build_indices_and_constraints()
 
 
+def build_temporal_filter(query_time: datetime) -> SearchFilters:
+    """Build a SearchFilter that only returns edges valid at query_time.
+
+    Filters:
+    - valid_at <= query_time (edge was valid at or before query time)
+    - invalid_at IS NULL OR invalid_at > query_time (edge hasn't expired)
+    """
+    return SearchFilters(
+        valid_at=[
+            [
+                DateFilter(
+                    date=query_time,
+                    comparison_operator=ComparisonOperator.less_than_equal,
+                )
+            ]
+        ],
+        invalid_at=[
+            [DateFilter(comparison_operator=ComparisonOperator.is_null)],
+            [
+                DateFilter(
+                    date=query_time, comparison_operator=ComparisonOperator.greater_than
+                )
+            ],
+        ],
+    )
+
+
 async def run_search(
-    graphiti: Graphiti, query: str, config: SearchConfig, group_id: str
+    graphiti: Graphiti,
+    query: str,
+    config: SearchConfig,
+    group_id: str,
+    query_time: datetime | None = None,
 ) -> list[str]:
     """Execute a search and return facts from matching edges."""
-    results = await graphiti.search_(query=query, config=config, group_ids=[group_id])
+    search_filter = build_temporal_filter(query_time) if query_time else None
+    results = await graphiti.search_(
+        query=query, config=config, group_ids=[group_id], search_filter=search_filter
+    )
     return [edge.fact for edge in results.edges]
 
 
@@ -101,7 +140,9 @@ async def evaluate_query(
 ) -> QueryResult:
     """Run a single query and compute all metrics."""
     query = test_case.queries[query_idx]
-    returned_facts = await run_search(graphiti, query.query, config, group_id)
+    returned_facts = await run_search(
+        graphiti, query.query, config, group_id, query_time=query.query_time
+    )
 
     p_at_5 = await compute_precision_at_k(returned_facts, query.expected_facts, k=5)
     r_at_5 = await compute_recall_at_k(returned_facts, query.expected_facts, k=5)
