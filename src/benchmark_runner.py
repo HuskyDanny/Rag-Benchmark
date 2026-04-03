@@ -28,13 +28,14 @@ from src.evaluator import (
     compute_temporal_accuracy,
 )
 from src.reporter import aggregate_results, print_full_report
-from src import controlled_inserter, pipeline_inserter
+from src import controlled_inserter, pipeline_inserter, presplit_inserter
 
 load_dotenv()
 
 GROUP_IDS = {
     "controlled": controlled_inserter.GROUP_ID,
     "pipeline": pipeline_inserter.GROUP_ID,
+    "pipeline_presplit": presplit_inserter.GROUP_ID,
 }
 
 
@@ -179,6 +180,8 @@ async def run_phase(
     print("Inserting test data...")
     if phase == "controlled":
         await controlled_inserter.insert_all(graphiti, test_cases)
+    elif phase == "pipeline_presplit":
+        await presplit_inserter.insert_all(graphiti, test_cases)
     else:
         await pipeline_inserter.insert_all(graphiti, test_cases)
 
@@ -203,7 +206,7 @@ async def run_benchmark(
 ) -> list[CategoryReport]:
     """Run the full benchmark across specified phases."""
     if phases is None:
-        phases = ["controlled", "pipeline"]
+        phases = ["controlled", "pipeline", "pipeline_presplit"]
 
     test_cases = load_test_cases(test_cases_path)
     print(f"Loaded {len(test_cases)} test cases")
