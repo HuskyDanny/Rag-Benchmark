@@ -40,6 +40,7 @@ class Triplet(BaseModel):
 class TestCase(BaseModel):
     id: str
     category: str
+    tags: list[str] = []
     episodes: list[Episode]
     queries: list[Query]
     triplets: list[Triplet]
