@@ -221,7 +221,15 @@ async def run_evaluate(
                 ckpt.mark_done(key)
 
     ckpt.mark_stage_complete()
-    print(f"  EVALUATE complete for {phase} ({len(all_results)} new results)")
+
+    # Persist results so --stage report can load them independently
+    results_cache = Path("results/checkpoints") / f"{phase}_results.json"
+    results_cache.parent.mkdir(parents=True, exist_ok=True)
+    results_cache.write_text(
+        json.dumps([r.model_dump(mode="json") for r in all_results], indent=2)
+    )
+
+    print(f"  EVALUATE complete for {phase} ({len(all_results)} results saved)")
     return all_results
 
 
@@ -297,6 +305,15 @@ async def run_benchmark(
             results = await run_evaluate(graphiti, phase, test_cases)
 
         if "report" in stages_to_run:
+            if not results:
+                # Load from evaluate cache for standalone --stage report
+                cache = Path("results/checkpoints") / f"{phase}_results.json"
+                if cache.exists():
+                    results = [
+                        QueryResult.model_validate(d)
+                        for d in json.loads(cache.read_text())
+                    ]
+                    print(f"  Loaded {len(results)} results from cache")
             if not results:
                 print("  No evaluation results — skipping report")
                 return []
