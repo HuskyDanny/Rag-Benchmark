@@ -1,0 +1,5489 @@
+[
+  {
+    "test_case_id": "static_001",
+    "query": "What is the relationship between Paris and France?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Paris serves as the capital city of France.",
+      "Michael Brown is a chef in Paris.",
+      "Berlin is the capital of Germany",
+      "Ivy joined Paris as Paris office manager",
+      "Tokyo is the capital city of Japan."
+    ],
+    "expected_facts": [
+      "Paris is the capital of France."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_001",
+    "query": "What is the relationship between Paris and France?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Paris serves as the capital city of France.",
+      "Michael Brown is a chef in Paris.",
+      "Ivy joined Paris as Paris office manager",
+      "Leo lives in Paris.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "Paris is the capital of France."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_001",
+    "query": "What is the relationship between Paris and France?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Paris serves as the capital city of France.",
+      "Berlin is the capital of Germany",
+      "Leo lives in Paris.",
+      "Ivy joined Paris as Paris office manager",
+      "Acme Corp headquarters is located in Chicago"
+    ],
+    "expected_facts": [
+      "Paris is the capital of France."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_002",
+    "query": "What is the relationship between Python and Guido van Rossum?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Dave upgraded to Python 3.12",
+      "Berlin is the capital of Germany",
+      "Grace joined Apple",
+      "Frank quit his previous role and founded Startup Y.",
+      "Nick leads Project B"
+    ],
+    "expected_facts": [
+      "Python was created by Guido van Rossum."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_002",
+    "query": "What is the relationship between Python and Guido van Rossum?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Python was created by Guido van Rossum",
+      "Dave uses Python 3.9",
+      "Dave upgraded to Python 3.12",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y."
+    ],
+    "expected_facts": [
+      "Python was created by Guido van Rossum."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_002",
+    "query": "What is the relationship between Python and Guido van Rossum?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Python was created by Guido van Rossum",
+      "Dave upgraded to Python 3.12",
+      "Dave uses Python 3.9",
+      "Grace works at Microsoft",
+      "Grace joined Apple"
+    ],
+    "expected_facts": [
+      "Python was created by Guido van Rossum."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_003",
+    "query": "What is the relationship between Earth and Sun?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Earth orbits the Sun.",
+      "Berlin is the capital of Germany",
+      "Grace joined Apple",
+      "Frank quit his previous role and founded Startup Y.",
+      "Frank drives a Tesla"
+    ],
+    "expected_facts": [
+      "Earth orbits the Sun."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_003",
+    "query": "What is the relationship between Earth and Sun?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Earth orbits the Sun.",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Kyle is the CTO of Zeta Corp.",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Earth orbits the Sun."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_003",
+    "query": "What is the relationship between Earth and Sun?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Earth orbits the Sun.",
+      "Grace joined Apple",
+      "Amy left Google",
+      "Dave left Microsoft",
+      "Frank drives a Tesla"
+    ],
+    "expected_facts": [
+      "Earth orbits the Sun."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_004",
+    "query": "What is the relationship between Water and H2O?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany",
+      "Olivia upgraded to Java 21",
+      "Frank quit his previous role and founded Startup Y.",
+      "Grace joined Apple"
+    ],
+    "expected_facts": [
+      "Water has the chemical formula H2O."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_004",
+    "query": "What is the relationship between Water and H2O?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Water has the chemical formula H2O."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_004",
+    "query": "What is the relationship between Water and H2O?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Water has the chemical formula H2O.",
+      "Olivia upgraded to Java 21",
+      "Grace joined Apple",
+      "Olivia uses Java 11",
+      "Dave joined Amazon"
+    ],
+    "expected_facts": [
+      "Water has the chemical formula H2O."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_005",
+    "query": "What is the relationship between Amazon and Seattle?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Amazon has its headquarters in Seattle.",
+      "Berlin is the capital of Germany",
+      "Acme Corp moved its headquarters to Austin",
+      "Frank quit his previous role and founded Startup Y.",
+      "Beta Inc has its office in Boston."
+    ],
+    "expected_facts": [
+      "Amazon is headquartered in Seattle."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_005",
+    "query": "What is the relationship between Amazon and Seattle?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Amazon has its headquarters in Seattle.",
+      "Dave joined Amazon",
+      "Delta Co has its office in Seattle.",
+      "Kate works at Amazon.",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Amazon is headquartered in Seattle."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_005",
+    "query": "What is the relationship between Amazon and Seattle?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Amazon has its headquarters in Seattle.",
+      "Dave works at Amazon",
+      "Dave joined Amazon",
+      "Delta Co has its office in Seattle.",
+      "Acme Corp moved its headquarters to Austin"
+    ],
+    "expected_facts": [
+      "Amazon is headquartered in Seattle."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_006",
+    "query": "What is the relationship between Linux and Linus Torvalds?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Laura is the CTO of Zeta Corp",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Nick leads Project B",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Linux was created by Linus Torvalds."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_006",
+    "query": "What is the relationship between Linux and Linus Torvalds?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Linux was created by Linus Torvalds.",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "Linux was created by Linus Torvalds."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_006",
+    "query": "What is the relationship between Linux and Linus Torvalds?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Linux was created by Linus Torvalds.",
+      "Python was created by Guido van Rossum",
+      "Dave left Microsoft",
+      "frank is the chief technology officer at startup x",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "Linux was created by Linus Torvalds."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_007",
+    "query": "What is the relationship between Tokyo and Japan?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Tokyo is the capital city of Japan.",
+      "Leo relocated to Tokyo.",
+      "Eve transferred to the Tokyo office.",
+      "Berlin is the capital of Germany",
+      "Eve joined Tokyo as an analyst"
+    ],
+    "expected_facts": [
+      "Tokyo is the capital of Japan."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_007",
+    "query": "What is the relationship between Tokyo and Japan?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Tokyo is the capital city of Japan.",
+      "Eve transferred to the Tokyo office.",
+      "Leo relocated to Tokyo.",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y."
+    ],
+    "expected_facts": [
+      "Tokyo is the capital of Japan."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_007",
+    "query": "What is the relationship between Tokyo and Japan?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Tokyo is the capital city of Japan.",
+      "Leo relocated to Tokyo.",
+      "Eve joined Tokyo as an analyst",
+      "Berlin is the capital of Germany",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Tokyo is the capital of Japan."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_008",
+    "query": "What is the relationship between Tesla and Elon Musk?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Frank drives a Tesla",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Berlin is the capital of Germany",
+      "Bob is the CEO of Acme Corp",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Tesla was founded by Elon Musk."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_008",
+    "query": "What is the relationship between Tesla and Elon Musk?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Tesla was founded by Elon Musk.",
+      "Frank drives a Tesla",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Tesla was founded by Elon Musk."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_008",
+    "query": "What is the relationship between Tesla and Elon Musk?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Tesla was founded by Elon Musk.",
+      "Frank drives a Tesla",
+      "Dave left Microsoft",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Quinn is the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Tesla was founded by Elon Musk."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_009",
+    "query": "What is the relationship between JavaScript and Brendan Eich?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Grace joined Apple",
+      "Frank quit his previous role and founded Startup Y.",
+      "Olivia upgraded to Java 21",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "JavaScript was created by Brendan Eich."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_009",
+    "query": "What is the relationship between JavaScript and Brendan Eich?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "JavaScript was created by Brendan Eich.",
+      "Berlin is the capital of Germany",
+      "Frank quit his previous role and founded Startup Y.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "JavaScript was created by Brendan Eich."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_009",
+    "query": "What is the relationship between JavaScript and Brendan Eich?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "JavaScript was created by Brendan Eich.",
+      "Python was created by Guido van Rossum",
+      "frank is the chief technology officer at startup x",
+      "Grace joined Apple",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "JavaScript was created by Brendan Eich."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_010",
+    "query": "What is the relationship between Berlin and Germany?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Henry relocated to Berlin.",
+      "Ivy is based in the Berlin office working in Office Management.",
+      "Ivy works in Office Management at the Berlin office.",
+      "Ivy works as a Berlin office manager in Berlin"
+    ],
+    "expected_facts": [
+      "Berlin is the capital of Germany."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_010",
+    "query": "What is the relationship between Berlin and Germany?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Ivy is based in the Berlin office working in Office Management.",
+      "Ivy works in Office Management at the Berlin office.",
+      "Ivy has the job title of Berlin office manager",
+      "Ivy left Berlin"
+    ],
+    "expected_facts": [
+      "Berlin is the capital of Germany."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "static_010",
+    "query": "What is the relationship between Berlin and Germany?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Henry relocated to Berlin.",
+      "Ivy left Berlin",
+      "Ivy works as a Berlin office manager in Berlin",
+      "Acme Corp headquarters is located in Chicago"
+    ],
+    "expected_facts": [
+      "Berlin is the capital of Germany."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_001",
+    "query": "Where does Amy currently works at?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Amy works at Facebook.",
+      "Bob works at New York",
+      "Amy joined Facebook as product manager",
+      "dave works at amzn as principal eng.",
+      "John Smith works as a software engineer at Google."
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_001",
+    "query": "Where does Amy currently works at?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Amy works at Google.",
+      "Amy works at Facebook.",
+      "Amy works as an engineer at Google.",
+      "Amy left Google",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_001",
+    "query": "Where does Amy currently works at?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Amy works at Google.",
+      "Amy works at Facebook.",
+      "Amy works as an engineer at Google.",
+      "Amy left Google",
+      "Kate works at Amazon."
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_002",
+    "query": "Where does Bob currently lives in?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Bob works at New York",
+      "Henry lives in London",
+      "Bob moved to San Francisco.",
+      "Bob is the CEO of Acme Corp",
+      "Beta Inc has its office in Boston."
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_002",
+    "query": "Where does Bob currently lives in?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Bob lives in New York",
+      "Bob lives in New York City.",
+      "bob livs lives in new yrok city",
+      "Henry lives in London",
+      "Leo lives in Paris."
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.125,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_002",
+    "query": "Where does Bob currently lives in?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Bob lives in New York",
+      "Bob ceased residing in New York",
+      "bob livs lives in new yrok city",
+      "Bob lives in New York City.",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_003",
+    "query": "Where does Carol currently manages?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Carol manages Team Beta.",
+      "Nick manages Project A",
+      "Bob works at New York",
+      "Laura is the CTO of Zeta Corp",
+      "Amy works at Facebook."
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_003",
+    "query": "Where does Carol currently manages?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Carol manages Team Beta.",
+      "Carol manages Team Alpha",
+      "Nick manages Project A",
+      "Carol became the lead of Team Beta",
+      "Carol works at Team Alpha as Alpha lead"
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_003",
+    "query": "Where does Carol currently manages?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Carol manages Team Beta.",
+      "Carol works at Team Alpha as Alpha lead",
+      "Carol is no longer a member of Team Alpha",
+      "Carol manages Team Alpha",
+      "Carol became the lead of Team Beta"
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_004",
+    "query": "Where does Dave currently uses?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "dave works at amzn as principal eng.",
+      "Olivia uses Java 11",
+      "Dave upgraded to Python 3.12",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Eve joined Tokyo as an analyst"
+    ],
+    "expected_facts": [
+      "Dave upgraded to Python 3.12."
+    ],
+    "expected_not": [
+      "Dave uses Python 3.9."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_004",
+    "query": "Where does Dave currently uses?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Dave uses Python 3.9",
+      "Olivia uses Java 11",
+      "Dave joined Amazon",
+      "Dave left Microsoft",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Dave upgraded to Python 3.12."
+    ],
+    "expected_not": [
+      "Dave uses Python 3.9."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.14285714285714285,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_004",
+    "query": "Where does Dave currently uses?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "dave works at msft as a sr. dev",
+      "dave works at amzn as principal eng.",
+      "Dave works as senior developer",
+      "Dave works at Microsoft as a developer",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Dave upgraded to Python 3.12."
+    ],
+    "expected_not": [
+      "Dave uses Python 3.9."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_005",
+    "query": "Where does Eve currently studies at?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Eve transferred to Stanford",
+      "Eve transferred to the Tokyo office.",
+      "Eve joined Tokyo as an analyst",
+      "Emily Davis is a biochemist at Caltech.",
+      "Amy works at Facebook."
+    ],
+    "expected_facts": [
+      "Eve transferred to Stanford."
+    ],
+    "expected_not": [
+      "Eve studies at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_005",
+    "query": "Where does Eve currently studies at?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Eve studies at Massachusetts Institute of Technology",
+      "Mia studies at Harvard",
+      "Eve left London",
+      "Eve transferred to Stanford",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Eve transferred to Stanford."
+    ],
+    "expected_not": [
+      "Eve studies at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_005",
+    "query": "Where does Eve currently studies at?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Eve studies at Massachusetts Institute of Technology",
+      "Eve works in London as a London-based analyst.",
+      "Eve transferred to Stanford",
+      "Eve joined Tokyo as an analyst",
+      "Eve left London"
+    ],
+    "expected_facts": [
+      "Eve transferred to Stanford."
+    ],
+    "expected_not": [
+      "Eve studies at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_006",
+    "query": "Where does Frank currently drives?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Frank drives a Tesla",
+      "Frank drives a Toyota.",
+      "Frank joined Startup Y as founder",
+      "Henry lives in London",
+      "Frank quit his previous role and founded Startup Y."
+    ],
+    "expected_facts": [
+      "Frank now drives a Tesla."
+    ],
+    "expected_not": [
+      "Frank drives a Toyota."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_006",
+    "query": "Where does Frank currently drives?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Frank drives a Tesla",
+      "Frank drives a Toyota.",
+      "Frank left Startup X",
+      "Frank joined Startup Y as founder",
+      "Frank works at Startup X as CTO"
+    ],
+    "expected_facts": [
+      "Frank now drives a Tesla."
+    ],
+    "expected_not": [
+      "Frank drives a Toyota."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_006",
+    "query": "Where does Frank currently drives?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Frank drives a Toyota.",
+      "Frank drives a Tesla",
+      "frank is the chief technology officer at startup x",
+      "Frank left Startup X",
+      "Frank works at Startup X as CTO"
+    ],
+    "expected_facts": [
+      "Frank now drives a Tesla."
+    ],
+    "expected_not": [
+      "Frank drives a Toyota."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_007",
+    "query": "Where does Grace currently works at?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Grace joined Apple",
+      "Grace moved to Stanford NGL.",
+      "Amy works at Facebook.",
+      "Bob works at New York",
+      "Maria Garcia works as a frontend developer at Stripe."
+    ],
+    "expected_facts": [
+      "Grace joined Apple."
+    ],
+    "expected_not": [
+      "Grace works at Microsoft."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_007",
+    "query": "Where does Grace currently works at?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Grace works at Microsoft",
+      "Grace works at MIT as a researcher.",
+      "Grace is conducting research at MIT",
+      "Grace joined Apple",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Grace joined Apple."
+    ],
+    "expected_not": [
+      "Grace works at Microsoft."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_007",
+    "query": "Where does Grace currently works at?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Grace works at Microsoft",
+      "Grace is conducting research at MIT",
+      "Grace works at MIT as a researcher.",
+      "Grace moved to Stanford NGL.",
+      "Grace joined Apple"
+    ],
+    "expected_facts": [
+      "Grace joined Apple."
+    ],
+    "expected_not": [
+      "Grace works at Microsoft."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_008",
+    "query": "Where does Henry currently lives in?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Henry lives in London",
+      "Henry relocated to Berlin.",
+      "Amazon has its headquarters in Seattle.",
+      "Bob works at New York",
+      "Beta Inc opened an office in Denver."
+    ],
+    "expected_facts": [
+      "Henry relocated to Berlin."
+    ],
+    "expected_not": [
+      "Henry lives in London."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_008",
+    "query": "Where does Henry currently lives in?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Henry lives in London",
+      "Leo lives in Paris.",
+      "Bob lives in New York",
+      "Bob lives in New York City.",
+      "bob livs lives in new yrok city"
+    ],
+    "expected_facts": [
+      "Henry relocated to Berlin."
+    ],
+    "expected_not": [
+      "Henry lives in London."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_008",
+    "query": "Where does Henry currently lives in?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Henry lives in London",
+      "Henry relocated to Berlin.",
+      "Bob lives in New York",
+      "bob livs lives in new yrok city",
+      "Bob lives in New York City."
+    ],
+    "expected_facts": [
+      "Henry relocated to Berlin."
+    ],
+    "expected_not": [
+      "Henry lives in London."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_009",
+    "query": "Where does Ivy currently reports to?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy now reports to Manager B.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy joined Paris as Paris office manager",
+      "Eve transferred to Stanford",
+      "Leo relocated to Tokyo."
+    ],
+    "expected_facts": [
+      "Ivy now reports to Manager B."
+    ],
+    "expected_not": [
+      "Ivy reports to Manager A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_009",
+    "query": "Where does Ivy currently reports to?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy reports to Manager A",
+      "Ivy now reports to Manager B.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy left Berlin",
+      "Ivy joined Paris as Paris office manager"
+    ],
+    "expected_facts": [
+      "Ivy now reports to Manager B."
+    ],
+    "expected_not": [
+      "Ivy reports to Manager A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_009",
+    "query": "Where does Ivy currently reports to?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Ivy is based in the Berlin office working in Office Management.",
+      "Ivy has the job title of Berlin office manager",
+      "Ivy works as a Berlin office manager in Berlin",
+      "Ivy works in Office Management at the Berlin office.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Ivy now reports to Manager B."
+    ],
+    "expected_not": [
+      "Ivy reports to Manager A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_010",
+    "query": "Where does Jack currently owns?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "jack received and accepted a full-time offer from co. Q &",
+      "jack interned at co. p during the previous semester",
+      "Kappa Ltd moved to Las Vegas",
+      "Henry lives in London",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Jack sold X and founded Startup Y."
+    ],
+    "expected_not": [
+      "Jack owns Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_010",
+    "query": "Where does Jack currently owns?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Jack owns Startup X.",
+      "Jack sold X",
+      "Jack founded Startup Y",
+      "Jack works at Company P as an intern.",
+      "jack interned at co. p during the previous semester"
+    ],
+    "expected_facts": [
+      "Jack sold X and founded Startup Y."
+    ],
+    "expected_not": [
+      "Jack owns Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_010",
+    "query": "Where does Jack currently owns?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Jack owns Startup X.",
+      "jack received and accepted a full-time offer from co. Q &",
+      "Jack sold X",
+      "Hank left Department A",
+      "Jack founded Startup Y"
+    ],
+    "expected_facts": [
+      "Jack sold X and founded Startup Y."
+    ],
+    "expected_not": [
+      "Jack owns Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_011",
+    "query": "Where does Kate currently works at?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Kate is employed by Netflix.",
+      "Amy works at Facebook.",
+      "Bob works at New York",
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "dave works at amzn as principal eng."
+    ],
+    "expected_facts": [
+      "Kate moved to Netflix."
+    ],
+    "expected_not": [
+      "Kate works at Amazon."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_011",
+    "query": "Where does Kate currently works at?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Kate works at Amazon.",
+      "Kate is employed by Netflix.",
+      "Amy works at Google.",
+      "Grace works at Microsoft",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Kate moved to Netflix."
+    ],
+    "expected_not": [
+      "Kate works at Amazon."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_011",
+    "query": "Where does Kate currently works at?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Kate is employed by Netflix.",
+      "Kate works at Amazon.",
+      "Amy works at Google.",
+      "Eve works in London as a London-based analyst.",
+      "Amy works at Facebook."
+    ],
+    "expected_facts": [
+      "Kate moved to Netflix."
+    ],
+    "expected_not": [
+      "Kate works at Amazon."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_012",
+    "query": "Where does Leo currently lives in?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Henry lives in London",
+      "Leo relocated to Tokyo.",
+      "Amazon has its headquarters in Seattle.",
+      "Eve joined Tokyo as an analyst",
+      "Beta Inc opened an office in Denver."
+    ],
+    "expected_facts": [
+      "Leo relocated to Tokyo."
+    ],
+    "expected_not": [
+      "Leo lives in Paris."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_012",
+    "query": "Where does Leo currently lives in?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Leo lives in Paris.",
+      "Henry lives in London",
+      "Bob lives in New York",
+      "Bob lives in New York City.",
+      "bob livs lives in new yrok city"
+    ],
+    "expected_facts": [
+      "Leo relocated to Tokyo."
+    ],
+    "expected_not": [
+      "Leo lives in Paris."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_012",
+    "query": "Where does Leo currently lives in?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Leo lives in Paris.",
+      "Leo relocated to Tokyo.",
+      "bob livs lives in new yrok city",
+      "Bob lives in New York",
+      "Henry lives in London"
+    ],
+    "expected_facts": [
+      "Leo relocated to Tokyo."
+    ],
+    "expected_not": [
+      "Leo lives in Paris."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_013",
+    "query": "Where does Mia currently studies at?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Mia transferred to Oxford.",
+      "Amy works at Facebook.",
+      "Eve transferred to Stanford",
+      "Bob works at New York",
+      "Eve joined Tokyo as an analyst"
+    ],
+    "expected_facts": [
+      "Mia transferred to Oxford."
+    ],
+    "expected_not": [
+      "Mia studies at Harvard."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "evolving_013",
+    "query": "Where does Mia currently studies at?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Mia studies at Harvard",
+      "Eve studies at Massachusetts Institute of Technology",
+      "Mia transferred to Oxford.",
+      "Amy works at Google.",
+      "Dave works at Amazon"
+    ],
+    "expected_facts": [
+      "Mia transferred to Oxford."
+    ],
+    "expected_not": [
+      "Mia studies at Harvard."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_013",
+    "query": "Where does Mia currently studies at?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Mia studies at Harvard",
+      "Mia transferred to Oxford.",
+      "Eve studies at Massachusetts Institute of Technology",
+      "Grace is conducting research at MIT",
+      "Grace works at MIT as a researcher."
+    ],
+    "expected_facts": [
+      "Mia transferred to Oxford."
+    ],
+    "expected_not": [
+      "Mia studies at Harvard."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_014",
+    "query": "Where does Nick currently manages?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Nick manages Project A",
+      "Nick leads Project B",
+      "Carol manages Team Beta.",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Nick now leads Project B."
+    ],
+    "expected_not": [
+      "Nick manages Project A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_014",
+    "query": "Where does Nick currently manages?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Nick manages Project A",
+      "Carol manages Team Alpha",
+      "Carol manages Team Beta.",
+      "Nick leads Project B"
+    ],
+    "expected_facts": [
+      "Nick now leads Project B."
+    ],
+    "expected_not": [
+      "Nick manages Project A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_014",
+    "query": "Where does Nick currently manages?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Nick manages Project A",
+      "Nick leads Project B",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co.",
+      "Bob lives in New York"
+    ],
+    "expected_facts": [
+      "Nick now leads Project B."
+    ],
+    "expected_not": [
+      "Nick manages Project A."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_015",
+    "query": "Where does Olivia currently uses?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Olivia uses Java 11",
+      "Olivia upgraded to Java 21",
+      "Eve joined Tokyo as an analyst",
+      "Ivy joined Paris as Paris office manager",
+      "Mia transferred to Oxford."
+    ],
+    "expected_facts": [
+      "Olivia upgraded to Java 21."
+    ],
+    "expected_not": [
+      "Olivia uses Java 11."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_015",
+    "query": "Where does Olivia currently uses?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Olivia uses Java 11",
+      "Dave uses Python 3.9",
+      "Olivia upgraded to Java 21"
+    ],
+    "expected_facts": [
+      "Olivia upgraded to Java 21."
+    ],
+    "expected_not": [
+      "Olivia uses Java 11."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "evolving_015",
+    "query": "Where does Olivia currently uses?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Olivia uses Java 11",
+      "Olivia upgraded to Java 21",
+      "Eve left London",
+      "Eve works in London as a London-based analyst.",
+      "Ivy works in Office Management at the Berlin office."
+    ],
+    "expected_facts": [
+      "Olivia upgraded to Java 21."
+    ],
+    "expected_not": [
+      "Olivia uses Java 11."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_001",
+    "query": "Where does Amy work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Amy works at Facebook.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Amy joined Facebook as product manager",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Amy works at Facebook as product manager."
+    ],
+    "expected_not": [
+      "Amy works at Google as engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_001",
+    "query": "Where does Amy work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Amy left Google",
+      "Amy works at Facebook.",
+      "Amy works at Google.",
+      "Amy joined Facebook as product manager"
+    ],
+    "expected_facts": [
+      "Amy works at Facebook as product manager."
+    ],
+    "expected_not": [
+      "Amy works at Google as engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_001",
+    "query": "Where does Amy work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Amy works at Google.",
+      "Amy works at Facebook.",
+      "Amy works as an engineer at Google.",
+      "Amy left Google",
+      "Amy joined Facebook as product manager"
+    ],
+    "expected_facts": [
+      "Amy works at Facebook as product manager."
+    ],
+    "expected_not": [
+      "Amy works at Google as engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_002",
+    "query": "Where does Bob work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Bob works at New York",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob moved to San Francisco.",
+      "Bob is the CEO of Acme Corp",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Bob works at San Francisco as SF resident."
+    ],
+    "expected_not": [
+      "Bob works at New York as NYC resident."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_002",
+    "query": "Where does Bob work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob moved to San Francisco.",
+      "Bob works at New York",
+      "Bob lives in New York",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Bob works at San Francisco as SF resident."
+    ],
+    "expected_not": [
+      "Bob works at New York as NYC resident."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_002",
+    "query": "Where does Bob work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Bob works at New York",
+      "Bob ceased residing in New York",
+      "Bob lives in New York",
+      "Bob lives in New York City.",
+      "bob livs lives in new yrok city"
+    ],
+    "expected_facts": [
+      "Bob works at San Francisco as SF resident."
+    ],
+    "expected_not": [
+      "Bob works at New York as NYC resident."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_003",
+    "query": "Where does Carol work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Carol manages Team Beta.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Carol works at Team Beta as Beta lead."
+    ],
+    "expected_not": [
+      "Carol works at Team Alpha as Alpha lead."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_003",
+    "query": "Where does Carol work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Carol manages Team Alpha",
+      "Carol manages Team Beta.",
+      "Ivy now reports to Manager B.",
+      "Carol became the lead of Team Beta"
+    ],
+    "expected_facts": [
+      "Carol works at Team Beta as Beta lead."
+    ],
+    "expected_not": [
+      "Carol works at Team Alpha as Alpha lead."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_003",
+    "query": "Where does Carol work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Carol works at Team Alpha as Alpha lead",
+      "Carol manages Team Beta.",
+      "Carol is no longer a member of Team Alpha",
+      "Carol manages Team Alpha",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Carol works at Team Beta as Beta lead."
+    ],
+    "expected_not": [
+      "Carol works at Team Alpha as Alpha lead."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_004",
+    "query": "Where does Dave work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "dave works at amzn as principal eng.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as senior developer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as developer."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_004",
+    "query": "Where does Dave work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Dave joined Amazon",
+      "Dave left Microsoft",
+      "Dave works at Amazon",
+      "Dave uses Python 3.9"
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as senior developer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as developer."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_004",
+    "query": "Where does Dave work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "dave works at msft as a sr. dev",
+      "dave works at amzn as principal eng.",
+      "Dave works at Microsoft as a developer",
+      "Dave works at Amazon",
+      "Dave works as senior developer"
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as senior developer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as developer."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_005",
+    "query": "Where does Eve work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Eve transferred to the Tokyo office.",
+      "Eve transferred to Stanford",
+      "Eve joined Tokyo as an analyst",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Eve works at Tokyo as Tokyo-based analyst."
+    ],
+    "expected_not": [
+      "Eve works at London as London-based analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_005",
+    "query": "Where does Eve work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Eve left London",
+      "Eve transferred to Stanford",
+      "Ivy now reports to Manager B.",
+      "Eve joined Tokyo as an analyst"
+    ],
+    "expected_facts": [
+      "Eve works at Tokyo as Tokyo-based analyst."
+    ],
+    "expected_not": [
+      "Eve works at London as London-based analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_005",
+    "query": "Where does Eve work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Eve works in London as a London-based analyst.",
+      "Eve transferred to the Tokyo office.",
+      "Eve joined Tokyo as an analyst",
+      "Eve left London",
+      "Eve studies at Massachusetts Institute of Technology"
+    ],
+    "expected_facts": [
+      "Eve works at Tokyo as Tokyo-based analyst."
+    ],
+    "expected_not": [
+      "Eve works at London as London-based analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_006",
+    "query": "Where does Frank work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob works at New York",
+      "Frank drives a Toyota.",
+      "jack interned at co. p during the previous semester",
+      "Frank drives a Tesla"
+    ],
+    "expected_facts": [
+      "Frank works at Startup Y as founder."
+    ],
+    "expected_not": [
+      "Frank works at Startup X as CTO."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.14285714285714285,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_006",
+    "query": "Where does Frank work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Frank drives a Toyota.",
+      "Frank drives a Tesla",
+      "Frank left Startup X",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Frank works at Startup Y as founder."
+    ],
+    "expected_not": [
+      "Frank works at Startup X as CTO."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_006",
+    "query": "Where does Frank work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "frank is the chief technology officer at startup x",
+      "Frank works at Startup X as CTO",
+      "Frank left Startup X",
+      "Bob works at New York",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "Frank works at Startup Y as founder."
+    ],
+    "expected_not": [
+      "Frank works at Startup X as CTO."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_007",
+    "query": "Where does Grace work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Grace moved to Stanford NGL.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Grace joined Apple",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Grace works at Stanford as Stanford professor."
+    ],
+    "expected_not": [
+      "Grace works at MIT as MIT researcher."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_007",
+    "query": "Where does Grace work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Grace joined Apple",
+      "Grace works at Microsoft",
+      "Grace moved to Stanford NGL.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Grace works at Stanford as Stanford professor."
+    ],
+    "expected_not": [
+      "Grace works at MIT as MIT researcher."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_007",
+    "query": "Where does Grace work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Grace works at Microsoft",
+      "Grace is conducting research at MIT",
+      "Grace moved to Stanford NGL.",
+      "Grace works at MIT as a researcher.",
+      "Grace joined Apple"
+    ],
+    "expected_facts": [
+      "Grace works at Stanford as Stanford professor."
+    ],
+    "expected_not": [
+      "Grace works at MIT as MIT researcher."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_008",
+    "query": "Where does Hank work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Hank joined Department B as director",
+      "Ivy relocated to Paris to work as an office manager.",
+      "hank holds the position of director within dept b",
+      "hank was promoted to the position of director in dept b",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Hank works at Department B as director."
+    ],
+    "expected_not": [
+      "Hank works at Department A as analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_008",
+    "query": "Where does Hank work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Hank left Department A",
+      "Hank joined Department B as director",
+      "Ivy now reports to Manager B.",
+      "Hank works in Department A as an analyst."
+    ],
+    "expected_facts": [
+      "Hank works at Department B as director."
+    ],
+    "expected_not": [
+      "Hank works at Department A as analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_008",
+    "query": "Where does Hank work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Hank works at Department A as an analyst.",
+      "Hank left Department A",
+      "Hank joined Department B as director",
+      "Hank works in Department A as an analyst.",
+      "hank holds the position of director within dept b"
+    ],
+    "expected_facts": [
+      "Hank works at Department B as director."
+    ],
+    "expected_not": [
+      "Hank works at Department A as analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy joined Paris as Paris office manager",
+      "Ivy now reports to Manager B.",
+      "Hannah is now the VP of Delta Co.",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Ivy works at Paris as Paris office manager."
+    ],
+    "expected_not": [
+      "Ivy works at Berlin as Berlin office manager."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "compound_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy now reports to Manager B.",
+      "Ivy left Berlin",
+      "Ivy reports to Manager A",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Ivy works at Paris as Paris office manager."
+    ],
+    "expected_not": [
+      "Ivy works at Berlin as Berlin office manager."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.14285714285714285,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Ivy works as a Berlin office manager in Berlin",
+      "Ivy is based in the Berlin office working in Office Management.",
+      "Ivy has the job title of Berlin office manager",
+      "Ivy joined Paris as Paris office manager",
+      "Ivy works in Office Management at the Berlin office."
+    ],
+    "expected_facts": [
+      "Ivy works at Paris as Paris office manager."
+    ],
+    "expected_not": [
+      "Ivy works at Berlin as Berlin office manager."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_010",
+    "query": "Where does Jack work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "jack received and accepted a full-time offer from co. Q &",
+      "Ivy relocated to Paris to work as an office manager.",
+      "jack interned at co. p during the previous semester",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Jack works at Company Q as full-time engineer."
+    ],
+    "expected_not": [
+      "Jack works at Company P as intern."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_010",
+    "query": "Where does Jack work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Jack sold X",
+      "Jack founded Startup Y",
+      "Jack owns Startup X.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Jack works at Company Q as full-time engineer."
+    ],
+    "expected_not": [
+      "Jack works at Company P as intern."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "compound_010",
+    "query": "Where does Jack work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Jack works at Company P as an intern.",
+      "jack received and accepted a full-time offer from co. Q &",
+      "Jack owns Startup X.",
+      "Bob works at New York",
+      "jack interned at co. p during the previous semester"
+    ],
+    "expected_facts": [
+      "Jack works at Company Q as full-time engineer."
+    ],
+    "expected_not": [
+      "Jack works at Company P as intern."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_001",
+    "query": "Who is the CEO of Acme Corp and where is the HQ?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Bob is the CEO of Acme Corp",
+      "Laura is the CTO of Zeta Corp",
+      "Acme Corp moved its headquarters to Austin",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Acme Corp CEO is now Bob.",
+      "Acme Corp moved HQ to Austin."
+    ],
+    "expected_not": [
+      "Acme Corp CEO is Alice.",
+      "Acme Corp HQ is in Chicago."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_001",
+    "query": "Who is the CEO of Acme Corp and where is the HQ?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Alice is the CEO of Acme Corp.",
+      "Bob is the CEO of Acme Corp",
+      "Laura is the CTO of Zeta Corp",
+      "Kyle is the CTO of Zeta Corp.",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Acme Corp CEO is now Bob.",
+      "Acme Corp moved HQ to Austin."
+    ],
+    "expected_not": [
+      "Acme Corp CEO is Alice.",
+      "Acme Corp HQ is in Chicago."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_001",
+    "query": "Who is the CEO of Acme Corp and where is the HQ?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Bob is the CEO of Acme Corp",
+      "Alice is the CEO of Acme Corp.",
+      "Acme Corp headquarters is located in Chicago",
+      "Acme Corp moved its headquarters to Austin",
+      "Quinn is the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Acme Corp CEO is now Bob.",
+      "Acme Corp moved HQ to Austin."
+    ],
+    "expected_not": [
+      "Acme Corp CEO is Alice.",
+      "Acme Corp HQ is in Chicago."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_002",
+    "query": "Who is the CTO of Beta Inc and where is the office?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Diana became the CTO of Beta Inc",
+      "Laura is the CTO of Zeta Corp",
+      "Beta Inc has its office in Boston.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Beta Inc opened an office in Denver."
+    ],
+    "expected_facts": [
+      "Beta Inc CTO changed to Diana.",
+      "Beta Inc opened office in Denver."
+    ],
+    "expected_not": [
+      "Beta Inc CTO is Charlie.",
+      "Beta Inc office is in Boston."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_002",
+    "query": "Who is the CTO of Beta Inc and where is the office?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Charlie is the CTO of Beta Inc",
+      "Diana became the CTO of Beta Inc",
+      "Sam is the CTO of Kappa Ltd.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Beta Inc CTO changed to Diana.",
+      "Beta Inc opened office in Denver."
+    ],
+    "expected_not": [
+      "Beta Inc CTO is Charlie.",
+      "Beta Inc office is in Boston."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_002",
+    "query": "Who is the CTO of Beta Inc and where is the office?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Diana became the CTO of Beta Inc",
+      "Charlie is the CTO of Beta Inc",
+      "Beta Inc has its office in Boston.",
+      "Beta Inc opened an office in Denver.",
+      "Frank works at Startup X as CTO"
+    ],
+    "expected_facts": [
+      "Beta Inc CTO changed to Diana.",
+      "Beta Inc opened office in Denver."
+    ],
+    "expected_not": [
+      "Beta Inc CTO is Charlie.",
+      "Beta Inc office is in Boston."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_003",
+    "query": "Who is the CEO of Gamma LLC and where is the HQ?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Gamma LLC appointed Fiona as CEO.",
+      "Bob is the CEO of Acme Corp",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Laura is the CTO of Zeta Corp",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Gamma LLC appointed Fiona as CEO.",
+      "Gamma LLC relocated HQ to Portland."
+    ],
+    "expected_not": [
+      "Gamma LLC CEO is Ed.",
+      "Gamma LLC HQ is in Miami."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_003",
+    "query": "Who is the CEO of Gamma LLC and where is the HQ?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ed is the CEO of Gamma LLC",
+      "Gamma LLC HQ is located in Miami",
+      "Alice is the CEO of Acme Corp.",
+      "Quinn is the CEO of Iota Co",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Gamma LLC appointed Fiona as CEO.",
+      "Gamma LLC relocated HQ to Portland."
+    ],
+    "expected_not": [
+      "Gamma LLC CEO is Ed.",
+      "Gamma LLC HQ is in Miami."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.1111111111111111,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_003",
+    "query": "Who is the CEO of Gamma LLC and where is the HQ?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Ed is the CEO of Gamma LLC",
+      "Gamma LLC HQ is located in Miami",
+      "Gamma LLC appointed Fiona as CEO.",
+      "Quinn is the CEO of Iota Co",
+      "Sam is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Gamma LLC appointed Fiona as CEO.",
+      "Gamma LLC relocated HQ to Portland."
+    ],
+    "expected_not": [
+      "Gamma LLC CEO is Ed.",
+      "Gamma LLC HQ is in Miami."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_004",
+    "query": "Who is the VP of Delta Co and where is the office?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Greg is the VP of Delta Co.",
+      "Hannah is now the VP of Delta Co.",
+      "Rachel is now the CEO of Iota Co",
+      "Zeta Corp has an office in Detroit",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "Delta Co VP is now Hannah.",
+      "Delta Co moved to Phoenix."
+    ],
+    "expected_not": [
+      "Delta Co VP is Greg.",
+      "Delta Co office is in Seattle."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_004",
+    "query": "Who is the VP of Delta Co and where is the office?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Greg is the VP of Delta Co.",
+      "Hannah is now the VP of Delta Co.",
+      "Quinn is the CEO of Iota Co",
+      "Rachel is now the CEO of Iota Co",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "Delta Co VP is now Hannah.",
+      "Delta Co moved to Phoenix."
+    ],
+    "expected_not": [
+      "Delta Co VP is Greg.",
+      "Delta Co office is in Seattle."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_004",
+    "query": "Who is the VP of Delta Co and where is the office?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Greg is the VP of Delta Co.",
+      "Hannah is now the VP of Delta Co.",
+      "Delta Co has its office in Seattle.",
+      "Zeta Corp has an office in Detroit",
+      "Delta Co moved its location to Phoenix"
+    ],
+    "expected_facts": [
+      "Delta Co VP is now Hannah.",
+      "Delta Co moved to Phoenix."
+    ],
+    "expected_not": [
+      "Delta Co VP is Greg.",
+      "Delta Co office is in Seattle."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_005",
+    "query": "Who is the CEO of Epsilon Ltd and where is the HQ?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Julia is the CEO of Epsilon Ltd.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Epsilon Ltd moved its headquarters to Atlanta",
+      "Bob is the CEO of Acme Corp",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Epsilon Ltd CEO changed to Julia.",
+      "Epsilon Ltd moved HQ to Atlanta."
+    ],
+    "expected_not": [
+      "Epsilon Ltd CEO is Ivan.",
+      "Epsilon Ltd HQ is in Dallas."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_005",
+    "query": "Who is the CEO of Epsilon Ltd and where is the HQ?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivan is the CEO of Epsilon Ltd",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Sam is the CTO of Kappa Ltd.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Alice is the CEO of Acme Corp."
+    ],
+    "expected_facts": [
+      "Epsilon Ltd CEO changed to Julia.",
+      "Epsilon Ltd moved HQ to Atlanta."
+    ],
+    "expected_not": [
+      "Epsilon Ltd CEO is Ivan.",
+      "Epsilon Ltd HQ is in Dallas."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_005",
+    "query": "Who is the CEO of Epsilon Ltd and where is the HQ?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Julia is the CEO of Epsilon Ltd.",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Epsilon Ltd moved its headquarters to Atlanta",
+      "Quinn is the CEO of Iota Co",
+      "Eta Inc appointed Nancy as CEO"
+    ],
+    "expected_facts": [
+      "Epsilon Ltd CEO changed to Julia.",
+      "Epsilon Ltd moved HQ to Atlanta."
+    ],
+    "expected_not": [
+      "Epsilon Ltd CEO is Ivan.",
+      "Epsilon Ltd HQ is in Dallas."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_006",
+    "query": "Who is the CTO of Zeta Corp and where is the office?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Laura is the CTO of Zeta Corp",
+      "Zeta Corp has an office in Detroit",
+      "Tina is the CTO of Kappa Ltd.",
+      "Zeta Corp opened an office in Nashville.",
+      "Diana became the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Zeta Corp CTO is now Laura.",
+      "Zeta Corp opened Nashville office."
+    ],
+    "expected_not": [
+      "Zeta Corp CTO is Kyle.",
+      "Zeta Corp office in Detroit."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_006",
+    "query": "Who is the CTO of Zeta Corp and where is the office?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Laura is the CTO of Zeta Corp",
+      "Kyle is the CTO of Zeta Corp.",
+      "Sam is the CTO of Kappa Ltd.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Charlie is the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Zeta Corp CTO is now Laura.",
+      "Zeta Corp opened Nashville office."
+    ],
+    "expected_not": [
+      "Zeta Corp CTO is Kyle.",
+      "Zeta Corp office in Detroit."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_006",
+    "query": "Who is the CTO of Zeta Corp and where is the office?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Zeta Corp has an office in Detroit",
+      "Laura is the CTO of Zeta Corp",
+      "Kyle is the CTO of Zeta Corp.",
+      "Zeta Corp opened an office in Nashville.",
+      "Diana became the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Zeta Corp CTO is now Laura.",
+      "Zeta Corp opened Nashville office."
+    ],
+    "expected_not": [
+      "Zeta Corp CTO is Kyle.",
+      "Zeta Corp office in Detroit."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_007",
+    "query": "Who is the CEO of Eta Inc and where is the HQ?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Eta Inc appointed Nancy as CEO",
+      "Bob is the CEO of Acme Corp",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Eta Inc has its headquarters in Philadelphia.",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Eta Inc appointed Nancy as CEO.",
+      "Eta Inc relocated to San Diego."
+    ],
+    "expected_not": [
+      "Eta Inc CEO is Mark.",
+      "Eta Inc HQ in Philadelphia."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_007",
+    "query": "Who is the CEO of Eta Inc and where is the HQ?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Charlie is the CTO of Beta Inc",
+      "Alice is the CEO of Acme Corp.",
+      "Ed is the CEO of Gamma LLC",
+      "Quinn is the CEO of Iota Co",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Eta Inc appointed Nancy as CEO.",
+      "Eta Inc relocated to San Diego."
+    ],
+    "expected_not": [
+      "Eta Inc CEO is Mark.",
+      "Eta Inc HQ in Philadelphia."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.1111111111111111,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_007",
+    "query": "Who is the CEO of Eta Inc and where is the HQ?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Eta Inc appointed Nancy as CEO",
+      "Eta Inc has its headquarters in Philadelphia.",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Iota Co HQ is located in Charlotte",
+      "Quinn is the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Eta Inc appointed Nancy as CEO.",
+      "Eta Inc relocated to San Diego."
+    ],
+    "expected_not": [
+      "Eta Inc CEO is Mark.",
+      "Eta Inc HQ in Philadelphia."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_008",
+    "query": "Who is the VP of Theta LLC and where is the office?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Patty changed to Vice President of Theta LLC",
+      "Greg is the VP of Delta Co.",
+      "Hannah is now the VP of Delta Co.",
+      "Theta LLC moved to Tampa.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Theta LLC VP changed to Patty.",
+      "Theta LLC moved to Tampa."
+    ],
+    "expected_not": [
+      "Theta LLC VP is Oscar.",
+      "Theta LLC office in Minneapolis."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_008",
+    "query": "Who is the VP of Theta LLC and where is the office?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Greg is the VP of Delta Co.",
+      "Ed is the CEO of Gamma LLC",
+      "Hannah is now the VP of Delta Co.",
+      "Berlin is the capital of Germany",
+      "Kyle is the CTO of Zeta Corp."
+    ],
+    "expected_facts": [
+      "Theta LLC VP changed to Patty.",
+      "Theta LLC moved to Tampa."
+    ],
+    "expected_not": [
+      "Theta LLC VP is Oscar.",
+      "Theta LLC office in Minneapolis."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_008",
+    "query": "Who is the VP of Theta LLC and where is the office?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Patty changed to Vice President of Theta LLC",
+      "Theta LLC moved to Tampa.",
+      "Gamma LLC HQ is located in Miami",
+      "Laura is the CTO of Zeta Corp",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Theta LLC VP changed to Patty.",
+      "Theta LLC moved to Tampa."
+    ],
+    "expected_not": [
+      "Theta LLC VP is Oscar.",
+      "Theta LLC office in Minneapolis."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_009",
+    "query": "Who is the CEO of Iota Co and where is the HQ?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Rachel is now the CEO of Iota Co",
+      "Iota Co relocated its headquarters to Orlando.",
+      "Greg is the VP of Delta Co.",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Iota Co CEO is now Rachel.",
+      "Iota Co relocated HQ to Orlando."
+    ],
+    "expected_not": [
+      "Iota Co CEO is Quinn.",
+      "Iota Co HQ in Charlotte."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_009",
+    "query": "Who is the CEO of Iota Co and where is the HQ?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Quinn is the CEO of Iota Co",
+      "Rachel is now the CEO of Iota Co",
+      "Iota Co HQ is located in Charlotte",
+      "Greg is the VP of Delta Co.",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Iota Co CEO is now Rachel.",
+      "Iota Co relocated HQ to Orlando."
+    ],
+    "expected_not": [
+      "Iota Co CEO is Quinn.",
+      "Iota Co HQ in Charlotte."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_009",
+    "query": "Who is the CEO of Iota Co and where is the HQ?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Quinn is the CEO of Iota Co",
+      "Iota Co HQ is located in Charlotte",
+      "Rachel is now the CEO of Iota Co",
+      "Iota Co relocated its headquarters to Orlando.",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Iota Co CEO is now Rachel.",
+      "Iota Co relocated HQ to Orlando."
+    ],
+    "expected_not": [
+      "Iota Co CEO is Quinn.",
+      "Iota Co HQ in Charlotte."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_010",
+    "query": "Who is the CTO of Kappa Ltd and where is the office?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Tina is the CTO of Kappa Ltd.",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Kappa Ltd moved to Las Vegas",
+      "Laura is the CTO of Zeta Corp",
+      "Diana became the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Kappa Ltd CTO changed to Tina.",
+      "Kappa Ltd moved to Las Vegas."
+    ],
+    "expected_not": [
+      "Kappa Ltd CTO is Sam.",
+      "Kappa Ltd office in Pittsburgh."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "multi_entity_010",
+    "query": "Who is the CTO of Kappa Ltd and where is the office?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Tina is the CTO of Kappa Ltd.",
+      "Sam is the CTO of Kappa Ltd.",
+      "Kyle is the CTO of Zeta Corp.",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Kappa Ltd CTO changed to Tina.",
+      "Kappa Ltd moved to Las Vegas."
+    ],
+    "expected_not": [
+      "Kappa Ltd CTO is Sam.",
+      "Kappa Ltd office in Pittsburgh."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 0.5,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "multi_entity_010",
+    "query": "Who is the CTO of Kappa Ltd and where is the office?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Tina is the CTO of Kappa Ltd.",
+      "Sam is the CTO of Kappa Ltd.",
+      "Kappa Ltd moved to Las Vegas",
+      "Kyle is the CTO of Zeta Corp.",
+      "Charlie is the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Kappa Ltd CTO changed to Tina.",
+      "Kappa Ltd moved to Las Vegas."
+    ],
+    "expected_not": [
+      "Kappa Ltd CTO is Sam.",
+      "Kappa Ltd office in Pittsburgh."
+    ],
+    "precision_at_5": 0.4,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "contradiction_001",
+    "query": "What is the current revenue of Omega Corp?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Bob is the CEO of Acme Corp",
+      "Zeta Corp has an office in Detroit",
+      "Laura is the CTO of Zeta Corp",
+      "Berlin is the capital of Germany",
+      "Kappa Ltd moved to Las Vegas"
+    ],
+    "expected_facts": [
+      "Omega Corp revenue updated to $12M."
+    ],
+    "expected_not": [
+      "Omega Corp revenue is $10M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_001",
+    "query": "What is the current revenue of Omega Corp?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Bob is the CEO of Acme Corp",
+      "Kyle is the CTO of Zeta Corp.",
+      "Laura is the CTO of Zeta Corp",
+      "Alice is the CEO of Acme Corp.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "Omega Corp revenue updated to $12M."
+    ],
+    "expected_not": [
+      "Omega Corp revenue is $10M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_001",
+    "query": "What is the current revenue of Omega Corp?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Zeta Corp has an office in Detroit",
+      "Bob is the CEO of Acme Corp",
+      "Kappa Ltd moved to Las Vegas",
+      "Dave works at Amazon",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Omega Corp revenue updated to $12M."
+    ],
+    "expected_not": [
+      "Omega Corp revenue is $10M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_002",
+    "query": "What is the current employees of Alpha Inc?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Diana became the CTO of Beta Inc",
+      "Zeta Corp has an office in Detroit",
+      "Laura is the CTO of Zeta Corp",
+      "Berlin is the capital of Germany",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Alpha Inc grew to 750 employees."
+    ],
+    "expected_not": [
+      "Alpha Inc has 500 employees."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_002",
+    "query": "What is the current employees of Alpha Inc?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Charlie is the CTO of Beta Inc",
+      "Diana became the CTO of Beta Inc",
+      "Carol is no longer a member of Team Alpha",
+      "Berlin is the capital of Germany",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Alpha Inc grew to 750 employees."
+    ],
+    "expected_not": [
+      "Alpha Inc has 500 employees."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_002",
+    "query": "What is the current employees of Alpha Inc?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Carol manages Team Alpha",
+      "Carol works at Team Alpha as Alpha lead",
+      "Carol is no longer a member of Team Alpha",
+      "Charlie is the CTO of Beta Inc",
+      "Amy left Google"
+    ],
+    "expected_facts": [
+      "Alpha Inc grew to 750 employees."
+    ],
+    "expected_not": [
+      "Alpha Inc has 500 employees."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_003",
+    "query": "What is the current valuation of Beta Labs?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Diana became the CTO of Beta Inc",
+      "Berlin is the capital of Germany",
+      "Zeta Corp has an office in Detroit",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Beta Inc has its office in Boston."
+    ],
+    "expected_facts": [
+      "Beta Labs valuation rose to $80M."
+    ],
+    "expected_not": [
+      "Beta Labs valued at $50M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_003",
+    "query": "What is the current valuation of Beta Labs?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Charlie is the CTO of Beta Inc",
+      "Diana became the CTO of Beta Inc",
+      "Carol became the lead of Team Beta",
+      "Berlin is the capital of Germany",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "Beta Labs valuation rose to $80M."
+    ],
+    "expected_not": [
+      "Beta Labs valued at $50M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_003",
+    "query": "What is the current valuation of Beta Labs?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Charlie is the CTO of Beta Inc",
+      "Diana became the CTO of Beta Inc",
+      "Zeta Corp has an office in Detroit",
+      "Delta AI raised $5M in funding.",
+      "Dave joined Amazon"
+    ],
+    "expected_facts": [
+      "Beta Labs valuation rose to $80M."
+    ],
+    "expected_not": [
+      "Beta Labs valued at $50M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_004",
+    "query": "What is the current office_count of Gamma Tech?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Gamma Tech expanded its operations to include 5 offices.",
+      "Berlin is the capital of Germany",
+      "Kappa Ltd moved to Las Vegas",
+      "Bob is the CEO of Acme Corp",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Gamma Tech expanded to 5 offices."
+    ],
+    "expected_not": [
+      "Gamma Tech has 3 offices."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_004",
+    "query": "What is the current office_count of Gamma Tech?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ed is the CEO of Gamma LLC",
+      "Gamma Tech expanded its operations to include 5 offices.",
+      "Berlin is the capital of Germany",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Gamma Tech expanded to 5 offices."
+    ],
+    "expected_not": [
+      "Gamma Tech has 3 offices."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_004",
+    "query": "What is the current office_count of Gamma Tech?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Gamma Tech expanded its operations to include 5 offices.",
+      "Gamma LLC HQ is located in Miami",
+      "Ed is the CEO of Gamma LLC",
+      "Zeta Corp has an office in Detroit",
+      "Kappa Ltd moved to Las Vegas"
+    ],
+    "expected_facts": [
+      "Gamma Tech expanded to 5 offices."
+    ],
+    "expected_not": [
+      "Gamma Tech has 3 offices."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_005",
+    "query": "What is the current funding of Delta AI?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Greg is the VP of Delta Co.",
+      "Zeta Corp has an office in Detroit",
+      "Hannah is now the VP of Delta Co.",
+      "Diana became the CTO of Beta Inc",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Delta AI closed $20M Series B."
+    ],
+    "expected_not": [
+      "Delta AI raised $5M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_005",
+    "query": "What is the current funding of Delta AI?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Delta AI raised $5M in funding.",
+      "Greg is the VP of Delta Co.",
+      "Hannah is now the VP of Delta Co.",
+      "Berlin is the capital of Germany",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Delta AI closed $20M Series B."
+    ],
+    "expected_not": [
+      "Delta AI raised $5M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "contradiction_005",
+    "query": "What is the current funding of Delta AI?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Delta AI raised $5M in funding.",
+      "Dave joined Amazon",
+      "Zeta Corp has an office in Detroit",
+      "Diana became the CTO of Beta Inc",
+      "Dave left Microsoft"
+    ],
+    "expected_facts": [
+      "Delta AI closed $20M Series B."
+    ],
+    "expected_not": [
+      "Delta AI raised $5M."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "contradiction_006",
+    "query": "What is the current patents of Epsilon Bio?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Julia is the CEO of Epsilon Ltd.",
+      "Epsilon Ltd moved its headquarters to Atlanta",
+      "Berlin is the capital of Germany",
+      "Greg is the VP of Delta Co.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Epsilon Bio now holds 25 patents."
+    ],
+    "expected_not": [
+      "Epsilon Bio holds 10 patents."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_006",
+    "query": "What is the current patents of Epsilon Bio?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivan is the CEO of Epsilon Ltd",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Berlin is the capital of Germany",
+      "Greg is the VP of Delta Co.",
+      "Kyle is the CTO of Zeta Corp."
+    ],
+    "expected_facts": [
+      "Epsilon Bio now holds 25 patents."
+    ],
+    "expected_not": [
+      "Epsilon Bio holds 10 patents."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_006",
+    "query": "What is the current patents of Epsilon Bio?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Epsilon Ltd moved its headquarters to Atlanta",
+      "Ivan is the CEO of Epsilon Ltd",
+      "Julia is the CEO of Epsilon Ltd.",
+      "Kappa Ltd moved to Las Vegas",
+      "Eta Inc appointed Nancy as CEO"
+    ],
+    "expected_facts": [
+      "Epsilon Bio now holds 25 patents."
+    ],
+    "expected_not": [
+      "Epsilon Bio holds 10 patents."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_007",
+    "query": "What is the current customers of Zeta Fin?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Zeta Fin reached a customer count of 2500.",
+      "Laura is the CTO of Zeta Corp",
+      "Zeta Corp has an office in Detroit",
+      "Berlin is the capital of Germany",
+      "Greg is the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Zeta Fin reached 2500 customers."
+    ],
+    "expected_not": [
+      "Zeta Fin has 1000 customers."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_007",
+    "query": "What is the current customers of Zeta Fin?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Zeta Fin reached a customer count of 2500.",
+      "Laura is the CTO of Zeta Corp",
+      "Kyle is the CTO of Zeta Corp.",
+      "Berlin is the capital of Germany",
+      "Ivan is the CEO of Epsilon Ltd"
+    ],
+    "expected_facts": [
+      "Zeta Fin reached 2500 customers."
+    ],
+    "expected_not": [
+      "Zeta Fin has 1000 customers."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_007",
+    "query": "What is the current customers of Zeta Fin?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Zeta Fin reached a customer count of 2500.",
+      "Zeta Corp has an office in Detroit",
+      "Laura is the CTO of Zeta Corp",
+      "Zeta Corp opened an office in Nashville.",
+      "Kyle is the CTO of Zeta Corp."
+    ],
+    "expected_facts": [
+      "Zeta Fin reached 2500 customers."
+    ],
+    "expected_not": [
+      "Zeta Fin has 1000 customers."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_008",
+    "query": "What is the current subscribers of Eta Media?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Eta Inc appointed Nancy as CEO",
+      "Berlin is the capital of Germany",
+      "Greg is the VP of Delta Co.",
+      "Eta Inc has its headquarters in Philadelphia.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Eta Media grew to 120K subscribers."
+    ],
+    "expected_not": [
+      "Eta Media has 50K subscribers."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_008",
+    "query": "What is the current subscribers of Eta Media?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Greg is the VP of Delta Co.",
+      "Ed is the CEO of Gamma LLC",
+      "Tokyo is the capital city of Japan.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Eta Media grew to 120K subscribers."
+    ],
+    "expected_not": [
+      "Eta Media has 50K subscribers."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_008",
+    "query": "What is the current subscribers of Eta Media?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Eta Inc appointed Nancy as CEO",
+      "Eta Inc has its headquarters in Philadelphia.",
+      "Eta Inc relocated to San Diego.",
+      "Zeta Fin reached a customer count of 2500.",
+      "Epsilon Ltd moved its headquarters to Atlanta"
+    ],
+    "expected_facts": [
+      "Eta Media grew to 120K subscribers."
+    ],
+    "expected_not": [
+      "Eta Media has 50K subscribers."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_009",
+    "query": "What is the current clinics of Theta Health?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Theta LLC moved to Tampa.",
+      "Berlin is the capital of Germany",
+      "Patty changed to Vice President of Theta LLC",
+      "Tina is the CTO of Kappa Ltd.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Theta Health expanded to 15 clinics."
+    ],
+    "expected_not": [
+      "Theta Health operates 8 clinics."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_009",
+    "query": "What is the current clinics of Theta Health?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Berlin is the capital of Germany",
+      "Patty changed to Vice President of Theta LLC",
+      "Tina is the CTO of Kappa Ltd.",
+      "Greg is the VP of Delta Co.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Theta Health expanded to 15 clinics."
+    ],
+    "expected_not": [
+      "Theta Health operates 8 clinics."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_009",
+    "query": "What is the current clinics of Theta Health?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Theta LLC moved to Tampa.",
+      "Patty changed to Vice President of Theta LLC",
+      "Kappa Ltd moved to Las Vegas",
+      "Zeta Corp has an office in Detroit",
+      "Zeta Fin reached a customer count of 2500."
+    ],
+    "expected_facts": [
+      "Theta Health expanded to 15 clinics."
+    ],
+    "expected_not": [
+      "Theta Health operates 8 clinics."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_010",
+    "query": "What is the current capacity of Iota Energy?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Rachel is now the CEO of Iota Co",
+      "Laura is the CTO of Zeta Corp",
+      "Berlin is the capital of Germany",
+      "Zeta Corp has an office in Detroit",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "Iota Energy expanded to 250MW."
+    ],
+    "expected_not": [
+      "Iota Energy capacity is 100MW."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_010",
+    "query": "What is the current capacity of Iota Energy?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Quinn is the CEO of Iota Co",
+      "Rachel is now the CEO of Iota Co",
+      "Berlin is the capital of Germany",
+      "Laura is the CTO of Zeta Corp",
+      "Julia is the CEO of Epsilon Ltd."
+    ],
+    "expected_facts": [
+      "Iota Energy expanded to 250MW."
+    ],
+    "expected_not": [
+      "Iota Energy capacity is 100MW."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "contradiction_010",
+    "query": "What is the current capacity of Iota Energy?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Iota Co HQ is located in Charlotte",
+      "Quinn is the CEO of Iota Co",
+      "Rachel is now the CEO of Iota Co",
+      "Zeta Corp has an office in Detroit",
+      "Iota Co relocated its headquarters to Orlando."
+    ],
+    "expected_facts": [
+      "Iota Energy expanded to 250MW."
+    ],
+    "expected_not": [
+      "Iota Energy capacity is 100MW."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the engineer do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "John Smith works as a software engineer at Google.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Earth orbits the Sun.",
+      "Nick leads Project B",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "John Smith is a software engineer at Google."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the engineer do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "John Smith works as a software engineer at Google.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Amy works as an engineer at Google.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O."
+    ],
+    "expected_facts": [
+      "John Smith is a software engineer at Google."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the engineer do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "John Smith works as a software engineer at Google.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Nick leads Project B",
+      "Nick manages Project A",
+      "frank is the chief technology officer at startup x"
+    ],
+    "expected_facts": [
+      "John Smith is a software engineer at Google."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the doctor do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "John Smith works as a software engineer at Google.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Earth orbits the Sun.",
+      "Nick leads Project B",
+      "Water has the chemical formula H2O."
+    ],
+    "expected_facts": [
+      "John Smith is a cardiologist at Mayo Clinic."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the doctor do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "John Smith works as a software engineer at Google.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "John Smith is a cardiologist at Mayo Clinic."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_001",
+    "query": "What does John Smith the doctor do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "John Smith works as a software engineer at Google.",
+      "Nick leads Project B",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Nick manages Project A"
+    ],
+    "expected_facts": [
+      "John Smith is a cardiologist at Mayo Clinic."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the teacher do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Laura is the CTO of Zeta Corp",
+      "Earth orbits the Sun.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Sarah Johnson teaches math at Lincoln High."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the teacher do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Earth orbits the Sun.",
+      "Eve transferred to the Tokyo office.",
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "Sarah Johnson teaches math at Lincoln High."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the teacher do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd.",
+      "Grace works at Microsoft",
+      "Ivy reports to Manager A"
+    ],
+    "expected_facts": [
+      "Sarah Johnson teaches math at Lincoln High."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the lawyer do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Laura is the CTO of Zeta Corp",
+      "Earth orbits the Sun.",
+      "Tina is the CTO of Kappa Ltd.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Sarah Johnson is a patent lawyer in NYC."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the lawyer do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Earth orbits the Sun.",
+      "Eve transferred to the Tokyo office.",
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "Sarah Johnson is a patent lawyer in NYC."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_002",
+    "query": "What does Sarah Johnson the lawyer do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Sarah Johnson teaches math at Lincoln High.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd.",
+      "Hannah is now the VP of Delta Co.",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "Sarah Johnson is a patent lawyer in NYC."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the chef do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Michael Brown is a chef in Paris.",
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Bob is the CEO of Acme Corp",
+      "Earth orbits the Sun.",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Michael Brown is a chef in Paris."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the chef do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Michael Brown is a chef in Paris.",
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Michael Brown is a chef in Paris."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the chef do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Michael Brown is a chef in Paris.",
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Bob is the CEO of Acme Corp",
+      "Quinn is the CEO of Iota Co",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Michael Brown is a chef in Paris."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the pilot do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Michael Brown is a chef in Paris.",
+      "Earth orbits the Sun.",
+      "Nick leads Project B",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Michael Brown is a commercial pilot based in Dallas."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the pilot do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Michael Brown is a chef in Paris.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Michael Brown is a commercial pilot based in Dallas."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_003",
+    "query": "What does Michael Brown the pilot do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Michael Brown works as a commercial pilot based in Dallas.",
+      "Michael Brown is a chef in Paris.",
+      "Nick leads Project B",
+      "Nick manages Project A",
+      "Charlie is the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Michael Brown is a commercial pilot based in Dallas."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the artist do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Emily Davis is a painter in Brooklyn.",
+      "Emily Davis is a biochemist at Caltech.",
+      "Earth orbits the Sun.",
+      "Laura is the CTO of Zeta Corp",
+      "dave works at amzn as principal eng."
+    ],
+    "expected_facts": [
+      "Emily Davis is a painter in Brooklyn."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the artist do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Emily Davis is a painter in Brooklyn.",
+      "Emily Davis is a biochemist at Caltech.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Emily Davis is a painter in Brooklyn."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the artist do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Emily Davis is a painter in Brooklyn.",
+      "Emily Davis is a biochemist at Caltech.",
+      "Dave works as senior developer",
+      "Dave works at Amazon",
+      "Dave works at Microsoft as a developer"
+    ],
+    "expected_facts": [
+      "Emily Davis is a painter in Brooklyn."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the scientist do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Emily Davis is a painter in Brooklyn.",
+      "Emily Davis is a biochemist at Caltech.",
+      "Earth orbits the Sun.",
+      "Laura is the CTO of Zeta Corp",
+      "Eve transferred to Stanford"
+    ],
+    "expected_facts": [
+      "Emily Davis is a biochemist at Caltech."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the scientist do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Emily Davis is a painter in Brooklyn.",
+      "Emily Davis is a biochemist at Caltech.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Emily Davis is a biochemist at Caltech."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_004",
+    "query": "What does Emily Davis the scientist do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Emily Davis is a biochemist at Caltech.",
+      "Emily Davis is a painter in Brooklyn.",
+      "dave works at msft as a sr. dev",
+      "Eve studies at Massachusetts Institute of Technology",
+      "Grace is conducting research at MIT"
+    ],
+    "expected_facts": [
+      "Emily Davis is a biochemist at Caltech."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the coach do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "James Wilson coaches basketball at Duke.",
+      "James Wilson works as a war correspondent for Reuters",
+      "Earth orbits the Sun.",
+      "Nick manages Project A",
+      "Greg is the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "James Wilson coaches basketball at Duke."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the coach do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "James Wilson coaches basketball at Duke.",
+      "James Wilson works as a war correspondent for Reuters",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "James Wilson coaches basketball at Duke."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the coach do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "James Wilson coaches basketball at Duke.",
+      "James Wilson works as a war correspondent for Reuters",
+      "Nick manages Project A",
+      "Kyle is the CTO of Zeta Corp.",
+      "Nick leads Project B"
+    ],
+    "expected_facts": [
+      "James Wilson coaches basketball at Duke."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the journalist do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "James Wilson coaches basketball at Duke.",
+      "James Wilson works as a war correspondent for Reuters",
+      "Earth orbits the Sun.",
+      "Nick manages Project A",
+      "Water has the chemical formula H2O."
+    ],
+    "expected_facts": [
+      "James Wilson is a war correspondent for Reuters."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the journalist do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "James Wilson coaches basketball at Duke.",
+      "James Wilson works as a war correspondent for Reuters",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "James Wilson is a war correspondent for Reuters."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_005",
+    "query": "What does James Wilson the journalist do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "James Wilson works as a war correspondent for Reuters",
+      "James Wilson coaches basketball at Duke.",
+      "Grace works at Microsoft",
+      "Nick manages Project A",
+      "Grace is conducting research at MIT"
+    ],
+    "expected_facts": [
+      "James Wilson is a war correspondent for Reuters."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the architect do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Lisa Chen works as an architect in Shanghai.",
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd.",
+      "Earth orbits the Sun."
+    ],
+    "expected_facts": [
+      "Lisa Chen is an architect in Shanghai."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the architect do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Lisa Chen works as an architect in Shanghai.",
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Lisa Chen is an architect in Shanghai."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the architect do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Lisa Chen works as an architect in Shanghai.",
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd.",
+      "Charlie is the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Lisa Chen is an architect in Shanghai."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the musician do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Lisa Chen works as an architect in Shanghai.",
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Laura is the CTO of Zeta Corp",
+      "Tina is the CTO of Kappa Ltd.",
+      "Earth orbits the Sun."
+    ],
+    "expected_facts": [
+      "Lisa Chen is a concert pianist in Vienna."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the musician do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Lisa Chen works as an architect in Shanghai.",
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Lisa Chen is a concert pianist in Vienna."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_006",
+    "query": "What does Lisa Chen the musician do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Lisa Chen works as a concert pianist in Vienna.",
+      "Lisa Chen works as an architect in Shanghai.",
+      "Laura is the CTO of Zeta Corp",
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Lisa Chen is a concert pianist in Vienna."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the banker do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Robert Taylor is an investment banker in London.",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Earth orbits the Sun.",
+      "Bob works at New York",
+      "Water has the chemical formula H2O."
+    ],
+    "expected_facts": [
+      "Robert Taylor is an investment banker in London."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the banker do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Robert Taylor is an investment banker in London.",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Robert Taylor is an investment banker in London."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the banker do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Robert Taylor is an investment banker in London.",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Bob works at New York",
+      "Nick leads Project B",
+      "Carol manages Team Alpha"
+    ],
+    "expected_facts": [
+      "Robert Taylor is an investment banker in London."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the farmer do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Robert Taylor is an investment banker in London.",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Earth orbits the Sun.",
+      "Nick leads Project B",
+      "Tina is the CTO of Kappa Ltd."
+    ],
+    "expected_facts": [
+      "Robert Taylor runs a dairy farm in Vermont."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the farmer do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Robert Taylor is an investment banker in London.",
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Robert Taylor runs a dairy farm in Vermont."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_007",
+    "query": "What does Robert Taylor the farmer do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Robert Taylor runs a dairy farm in Vermont",
+      "Robert Taylor is an investment banker in London.",
+      "Nick leads Project B",
+      "Bob works at New York",
+      "Nick manages Project A"
+    ],
+    "expected_facts": [
+      "Robert Taylor runs a dairy farm in Vermont."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the nurse do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Earth orbits the Sun.",
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Maria Garcia is a nurse at Johns Hopkins."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the nurse do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Maria Garcia is a nurse at Johns Hopkins."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the nurse do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Nick manages Project A",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Maria Garcia is a nurse at Johns Hopkins."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the developer do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Laura is the CTO of Zeta Corp",
+      "Earth orbits the Sun.",
+      "Diana became the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Maria Garcia is a frontend developer at Stripe."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the developer do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Dave works as senior developer",
+      "Dave works at Microsoft as a developer",
+      "Earth orbits the Sun."
+    ],
+    "expected_facts": [
+      "Maria Garcia is a frontend developer at Stripe."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_008",
+    "query": "What does Maria Garcia the developer do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Maria Garcia works as a frontend developer at Stripe.",
+      "Grace works at Microsoft",
+      "Dave works as senior developer",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Dave works at Microsoft as a developer"
+    ],
+    "expected_facts": [
+      "Maria Garcia is a frontend developer at Stripe."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the professor do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Laura is the CTO of Zeta Corp",
+      "Earth orbits the Sun.",
+      "Greg is the VP of Delta Co.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "David Lee is a physics professor at MIT."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the professor do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Earth orbits the Sun.",
+      "Eve transferred to the Tokyo office.",
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "David Lee is a physics professor at MIT."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the professor do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Dave works as senior developer",
+      "Dave left Microsoft",
+      "dave works at msft as a sr. dev",
+      "Dave works at Microsoft as a developer"
+    ],
+    "expected_facts": [
+      "David Lee is a physics professor at MIT."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the athlete do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Laura is the CTO of Zeta Corp",
+      "Earth orbits the Sun.",
+      "Eve transferred to the Tokyo office.",
+      "dave works at amzn as principal eng."
+    ],
+    "expected_facts": [
+      "David Lee is an Olympic swimmer."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the athlete do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Earth orbits the Sun.",
+      "Eve transferred to the Tokyo office.",
+      "Water has the chemical formula H2O.",
+      "Berlin is the capital of Germany"
+    ],
+    "expected_facts": [
+      "David Lee is an Olympic swimmer."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_009",
+    "query": "What does David Lee the athlete do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "David Lee is a physics professor at MIT.",
+      "Dave left Microsoft",
+      "Dave works as senior developer",
+      "dave works at msft as a sr. dev",
+      "Dave works at Microsoft as a developer"
+    ],
+    "expected_facts": [
+      "David Lee is an Olympic swimmer."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the dentist do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Jennifer Martinez is a bestselling novelist.",
+      "Earth orbits the Sun.",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Diana became the CTO of Beta Inc"
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a dentist in Chicago."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the dentist do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Jennifer Martinez is a bestselling novelist.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a dentist in Chicago."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the dentist do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Jennifer Martinez is a bestselling novelist.",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "John Smith works as a cardiologist at Mayo Clinic.",
+      "Maria Garcia works as a frontend developer at Stripe."
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a dentist in Chicago."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the author do?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Jennifer Martinez is a bestselling novelist.",
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Earth orbits the Sun.",
+      "Laura is the CTO of Zeta Corp",
+      "Maria Garcia works as a nurse at Johns Hopkins."
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a bestselling novelist."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the author do?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Jennifer Martinez is a bestselling novelist.",
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Earth orbits the Sun.",
+      "Water has the chemical formula H2O.",
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a bestselling novelist."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "disambig_010",
+    "query": "What does Jennifer Martinez the author do?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Jennifer Martinez is a bestselling novelist.",
+      "Jennifer Martinez works as a dentist in Chicago.",
+      "Maria Garcia works as a nurse at Johns Hopkins.",
+      "Grace is conducting research at MIT",
+      "Laura is the CTO of Zeta Corp"
+    ],
+    "expected_facts": [
+      "Jennifer Martinez is a bestselling novelist."
+    ],
+    "expected_not": [],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_001",
+    "query": "Where does Amy work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Amy works at Facebook.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Amy joined Facebook as product manager",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google as an engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_001",
+    "query": "Where does Amy work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Amy left Google",
+      "Amy works at Facebook.",
+      "Amy works at Google.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google as an engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_001",
+    "query": "Where does Amy work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Amy works at Google.",
+      "Amy works at Facebook.",
+      "Amy works as an engineer at Google.",
+      "Amy left Google",
+      "Amy joined Facebook as product manager"
+    ],
+    "expected_facts": [
+      "Amy now works at Facebook."
+    ],
+    "expected_not": [
+      "Amy works at Google as an engineer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_002",
+    "query": "Where does Bob work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Bob works at New York",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob moved to San Francisco.",
+      "Ivy now reports to Manager B.",
+      "Bob is the CEO of Acme Corp"
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_002",
+    "query": "Where does Bob work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York",
+      "Bob lives in New York",
+      "Bob moved to San Francisco."
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.2,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_002",
+    "query": "Where does Bob work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Bob works at New York",
+      "Bob ceased residing in New York",
+      "Bob lives in New York",
+      "Bob lives in New York City.",
+      "bob livs lives in new yrok city"
+    ],
+    "expected_facts": [
+      "Bob moved to San Francisco."
+    ],
+    "expected_not": [
+      "Bob lives in New York City."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_003",
+    "query": "Where does Carol work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Carol manages Team Beta.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_003",
+    "query": "Where does Carol work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Carol manages Team Alpha",
+      "Carol manages Team Beta.",
+      "Ivy now reports to Manager B.",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_003",
+    "query": "Where does Carol work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Carol works at Team Alpha as Alpha lead",
+      "Carol manages Team Beta.",
+      "Carol is no longer a member of Team Alpha",
+      "Carol manages Team Alpha",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Carol now manages Team Beta."
+    ],
+    "expected_not": [
+      "Carol manages Team Alpha."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_004",
+    "query": "Where does Dave work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "dave works at amzn as principal eng.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as a principal engineer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as a senior developer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_004",
+    "query": "Where does Dave work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Dave joined Amazon",
+      "Dave left Microsoft",
+      "Dave works at Amazon",
+      "Dave uses Python 3.9"
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as a principal engineer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as a senior developer."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_004",
+    "query": "Where does Dave work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "dave works at msft as a sr. dev",
+      "dave works at amzn as principal eng.",
+      "Dave works at Microsoft as a developer",
+      "Dave works at Amazon",
+      "Dave works as senior developer"
+    ],
+    "expected_facts": [
+      "Dave works at Amazon as a principal engineer."
+    ],
+    "expected_not": [
+      "Dave works at Microsoft as a senior developer."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_005",
+    "query": "Where does Eve work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Eve transferred to the Tokyo office.",
+      "Eve transferred to Stanford",
+      "Eve joined Tokyo as an analyst",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_not": [
+      "Eve works at the London office as an analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_005",
+    "query": "Where does Eve work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Eve left London",
+      "Eve transferred to Stanford",
+      "Ivy now reports to Manager B.",
+      "Eve joined Tokyo as an analyst"
+    ],
+    "expected_facts": [
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_not": [
+      "Eve works at the London office as an analyst."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_005",
+    "query": "Where does Eve work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Eve works in London as a London-based analyst.",
+      "Eve transferred to the Tokyo office.",
+      "Eve joined Tokyo as an analyst",
+      "Eve left London",
+      "Eve studies at Massachusetts Institute of Technology"
+    ],
+    "expected_facts": [
+      "Eve transferred to the Tokyo office."
+    ],
+    "expected_not": [
+      "Eve works at the London office as an analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_006",
+    "query": "Where does Frank work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Bob works at New York",
+      "Frank drives a Toyota.",
+      "jack interned at co. p during the previous semester",
+      "Frank drives a Tesla"
+    ],
+    "expected_facts": [
+      "Frank quit and founded Startup Y."
+    ],
+    "expected_not": [
+      "Frank is the CTO at Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.16666666666666666,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_006",
+    "query": "Where does Frank work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Frank drives a Toyota.",
+      "Frank drives a Tesla",
+      "Frank left Startup X",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Frank quit and founded Startup Y."
+    ],
+    "expected_not": [
+      "Frank is the CTO at Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.1,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_006",
+    "query": "Where does Frank work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "frank is the chief technology officer at startup x",
+      "Frank works at Startup X as CTO",
+      "Frank left Startup X",
+      "Bob works at New York",
+      "Grace works at Microsoft"
+    ],
+    "expected_facts": [
+      "Frank quit and founded Startup Y."
+    ],
+    "expected_not": [
+      "Frank is the CTO at Startup X."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_007",
+    "query": "Where does Grace work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Grace moved to Stanford NGL.",
+      "Ivy relocated to Paris to work as an office manager.",
+      "Grace joined Apple",
+      "Bob works at New York",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Grace moved to Stanford."
+    ],
+    "expected_not": [
+      "Grace does research at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_007",
+    "query": "Where does Grace work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Grace joined Apple",
+      "Grace works at Microsoft",
+      "Grace moved to Stanford NGL.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Grace moved to Stanford."
+    ],
+    "expected_not": [
+      "Grace does research at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_007",
+    "query": "Where does Grace work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Grace works at Microsoft",
+      "Grace is conducting research at MIT",
+      "Grace moved to Stanford NGL.",
+      "Grace works at MIT as a researcher.",
+      "Grace joined Apple"
+    ],
+    "expected_facts": [
+      "Grace moved to Stanford."
+    ],
+    "expected_not": [
+      "Grace does research at MIT."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_008",
+    "query": "Where does Hank work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Hank joined Department B as director",
+      "Ivy relocated to Paris to work as an office manager.",
+      "hank holds the position of director within dept b",
+      "hank was promoted to the position of director in dept b",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Hank was promoted to director in Department B."
+    ],
+    "expected_not": [
+      "Hank works in Department A as an analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_008",
+    "query": "Where does Hank work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Hank left Department A",
+      "Hank joined Department B as director",
+      "Ivy now reports to Manager B.",
+      "Hank works in Department A as an analyst."
+    ],
+    "expected_facts": [
+      "Hank was promoted to director in Department B."
+    ],
+    "expected_not": [
+      "Hank works in Department A as an analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_008",
+    "query": "Where does Hank work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Hank works at Department A as an analyst.",
+      "Hank left Department A",
+      "Hank joined Department B as director",
+      "Hank works in Department A as an analyst.",
+      "hank holds the position of director within dept b"
+    ],
+    "expected_facts": [
+      "Hank was promoted to director in Department B."
+    ],
+    "expected_not": [
+      "Hank works in Department A as an analyst."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.3333333333333333,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy joined Paris as Paris office manager",
+      "Ivy now reports to Manager B.",
+      "Hannah is now the VP of Delta Co.",
+      "Rachel is now the CEO of Iota Co"
+    ],
+    "expected_facts": [
+      "Ivy relocated to Paris as office manager."
+    ],
+    "expected_not": [
+      "Ivy is based in Berlin in office management."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Ivy now reports to Manager B.",
+      "Ivy left Berlin",
+      "Ivy reports to Manager A",
+      "Hannah is now the VP of Delta Co."
+    ],
+    "expected_facts": [
+      "Ivy relocated to Paris as office manager."
+    ],
+    "expected_not": [
+      "Ivy is based in Berlin in office management."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_009",
+    "query": "Where does Ivy work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Ivy works as a Berlin office manager in Berlin",
+      "Ivy is based in the Berlin office working in Office Management.",
+      "Ivy has the job title of Berlin office manager",
+      "Ivy joined Paris as Paris office manager",
+      "Ivy works in Office Management at the Berlin office."
+    ],
+    "expected_facts": [
+      "Ivy relocated to Paris as office manager."
+    ],
+    "expected_not": [
+      "Ivy is based in Berlin in office management."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.25,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_010",
+    "query": "Where does Jack work now?",
+    "strategy": "hybrid",
+    "returned_facts": [
+      "jack received and accepted a full-time offer from co. Q &",
+      "Ivy relocated to Paris to work as an office manager.",
+      "jack interned at co. p during the previous semester",
+      "Ivy now reports to Manager B.",
+      "Bob works at New York"
+    ],
+    "expected_facts": [
+      "Jack got a full-time offer from Company Q and accepted."
+    ],
+    "expected_not": [
+      "Jack is interning at Company P."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 1.0,
+    "temporal_accuracy": true
+  },
+  {
+    "test_case_id": "noisy_010",
+    "query": "Where does Jack work now?",
+    "strategy": "bm25_only",
+    "returned_facts": [
+      "Ivy relocated to Paris to work as an office manager.",
+      "Jack sold X",
+      "Jack founded Startup Y",
+      "Jack owns Startup X.",
+      "Ivy now reports to Manager B."
+    ],
+    "expected_facts": [
+      "Jack got a full-time offer from Company Q and accepted."
+    ],
+    "expected_not": [
+      "Jack is interning at Company P."
+    ],
+    "precision_at_5": 0.0,
+    "recall_at_5": 0.0,
+    "mrr": 0.1,
+    "temporal_accuracy": false
+  },
+  {
+    "test_case_id": "noisy_010",
+    "query": "Where does Jack work now?",
+    "strategy": "cosine_only",
+    "returned_facts": [
+      "Jack works at Company P as an intern.",
+      "jack received and accepted a full-time offer from co. Q &",
+      "Jack owns Startup X.",
+      "Bob works at New York",
+      "jack interned at co. p during the previous semester"
+    ],
+    "expected_facts": [
+      "Jack got a full-time offer from Company Q and accepted."
+    ],
+    "expected_not": [
+      "Jack is interning at Company P."
+    ],
+    "precision_at_5": 0.2,
+    "recall_at_5": 1.0,
+    "mrr": 0.5,
+    "temporal_accuracy": false
+  }
+]

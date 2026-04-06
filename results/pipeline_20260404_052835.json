@@ -1,0 +1,212 @@
+[
+  {
+    "phase": "pipeline",
+    "category": "contradiction_resolution",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.04,
+    "avg_recall_at_5": 0.2,
+    "avg_mrr": 0.15,
+    "temporal_accuracy_pct": 90.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "contradiction_resolution",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.04,
+    "avg_recall_at_5": 0.2,
+    "avg_mrr": 0.2,
+    "temporal_accuracy_pct": 90.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "contradiction_resolution",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.04,
+    "avg_recall_at_5": 0.2,
+    "avg_mrr": 0.2,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "entity_disambiguation",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.18,
+    "avg_recall_at_5": 0.9,
+    "avg_mrr": 0.775,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 20
+  },
+  {
+    "phase": "pipeline",
+    "category": "entity_disambiguation",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.18,
+    "avg_recall_at_5": 0.9,
+    "avg_mrr": 0.9,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 20
+  },
+  {
+    "phase": "pipeline",
+    "category": "entity_disambiguation",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.18,
+    "avg_recall_at_5": 0.9,
+    "avg_mrr": 0.775,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 20
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_compound",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.08,
+    "avg_recall_at_5": 0.4,
+    "avg_mrr": 0.1376190476190476,
+    "temporal_accuracy_pct": 20.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_compound",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.1,
+    "avg_recall_at_5": 0.5,
+    "avg_mrr": 0.16166666666666668,
+    "temporal_accuracy_pct": 10.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_compound",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.1,
+    "avg_recall_at_5": 0.5,
+    "avg_mrr": 0.32261904761904764,
+    "temporal_accuracy_pct": 90.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_fact",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.12000000000000001,
+    "avg_recall_at_5": 0.6,
+    "avg_mrr": 0.3345238095238095,
+    "temporal_accuracy_pct": 0.0,
+    "num_queries": 15
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_fact",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.14666666666666667,
+    "avg_recall_at_5": 0.7333333333333333,
+    "avg_mrr": 0.36000000000000004,
+    "temporal_accuracy_pct": 0.0,
+    "num_queries": 15
+  },
+  {
+    "phase": "pipeline",
+    "category": "evolving_fact",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.17333333333333334,
+    "avg_recall_at_5": 0.8666666666666667,
+    "avg_mrr": 0.6444444444444444,
+    "temporal_accuracy_pct": 73.33333333333333,
+    "num_queries": 15
+  },
+  {
+    "phase": "pipeline",
+    "category": "multi_entity_evolution",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.14,
+    "avg_recall_at_5": 0.35,
+    "avg_mrr": 0.4722222222222222,
+    "temporal_accuracy_pct": 20.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "multi_entity_evolution",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.36,
+    "avg_recall_at_5": 0.9,
+    "avg_mrr": 0.7666666666666667,
+    "temporal_accuracy_pct": 10.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "multi_entity_evolution",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.34,
+    "avg_recall_at_5": 0.85,
+    "avg_mrr": 0.95,
+    "temporal_accuracy_pct": 60.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "noisy_fact",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.12000000000000002,
+    "avg_recall_at_5": 0.6,
+    "avg_mrr": 0.2816666666666666,
+    "temporal_accuracy_pct": 10.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "noisy_fact",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.16,
+    "avg_recall_at_5": 0.8,
+    "avg_mrr": 0.35833333333333334,
+    "temporal_accuracy_pct": 0.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "noisy_fact",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.18,
+    "avg_recall_at_5": 0.9,
+    "avg_mrr": 0.8,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "static_fact",
+    "strategy": "bm25_only",
+    "avg_precision_at_5": 0.2,
+    "avg_recall_at_5": 1.0,
+    "avg_mrr": 1.0,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "static_fact",
+    "strategy": "cosine_only",
+    "avg_precision_at_5": 0.2,
+    "avg_recall_at_5": 1.0,
+    "avg_mrr": 1.0,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 10
+  },
+  {
+    "phase": "pipeline",
+    "category": "static_fact",
+    "strategy": "hybrid",
+    "avg_precision_at_5": 0.12000000000000002,
+    "avg_recall_at_5": 0.6,
+    "avg_mrr": 0.6,
+    "temporal_accuracy_pct": 100.0,
+    "num_queries": 10
+  }
+]
