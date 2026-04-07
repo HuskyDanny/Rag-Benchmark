@@ -135,16 +135,23 @@ def _load_run_results(run_config: RunConfig) -> list:
     """Load results from disk for a run."""
     d = _run_dir(run_config.run_id)
     results_path = d / "results.json"
-    if not results_path.exists():
+    raw = None
+
+    if results_path.exists():
+        raw = json.loads(results_path.read_text())
+    else:
         # Fallback to legacy cache path for backward compat
         legacy = Path("results/checkpoints") / f"{run_config.phase}_results.json"
         if legacy.exists():
-            return json.loads(legacy.read_text())
+            raw = json.loads(legacy.read_text())
+
+    if not raw:
         return []
+
+    # Deserialize dicts into model instances
     experiment = get_experiment(run_config.experiment_type)
-    raw = json.loads(results_path.read_text())
     if hasattr(experiment.result_model, "model_validate"):
-        return [experiment.result_model.model_validate(d) for d in raw]
+        return [experiment.result_model.model_validate(item) for item in raw]
     return raw
 
 
