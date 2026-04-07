@@ -41,7 +41,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_002",
@@ -85,7 +86,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_003",
@@ -129,7 +131,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_004",
@@ -173,7 +176,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_005",
@@ -217,7 +221,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_006",
@@ -261,7 +266,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_007",
@@ -305,7 +311,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_008",
@@ -349,7 +356,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_009",
@@ -393,7 +401,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "static_010",
@@ -437,7 +446,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_001",
@@ -508,7 +518,68 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": {
+      "steps": [
+        {
+          "after_episode": 0,
+          "description": "After: Amy works at Google.",
+          "nodes": [
+            {
+              "name": "Amy",
+              "should_exist": true
+            },
+            {
+              "name": "Google",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Amy",
+              "target_name": "Google",
+              "relation_pattern": "works_at",
+              "fact_pattern": "Amy works at Google.",
+              "should_be_current": true
+            }
+          ]
+        },
+        {
+          "after_episode": 1,
+          "description": "After: Amy now works at Facebook. \u2014 old edge should be invalidated",
+          "nodes": [
+            {
+              "name": "Amy",
+              "should_exist": true
+            },
+            {
+              "name": "Google",
+              "should_exist": true
+            },
+            {
+              "name": "Facebook",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Amy",
+              "target_name": "Google",
+              "relation_pattern": "works_at",
+              "fact_pattern": "Amy works at Google.",
+              "should_be_current": false
+            },
+            {
+              "source_name": "Amy",
+              "target_name": "Facebook",
+              "relation_pattern": "works_at",
+              "fact_pattern": "Amy now works at Facebook.",
+              "should_be_current": true
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "evolving_002",
@@ -579,7 +650,68 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": {
+      "steps": [
+        {
+          "after_episode": 0,
+          "description": "After: Bob lives in New York City.",
+          "nodes": [
+            {
+              "name": "Bob",
+              "should_exist": true
+            },
+            {
+              "name": "NYC",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Bob",
+              "target_name": "NYC",
+              "relation_pattern": "lives_in",
+              "fact_pattern": "Bob lives in New York City.",
+              "should_be_current": true
+            }
+          ]
+        },
+        {
+          "after_episode": 1,
+          "description": "After: Bob moved to San Francisco. \u2014 old edge should be invalidated",
+          "nodes": [
+            {
+              "name": "Bob",
+              "should_exist": true
+            },
+            {
+              "name": "NYC",
+              "should_exist": true
+            },
+            {
+              "name": "SF",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Bob",
+              "target_name": "NYC",
+              "relation_pattern": "lives_in",
+              "fact_pattern": "Bob lives in New York City.",
+              "should_be_current": false
+            },
+            {
+              "source_name": "Bob",
+              "target_name": "SF",
+              "relation_pattern": "lives_in",
+              "fact_pattern": "Bob moved to San Francisco.",
+              "should_be_current": true
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "evolving_003",
@@ -650,7 +782,68 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": {
+      "steps": [
+        {
+          "after_episode": 0,
+          "description": "After: Carol manages Team Alpha.",
+          "nodes": [
+            {
+              "name": "Carol",
+              "should_exist": true
+            },
+            {
+              "name": "Team Alpha",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Carol",
+              "target_name": "Team Alpha",
+              "relation_pattern": "manages",
+              "fact_pattern": "Carol manages Team Alpha.",
+              "should_be_current": true
+            }
+          ]
+        },
+        {
+          "after_episode": 1,
+          "description": "After: Carol now manages Team Beta. \u2014 old edge should be invalidated",
+          "nodes": [
+            {
+              "name": "Carol",
+              "should_exist": true
+            },
+            {
+              "name": "Team Alpha",
+              "should_exist": true
+            },
+            {
+              "name": "Team Beta",
+              "should_exist": true
+            }
+          ],
+          "edges": [
+            {
+              "source_name": "Carol",
+              "target_name": "Team Alpha",
+              "relation_pattern": "manages",
+              "fact_pattern": "Carol manages Team Alpha.",
+              "should_be_current": false
+            },
+            {
+              "source_name": "Carol",
+              "target_name": "Team Beta",
+              "relation_pattern": "manages",
+              "fact_pattern": "Carol now manages Team Beta.",
+              "should_be_current": true
+            }
+          ]
+        }
+      ]
+    }
   },
   {
     "id": "evolving_004",
@@ -721,7 +914,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_005",
@@ -792,7 +986,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_006",
@@ -863,7 +1058,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_007",
@@ -934,7 +1130,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_008",
@@ -1005,7 +1202,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_009",
@@ -1076,7 +1274,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_010",
@@ -1147,7 +1346,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_011",
@@ -1218,7 +1418,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_012",
@@ -1289,7 +1490,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_013",
@@ -1360,7 +1562,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_014",
@@ -1431,7 +1634,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "evolving_015",
@@ -1502,7 +1706,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_001",
@@ -1576,7 +1781,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_002",
@@ -1650,7 +1856,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_003",
@@ -1724,7 +1931,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_004",
@@ -1798,7 +2006,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_005",
@@ -1872,7 +2081,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_006",
@@ -1946,7 +2156,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_007",
@@ -2020,7 +2231,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_008",
@@ -2094,7 +2306,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_009",
@@ -2168,7 +2381,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "compound_010",
@@ -2242,7 +2456,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_001",
@@ -2365,7 +2580,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_002",
@@ -2488,7 +2704,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_003",
@@ -2611,7 +2828,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_004",
@@ -2734,7 +2952,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_005",
@@ -2857,7 +3076,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_006",
@@ -2980,7 +3200,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_007",
@@ -3103,7 +3324,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_008",
@@ -3226,7 +3448,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_009",
@@ -3349,7 +3572,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "multi_entity_010",
@@ -3472,7 +3696,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_001",
@@ -3543,7 +3768,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_002",
@@ -3614,7 +3840,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_003",
@@ -3685,7 +3912,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_004",
@@ -3756,7 +3984,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_005",
@@ -3827,7 +4056,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_006",
@@ -3898,7 +4128,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_007",
@@ -3969,7 +4200,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_008",
@@ -4040,7 +4272,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_009",
@@ -4111,7 +4344,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "contradiction_010",
@@ -4182,7 +4416,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_001",
@@ -4259,7 +4494,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_002",
@@ -4336,7 +4572,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_003",
@@ -4413,7 +4650,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_004",
@@ -4490,7 +4728,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_005",
@@ -4567,7 +4806,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_006",
@@ -4644,7 +4884,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_007",
@@ -4721,7 +4962,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_008",
@@ -4798,7 +5040,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_009",
@@ -4875,7 +5118,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "disambig_010",
@@ -4952,7 +5196,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_001",
@@ -5027,7 +5272,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_002",
@@ -5102,7 +5348,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_003",
@@ -5177,7 +5424,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_004",
@@ -5252,7 +5500,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_005",
@@ -5327,7 +5576,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_006",
@@ -5402,7 +5652,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_007",
@@ -5477,7 +5728,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_008",
@@ -5552,7 +5804,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_009",
@@ -5627,7 +5880,8 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   },
   {
     "id": "noisy_010",
@@ -5702,6 +5956,7 @@
           "invalid_at": null
         }
       }
-    ]
+    ],
+    "ingestion_expectations": null
   }
 ]

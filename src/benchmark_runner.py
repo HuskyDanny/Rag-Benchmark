@@ -305,6 +305,68 @@ async def run_benchmark(
         await graphiti.close()
 
 
+def compare_runs(run_ids: list[str]) -> None:
+    """Load and compare reports from multiple runs side-by-side."""
+    runs_dir = Path("results/runs")
+    rows = []
+
+    for rid in run_ids:
+        meta_path = runs_dir / rid / "metadata.json"
+        report_path = runs_dir / rid / "report.json"
+
+        if not meta_path.exists():
+            print(f"  WARNING: Run '{rid}' not found at {meta_path}")
+            continue
+
+        meta = json.loads(meta_path.read_text())
+        report_data = (
+            json.loads(report_path.read_text()) if report_path.exists() else []
+        )
+
+        # Extract aggregate metrics from the first report entry (or average all)
+        if report_data:
+            if isinstance(report_data, list) and len(report_data) > 0:
+                entry = report_data[0]
+                rows.append(
+                    {
+                        "run_id": rid,
+                        "experiment": meta.get("experiment_type", "?"),
+                        "phase": meta.get("phase", "?"),
+                        "params": meta.get("params", {}),
+                        **{
+                            k: v
+                            for k, v in entry.items()
+                            if k not in ("run_id", "phase", "params")
+                        },
+                    }
+                )
+
+    if not rows:
+        print("  No valid runs found for comparison.")
+        return
+
+    # Print comparison table
+    print("\n=== Run Comparison ===\n")
+    # Header
+    keys = [k for k in rows[0].keys() if k != "params"]
+    print(" | ".join(f"{k:<20}" for k in keys))
+    print("-" * (22 * len(keys)))
+    for row in rows:
+        vals = []
+        for k in keys:
+            v = row.get(k, "")
+            if isinstance(v, float):
+                vals.append(f"{v:<20.4f}")
+            else:
+                vals.append(f"{str(v):<20}")
+        print(" | ".join(vals))
+
+    # Print params diff
+    print("\n--- Parameters ---")
+    for row in rows:
+        print(f"  {row['run_id']}: {row.get('params', {})}")
+
+
 def _parse_params(param_list: list[str] | None) -> dict:
     """Parse --param key=value pairs into a dict."""
     if not param_list:
@@ -373,6 +435,12 @@ def build_cli() -> argparse.ArgumentParser:
         action="store_true",
         help="List available experiment types and exit",
     )
+    parser.add_argument(
+        "--compare",
+        nargs="+",
+        metavar="RUN_ID",
+        help="Compare results from multiple runs side-by-side",
+    )
     return parser
 
 
@@ -384,6 +452,10 @@ def main():
         for name in list_experiments():
             exp = get_experiment(name)
             print(f"  {name}: params={exp.default_params()}")
+        return
+
+    if args.compare:
+        compare_runs(args.compare)
         return
 
     if not args.phase:

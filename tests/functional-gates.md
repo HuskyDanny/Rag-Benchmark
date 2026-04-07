@@ -213,19 +213,110 @@
 
 ---
 
+## Scenario 11: Ingestion Experiment End-to-End
+
+**What:** The ingestion experiment inspects graph state and produces quality scores.
+
+**Steps:**
+1. Ensure controlled phase graph is populated
+2. Run `python -m src.benchmark_runner controlled -e ingestion`
+3. Verify report shows per-category ingestion metrics
+
+**Pass criteria:**
+- [ ] Report includes entity_recall, edge_recall, temporal_invalidation_accuracy, dedup_score
+- [ ] Controlled phase entity_recall >= 0.95 for static_fact category
+- [ ] Step-by-step results produced for annotated evolving cases
+- [ ] Results persisted to `results/runs/` directory
+
+**Evidence:** Report output + results directory listing.
+
+---
+
+## Scenario 12: Search Tuning with Parameterized Runs
+
+**What:** Tuning experiment accepts `--param` and produces results.
+
+**Steps:**
+1. Run `python -m src.benchmark_runner controlled -e search_tuning --param mmr_lambda=0.3 --run-id tune_mmr03`
+2. Run `python -m src.benchmark_runner controlled -e search_tuning --param mmr_lambda=0.7 --run-id tune_mmr07`
+3. Verify both runs complete with different scores
+
+**Pass criteria:**
+- [ ] Both runs complete without error
+- [ ] Results stored in `results/runs/tune_mmr03/` and `results/runs/tune_mmr07/`
+- [ ] Each directory contains `metadata.json`, `results.json`, `report.json`
+
+**Evidence:** Directory listing + metadata.json contents.
+
+---
+
+## Scenario 13: Run Comparison with --compare
+
+**What:** `--compare` flag produces side-by-side table of multiple runs.
+
+**Steps:**
+1. Complete two search_tuning runs (from S12)
+2. Run `python -m src.benchmark_runner --compare tune_mmr03 tune_mmr07`
+
+**Pass criteria:**
+- [ ] Comparison table shows both runs with metrics
+- [ ] Parameters section shows different mmr_lambda values
+- [ ] No errors or missing data
+
+**Evidence:** Comparison table output.
+
+---
+
+## Scenario 14: Multiple Experiments Sharing Insertion
+
+**What:** Running two experiments in one invocation reuses graph population.
+
+**Steps:**
+1. Run `python -m src.benchmark_runner controlled -e retrieval -e ingestion`
+2. Verify insertion only happens once
+
+**Pass criteria:**
+- [ ] INSERT stage runs once (not twice)
+- [ ] Both experiment reports produced
+- [ ] Results stored separately per experiment
+
+**Evidence:** Console output showing single INSERT + two experiment reports.
+
+---
+
+## Scenario 15: Experiment Registration and CLI Routing
+
+**What:** `--list-experiments` shows all registered experiments.
+
+**Steps:**
+1. Run `python -m src.benchmark_runner --list-experiments`
+
+**Pass criteria:**
+- [ ] Output lists: retrieval, ingestion, search_tuning
+- [ ] Each experiment shows its default params
+
+**Evidence:** CLI output.
+
+---
+
 ## Gate Summary Checklist
 
 ```
 [ ] S1: Spike test — Neo4j connection + add_triplet + search round-trip
-[ ] S2: Unit tests — pytest tests/ -v, all green (includes test_sentence_splitter.py)
+[ ] S2: Unit tests — pytest tests/ -v, all green
 [ ] S3: Data generator — 75 cases, 7 categories, correct schema + tags
 [ ] S4: Controlled insertion (Phase 1) — 75/75 cases, no errors
 [ ] S5: Pipeline insertion (Phase 2) — 75/75 cases, no errors
 [ ] S6: Search strategies — all 3 return results for >= 90% of queries
 [ ] S7: Results JSON — valid, complete, all 63 aggregate rows present
-[ ] S8: Report table — renders with all 7 categories, 3 strategies, 3 phases, and presplit delta summary
-[ ] S9: Pre-split pipeline (Phase 3) — 75/75 cases, compound episodes produce 2+ add_episode calls
-[ ] S10: Sentence splitter — simple pass-through, compound splits to 2+ facts, noisy input normalized
+[ ] S8: Report table — renders with all phases, categories, strategies
+[ ] S9: Pre-split pipeline (Phase 3) — 75/75 cases
+[ ] S10: Sentence splitter — pass-through, compound splits, noisy normalization
+[ ] S11: Ingestion experiment — E2E with graph inspection + step validation
+[ ] S12: Search tuning — parameterized runs with --param
+[ ] S13: Run comparison — --compare produces side-by-side table
+[ ] S14: Multi-experiment — shared insertion, separate reports
+[ ] S15: Experiment registration — --list-experiments shows all 3
 ```
 
 **The benchmark is DONE only when every scenario passes.**

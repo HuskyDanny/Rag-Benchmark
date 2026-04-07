@@ -46,6 +46,7 @@ class TestCase(BaseModel):
     episodes: list[Episode]
     queries: list[Query]
     triplets: list[Triplet]
+    ingestion_expectations: IngestionExpectation | None = None
 
 
 class QueryResult(BaseModel):
@@ -81,6 +82,50 @@ class RunMetadata(BaseModel):
     completed_at: datetime | None = None
 
 
+class NodeExpectation(BaseModel):
+    """Expected entity node in the graph."""
+
+    name: str
+    should_exist: bool = True
+
+
+class EdgeExpectation(BaseModel):
+    """Expected edge state at a point in time."""
+
+    source_name: str
+    target_name: str
+    relation_pattern: str  # fuzzy match via LLM judge
+    fact_pattern: str
+    should_be_current: bool  # True = invalid_at IS NULL
+
+
+class StepExpectation(BaseModel):
+    """Expected graph state after ingesting episode[0..after_episode]."""
+
+    after_episode: int  # 0-based episode index
+    description: str
+    nodes: list[NodeExpectation] = []
+    edges: list[EdgeExpectation] = []
+
+
+class IngestionExpectation(BaseModel):
+    """Full ingestion ground truth for a test case (optional)."""
+
+    steps: list[StepExpectation] = []
+
+
+class StepResult(BaseModel):
+    """Validation result for one step."""
+
+    after_episode: int
+    description: str
+    nodes_found: list[str] = []
+    nodes_missing: list[str] = []
+    edges_found: list[str] = []
+    edges_missing: list[str] = []
+    edges_wrong_temporal: list[str] = []
+
+
 class IngestionResult(BaseModel):
     test_case_id: str
     category: str
@@ -90,6 +135,7 @@ class IngestionResult(BaseModel):
     edge_precision: float
     temporal_invalidation_accuracy: float
     dedup_score: float
+    step_results: list[StepResult] | None = None
 
 
 class IngestionReport(BaseModel):

@@ -4,7 +4,18 @@ from __future__ import annotations
 
 from datetime import datetime, timezone
 
-from src.models import Episode, Query, TestCase, Triplet, TripletEdge, TripletNode
+from src.models import (
+    EdgeExpectation,
+    Episode,
+    IngestionExpectation,
+    NodeExpectation,
+    Query,
+    StepExpectation,
+    TestCase,
+    Triplet,
+    TripletEdge,
+    TripletNode,
+)
 
 
 def _dt(year: int, month: int, day: int) -> datetime:
@@ -14,8 +25,12 @@ def _dt(year: int, month: int, day: int) -> datetime:
 
 __all__ = [
     "_dt",
+    "EdgeExpectation",
     "Episode",
+    "IngestionExpectation",
+    "NodeExpectation",
     "Query",
+    "StepExpectation",
     "TestCase",
     "Triplet",
     "TripletEdge",
