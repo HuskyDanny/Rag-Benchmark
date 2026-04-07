@@ -35,7 +35,7 @@
 
 **Pass criteria:**
 - [ ] Exit code 0
-- [ ] All test files discovered: `test_evaluator.py`, `test_judge.py`, `test_models.py`, and any others
+- [ ] All test files discovered: `test_evaluator.py`, `test_judge.py`, `test_models.py`, `test_sentence_splitter.py`, and any others
 - [ ] Zero failures, zero errors
 - [ ] No skipped tests (unless explicitly documented with reason)
 
@@ -43,7 +43,7 @@
 
 ---
 
-## Scenario 3: Data Generator — 55 Cases, 5 Categories
+## Scenario 3: Data Generator — 75 Cases, 7 Categories
 
 **What:** The data generator produces the correct test dataset.
 
@@ -54,16 +54,20 @@
 
 **Pass criteria:**
 - [ ] `data/test_cases.json` exists and is valid JSON
-- [ ] Total test cases == 55
+- [ ] Total test cases == 75
 - [ ] Category distribution matches spec:
   - `static_fact`: 10
   - `evolving_fact`: 15
+  - `evolving_compound`: 10
   - `multi_entity_evolution`: 10
   - `contradiction_resolution`: 10
   - `entity_disambiguation`: 10
-- [ ] Every test case has: `id`, `category`, `episodes` (non-empty), `queries` (non-empty)
+  - `noisy_fact`: 10
+- [ ] Every test case has: `id`, `category`, `tags`, `episodes` (non-empty), `queries` (non-empty)
 - [ ] Every evolving/contradiction case has `expected_not` in at least one query
 - [ ] Every case used for controlled insertion (Phase 1) has `triplets`
+- [ ] `evolving_compound` cases have `tags` containing `"compound"` and `"evolving"`
+- [ ] `noisy_fact` cases have `tags` containing `"noisy"` and `"evolving"`
 
 **Evidence:** `jq` output showing counts per category and schema validation.
 
@@ -71,21 +75,21 @@
 
 ## Scenario 4: Controlled Insertion (Phase 1) Completes
 
-**What:** Phase 1 inserts all 55 test cases' triplets into Neo4j without errors.
+**What:** Phase 1 inserts all 75 test cases' triplets into Neo4j without errors.
 
 **Steps:**
 1. Wipe Neo4j graph
 2. Rebuild indices via `build_indices_and_constraints()`
-3. Run controlled inserter on all 55 test cases
+3. Run controlled inserter on all 75 test cases
 4. Verify node/edge counts in Neo4j
 
 **Pass criteria:**
 - [ ] Graph wipe succeeds
-- [ ] All 55 test cases processed (no exceptions, no skipped cases)
+- [ ] All 75 test cases processed (no exceptions, no skipped cases)
 - [ ] Neo4j contains nodes and edges (count > 0)
 - [ ] Inserter logs or returns a summary showing all cases inserted
 
-**Evidence:** Inserter output showing 55/55 cases processed + Neo4j node/edge count query.
+**Evidence:** Inserter output showing 75/75 cases processed + Neo4j node/edge count query.
 
 ---
 
@@ -96,16 +100,16 @@
 **Steps:**
 1. Wipe Neo4j graph
 2. Rebuild indices
-3. Run pipeline inserter on all 55 test cases, inserting episodes in chronological order
+3. Run pipeline inserter on all 75 test cases, inserting episodes in chronological order
 4. Verify graph is populated
 
 **Pass criteria:**
 - [ ] Graph wipe succeeds
-- [ ] All 55 test cases processed (no exceptions, no skipped cases)
+- [ ] All 75 test cases processed (no exceptions, no skipped cases)
 - [ ] Episodes inserted in correct chronological order per test case
 - [ ] Neo4j contains nodes and edges (count > 0)
 
-**Evidence:** Inserter output showing 55/55 cases processed + Neo4j node/edge count query.
+**Evidence:** Inserter output showing 75/75 cases processed + Neo4j node/edge count query.
 
 ---
 
@@ -139,7 +143,7 @@
 - [ ] Results file exists in `results/` directory
 - [ ] Each result entry contains: `phase`, `category`, `strategy`, `query_id`, `returned_facts`, `scores`
 - [ ] Scores include: `precision_at_5`, `recall_at_5`, `mrr`, `temporal_accuracy`
-- [ ] All combinations present: 2 phases × 5 categories × 3 strategies = 30 aggregate rows
+- [ ] All combinations present: 3 phases × 7 categories × 3 strategies = 63 aggregate rows
 - [ ] No `null` or `NaN` values in metric fields
 
 **Evidence:** `jq` or Python validation showing schema compliance and row count.
@@ -155,14 +159,57 @@
 2. Inspect the output table
 
 **Pass criteria:**
-- [ ] Report contains tables for both Phase 1 (controlled) and Phase 2 (pipeline)
-- [ ] Each table has rows for all 5 categories
+- [ ] Report contains tables for all three phases: Phase 1 (controlled), Phase 2 (pipeline), Phase 3 (pipeline_presplit)
+- [ ] Each table has rows for all 7 categories
 - [ ] Each category row shows all 3 strategies
 - [ ] Columns include: Strategy, Precision@5, Recall@5, MRR, Temporal Accuracy
 - [ ] A summary section shows hybrid-vs-baseline deltas per category
+- [ ] A summary section shows pipeline vs pipeline_presplit delta for `evolving_compound` and `noisy_fact`
 - [ ] Numbers are formatted consistently (2 decimal places for ratios, percentage for temporal accuracy)
 
 **Evidence:** Full report output captured in terminal or saved to `results/`.
+
+---
+
+## Scenario 9: Pre-Split Pipeline (Phase 3) Completes
+
+**What:** Phase 3 (`pipeline_presplit`) processes all 75 test cases through the pre-split inserter without errors.
+
+**Steps:**
+1. Wipe Neo4j graph
+2. Rebuild indices
+3. Run `presplit_inserter.py` on all 75 test cases in chronological episode order
+4. Verify each episode is decomposed and each atomic fact produces an `add_episode` call
+5. Verify graph is populated
+
+**Pass criteria:**
+- [ ] Graph wipe succeeds
+- [ ] All 75 test cases processed (no exceptions, no skipped cases)
+- [ ] Each episode produces at least 1 `add_episode` call
+- [ ] Compound episodes (tagged `"compound"`) produce 2+ `add_episode` calls
+- [ ] All `add_episode` calls for the same episode share the same `reference_time`
+- [ ] Neo4j contains nodes and edges (count > 0)
+
+**Evidence:** Inserter output showing 75/75 cases processed, per-episode decomposition counts, and Neo4j node/edge count query.
+
+---
+
+## Scenario 10: Sentence Splitter Correctly Decomposes Text
+
+**What:** The `split_into_atomic_facts` function produces correct output across all input types.
+
+**Steps:**
+1. Run `tests/test_sentence_splitter.py` (unit)
+2. Manually verify a compound case from `evolving_compound` is split correctly
+
+**Pass criteria:**
+- [ ] Simple sentence returns exactly 1 atomic fact (pass-through)
+- [ ] Compound sentence (e.g., "Amy left Google and joined Facebook.") returns 2 atomic facts
+- [ ] Noisy input (e.g., "dave quit msft & joined amzn as sr. dev") returns a normalized clean sentence
+- [ ] Output facts contain no conjunctions linking independent clauses
+- [ ] All unit tests in `test_sentence_splitter.py` pass
+
+**Evidence:** `pytest tests/test_sentence_splitter.py -v` output (unit), plus one manually verified compound-to-atomic split logged to terminal.
 
 ---
 
@@ -170,13 +217,15 @@
 
 ```
 [ ] S1: Spike test — Neo4j connection + add_triplet + search round-trip
-[ ] S2: Unit tests — pytest tests/ -v, all green
-[ ] S3: Data generator — 55 cases, 5 categories, correct schema
-[ ] S4: Controlled insertion (Phase 1) — 55/55 cases, no errors
-[ ] S5: Pipeline insertion (Phase 2) — 55/55 cases, no errors
+[ ] S2: Unit tests — pytest tests/ -v, all green (includes test_sentence_splitter.py)
+[ ] S3: Data generator — 75 cases, 7 categories, correct schema + tags
+[ ] S4: Controlled insertion (Phase 1) — 75/75 cases, no errors
+[ ] S5: Pipeline insertion (Phase 2) — 75/75 cases, no errors
 [ ] S6: Search strategies — all 3 return results for >= 90% of queries
-[ ] S7: Results JSON — valid, complete, all 30 aggregate rows present
-[ ] S8: Report table — renders with all categories, strategies, and metrics
+[ ] S7: Results JSON — valid, complete, all 63 aggregate rows present
+[ ] S8: Report table — renders with all 7 categories, 3 strategies, 3 phases, and presplit delta summary
+[ ] S9: Pre-split pipeline (Phase 3) — 75/75 cases, compound episodes produce 2+ add_episode calls
+[ ] S10: Sentence splitter — simple pass-through, compound splits to 2+ facts, noisy input normalized
 ```
 
 **The benchmark is DONE only when every scenario passes.**
