@@ -2,6 +2,7 @@
 
 from __future__ import annotations
 
+import asyncio
 import hashlib
 import json
 from pathlib import Path
@@ -12,6 +13,7 @@ CACHE_DIR = Path("results/judge_cache")
 
 _memory_cache: dict[str, bool] = {}
 _disk_loaded = False
+_lock = asyncio.Lock()
 
 
 def _cache_key(fact_a: str, fact_b: str) -> str:
@@ -48,16 +50,20 @@ async def cached_facts_match(returned_fact: str, expected_fact: str) -> bool:
     """Like judge.facts_match but with persistent caching.
 
     Cache is keyed by sorted(fact_a, fact_b) hash — order-independent.
-    Survives across runs and experiments.
+    Survives across runs and experiments. Thread-safe via asyncio.Lock.
     """
     _load_disk_cache()
     key = _cache_key(returned_fact, expected_fact)
     if key in _memory_cache:
         return _memory_cache[key]
 
-    result = await facts_match(returned_fact, expected_fact)
-    _memory_cache[key] = result
-    _persist()
+    async with _lock:
+        # Double-check after acquiring lock (another coroutine may have populated it)
+        if key in _memory_cache:
+            return _memory_cache[key]
+        result = await facts_match(returned_fact, expected_fact)
+        _memory_cache[key] = result
+        _persist()
     return result
 
 

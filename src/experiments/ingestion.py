@@ -11,14 +11,13 @@ from src.graph_inspector import inspect_edges, inspect_node_duplicates, inspect_
 from src.judge_cache import cached_facts_match
 from src.models import IngestionReport, IngestionResult, TestCase
 
-# Scoring weights — temporal + edge = 50% combined (Graphiti's differentiator)
+# Scoring weights — precision excluded (NaN, not computable per-case with shared group_id)
+# Remaining weights normalized to sum to 1.0
 WEIGHTS = {
-    "entity_recall": 0.20,
-    "entity_precision": 0.10,
-    "edge_recall": 0.25,
-    "edge_precision": 0.10,
-    "temporal_invalidation_accuracy": 0.25,
-    "dedup_score": 0.10,
+    "entity_recall": 0.25,
+    "edge_recall": 0.30,
+    "temporal_invalidation_accuracy": 0.30,
+    "dedup_score": 0.15,
 }
 
 
@@ -69,17 +68,14 @@ class IngestionExperiment(ExperimentBase):
             cat_results = by_category[cat]
             n = len(cat_results)
             er = sum(r.entity_recall for r in cat_results) / n
-            ep = sum(r.entity_precision for r in cat_results) / n
             edr = sum(r.edge_recall for r in cat_results) / n
-            edp = sum(r.edge_precision for r in cat_results) / n
             tia = sum(r.temporal_invalidation_accuracy for r in cat_results) / n
             ds = sum(r.dedup_score for r in cat_results) / n
 
+            # Composite uses only measurable dimensions (precision is NaN)
             composite = (
                 WEIGHTS["entity_recall"] * er
-                + WEIGHTS["entity_precision"] * ep
                 + WEIGHTS["edge_recall"] * edr
-                + WEIGHTS["edge_precision"] * edp
                 + WEIGHTS["temporal_invalidation_accuracy"] * tia
                 + WEIGHTS["dedup_score"] * ds
             )
@@ -89,9 +85,9 @@ class IngestionExperiment(ExperimentBase):
                     phase=run_config.phase,
                     category=cat,
                     avg_entity_recall=round(er, 3),
-                    avg_entity_precision=round(ep, 3),
+                    avg_entity_precision=0.0,  # not computable (shared group_id)
                     avg_edge_recall=round(edr, 3),
-                    avg_edge_precision=round(edp, 3),
+                    avg_edge_precision=0.0,  # not computable (shared group_id)
                     avg_temporal_invalidation_accuracy=round(tia, 3),
                     avg_dedup_score=round(ds, 3),
                     composite_score=round(composite, 3),
@@ -154,9 +150,10 @@ async def _validate_test_case(
         len(found_entities) / len(expected_entities) if expected_entities else 1.0
     )
 
-    # Entity precision: 1 - (hallucinated / total)
-    # For simplicity, we don't penalize extra entities from other test cases sharing the group
-    entity_precision = 1.0  # conservative default
+    # Entity precision: not computable per-case because all 75 test cases share
+    # the same group_id — we can't attribute individual graph nodes to specific
+    # test cases. Set to NaN to signal "not measured" rather than inflating scores.
+    entity_precision = float("nan")
 
     # Edge matching
     expected_edges = []
@@ -192,7 +189,8 @@ async def _validate_test_case(
                 # Edge missing entirely — count as temporal failure
 
     edge_recall = found_edges / len(expected_edges) if expected_edges else 1.0
-    edge_precision = 1.0  # conservative default
+    # Edge precision: same limitation as entity precision — shared group_id
+    edge_precision = float("nan")
 
     temporal_inv_accuracy = (
         temporal_correct / temporal_total if temporal_total > 0 else 1.0

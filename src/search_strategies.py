@@ -70,9 +70,18 @@ def build_search_config(params: dict) -> SearchConfig:
     method_names = params.get("search_methods", ["bm25", "cosine_similarity"])
     if isinstance(method_names, str):
         method_names = [method_names]
-    methods = [_METHOD_MAP[m] for m in method_names]
+    try:
+        methods = [_METHOD_MAP[m] for m in method_names]
+    except KeyError as e:
+        raise ValueError(
+            f"Unknown search method {e}. Available: {list(_METHOD_MAP.keys())}"
+        ) from e
 
     reranker_name = params.get("reranker", "rrf")
+    if reranker_name not in _RERANKER_MAP:
+        raise ValueError(
+            f"Unknown reranker '{reranker_name}'. Available: {list(_RERANKER_MAP.keys())}"
+        )
     reranker = _RERANKER_MAP[reranker_name]
 
     return SearchConfig(
