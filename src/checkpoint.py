@@ -11,10 +11,19 @@ DEFAULT_DIR = "results/checkpoints"
 class Checkpoint:
     """Track completion state for a benchmark stage."""
 
-    def __init__(self, phase: str, stage: str, base_dir: str = DEFAULT_DIR):
+    def __init__(
+        self,
+        phase: str,
+        stage: str,
+        run_id: str | None = None,
+        base_dir: str = DEFAULT_DIR,
+    ):
         self._dir = Path(base_dir)
         self._dir.mkdir(parents=True, exist_ok=True)
-        self.path = self._dir / f"{phase}_{stage}.json"
+        # run_id adds isolation: phase_stage_runid.json
+        # Without run_id: legacy format phase_stage.json (backward compat)
+        name = f"{phase}_{stage}" if run_id is None else f"{phase}_{stage}_{run_id}"
+        self.path = self._dir / f"{name}.json"
         self._state: dict | None = None
 
     def load(self) -> dict:

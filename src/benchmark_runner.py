@@ -1,4 +1,4 @@
-"""Benchmark runner with checkpoint/resume, per-phase port config, and CLI."""
+"""Benchmark orchestrator with pluggable experiments, checkpoint/resume, and CLI."""
 
 import argparse
 import asyncio
@@ -12,27 +12,16 @@ from graphiti_core import Graphiti
 from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.llm_client.config import LLMConfig
 from graphiti_core.llm_client.openai_generic_client import OpenAIGenericClient
-from graphiti_core.search.search_config import SearchConfig
-from graphiti_core.search.search_filters import (
-    SearchFilters,
-    DateFilter,
-    ComparisonOperator,
-)
 from graphiti_core.utils.maintenance.graph_data_operations import clear_data
 
-from src.models import TestCase, QueryResult, CategoryReport
-from src.search_strategies import get_search_strategies
-from src.evaluator import (
-    compute_precision_at_k,
-    compute_recall_at_k,
-    compute_mrr,
-    compute_temporal_accuracy,
-)
-from src.reporter import aggregate_results, print_full_report
 from src.checkpoint import Checkpoint
+from src.experiments import RunConfig, get_experiment, list_experiments
+from src.models import RunMetadata, TestCase
 from src import controlled_inserter, pipeline_inserter, presplit_inserter
 
 load_dotenv()
+
+# ── Phase configuration ──
 
 GROUP_IDS = {
     "controlled": controlled_inserter.GROUP_ID,
@@ -51,6 +40,8 @@ INSERTERS = {
     "pipeline": pipeline_inserter,
     "pipeline_presplit": presplit_inserter,
 }
+
+# ── Shared infrastructure ──
 
 
 def load_test_cases(path: str = "data/test_cases.json") -> list[TestCase]:
@@ -95,80 +86,7 @@ async def wipe_graph(graphiti: Graphiti, group_id: str | None = None) -> None:
     await graphiti.build_indices_and_constraints()
 
 
-def build_temporal_filter(query_time: datetime) -> SearchFilters:
-    """Build a SearchFilter that only returns edges valid at query_time."""
-    return SearchFilters(
-        valid_at=[
-            [
-                DateFilter(
-                    date=query_time,
-                    comparison_operator=ComparisonOperator.less_than_equal,
-                )
-            ]
-        ],
-        invalid_at=[
-            [DateFilter(comparison_operator=ComparisonOperator.is_null)],
-            [
-                DateFilter(
-                    date=query_time,
-                    comparison_operator=ComparisonOperator.greater_than,
-                )
-            ],
-        ],
-    )
-
-
-async def run_search(
-    graphiti: Graphiti,
-    query: str,
-    config: SearchConfig,
-    group_id: str,
-    query_time: datetime | None = None,
-) -> list[str]:
-    search_filter = build_temporal_filter(query_time) if query_time else None
-    results = await graphiti.search_(
-        query=query, config=config, group_ids=[group_id], search_filter=search_filter
-    )
-    return [edge.fact for edge in results.edges]
-
-
-async def evaluate_query(
-    graphiti: Graphiti,
-    test_case: TestCase,
-    query_idx: int,
-    strategy_name: str,
-    config: SearchConfig,
-    group_id: str,
-) -> QueryResult:
-    query = test_case.queries[query_idx]
-    # Only hybrid gets temporal filter — baselines run raw
-    query_time = query.query_time if strategy_name == "hybrid" else None
-    returned_facts = await run_search(
-        graphiti, query.query, config, group_id, query_time=query_time
-    )
-
-    p_at_5 = await compute_precision_at_k(returned_facts, query.expected_facts, k=5)
-    r_at_5 = await compute_recall_at_k(returned_facts, query.expected_facts, k=5)
-    mrr = await compute_mrr(returned_facts, query.expected_facts)
-    temp_acc = await compute_temporal_accuracy(returned_facts, query.expected_not)
-
-    return QueryResult(
-        test_case_id=test_case.id,
-        query=query.query,
-        strategy=strategy_name,
-        returned_facts=returned_facts[:5],
-        expected_facts=query.expected_facts,
-        expected_not=query.expected_not,
-        precision_at_5=p_at_5,
-        recall_at_5=r_at_5,
-        mrr=mrr,
-        temporal_accuracy=temp_acc,
-    )
-
-
-# ---------------------------------------------------------------------------
-# Stage: insert
-# ---------------------------------------------------------------------------
+# ── Shared insertion (once per phase) ──
 
 
 async def run_insert(
@@ -191,85 +109,94 @@ async def run_insert(
     print(f"  INSERT complete for {phase}")
 
 
-# ---------------------------------------------------------------------------
-# Stage: evaluate
-# ---------------------------------------------------------------------------
+# ── Run result persistence ──
 
 
-async def run_evaluate(
-    graphiti: Graphiti, phase: str, test_cases: list[TestCase]
-) -> list[QueryResult]:
-    """Evaluate all queries with checkpoint/resume. Returns results in memory."""
-    ckpt = Checkpoint(phase, "evaluate")
-    group_id = GROUP_IDS[phase]
-    strategies = get_search_strategies()
-    all_results: list[QueryResult] = []
+def _run_dir(run_id: str) -> Path:
+    """Get or create the directory for a run's results."""
+    d = Path("results/runs") / run_id
+    d.mkdir(parents=True, exist_ok=True)
+    return d
 
-    print(f"\n--- [{phase}] EVALUATE stage ---")
-    for tc in test_cases:
-        for q_idx in range(len(tc.queries)):
-            for strategy_name, config in strategies.items():
-                key = f"{tc.id}|{q_idx}|{strategy_name}"
-                if ckpt.is_done(key):
-                    print(f"  {key} — skipped (checkpoint)")
-                    continue
-                print(f"  {key}")
-                result = await evaluate_query(
-                    graphiti, tc, q_idx, strategy_name, config, group_id
-                )
-                all_results.append(result)
-                ckpt.mark_done(key)
 
-    ckpt.mark_stage_complete()
+def _save_run_results(run_config: RunConfig, results: list) -> None:
+    """Persist raw results for a run."""
+    d = _run_dir(run_config.run_id)
+    data = []
+    for r in results:
+        if hasattr(r, "model_dump"):
+            data.append(r.model_dump(mode="json"))
+        else:
+            data.append(r)
+    (d / "results.json").write_text(json.dumps(data, indent=2, default=str))
 
-    # Persist results so --stage report can load them independently
-    results_cache = Path("results/checkpoints") / f"{phase}_results.json"
-    results_cache.parent.mkdir(parents=True, exist_ok=True)
-    results_cache.write_text(
-        json.dumps([r.model_dump(mode="json") for r in all_results], indent=2)
+
+def _load_run_results(run_config: RunConfig) -> list:
+    """Load results from disk for a run."""
+    d = _run_dir(run_config.run_id)
+    results_path = d / "results.json"
+    raw = None
+
+    if results_path.exists():
+        raw = json.loads(results_path.read_text())
+    else:
+        # Fallback to legacy cache path for backward compat
+        legacy = Path("results/checkpoints") / f"{run_config.phase}_results.json"
+        if legacy.exists():
+            raw = json.loads(legacy.read_text())
+
+    if not raw:
+        return []
+
+    # Deserialize dicts into model instances
+    experiment = get_experiment(run_config.experiment_type)
+    if hasattr(experiment.result_model, "model_validate"):
+        return [experiment.result_model.model_validate(item) for item in raw]
+    return raw
+
+
+def _save_run_report(run_config: RunConfig, reports: list) -> None:
+    """Persist aggregated reports for a run."""
+    d = _run_dir(run_config.run_id)
+    data = []
+    for r in reports:
+        if hasattr(r, "model_dump"):
+            data.append(r.model_dump(mode="json"))
+        else:
+            data.append(r)
+    (d / "report.json").write_text(json.dumps(data, indent=2, default=str))
+
+
+def _save_run_metadata(run_config: RunConfig, started_at: datetime) -> None:
+    """Persist run metadata."""
+    d = _run_dir(run_config.run_id)
+    meta = RunMetadata(
+        run_id=run_config.run_id,
+        experiment_type=run_config.experiment_type,
+        phase=run_config.phase,
+        params=run_config.params,
+        started_at=started_at,
+        completed_at=datetime.now(timezone.utc),
     )
-
-    print(f"  EVALUATE complete for {phase} ({len(all_results)} results saved)")
-    return all_results
+    (d / "metadata.json").write_text(meta.model_dump_json(indent=2))
 
 
-# ---------------------------------------------------------------------------
-# Stage: report
-# ---------------------------------------------------------------------------
+# ── Legacy backward-compat: results cache for --stage report ──
 
 
-def run_report(
-    phase: str, results: list[QueryResult], test_cases: list[TestCase]
-) -> list[CategoryReport]:
-    """Aggregate and save results."""
-    print(f"\n--- [{phase}] REPORT stage ---")
-    categories = sorted({tc.category for tc in test_cases})
-    all_reports: list[CategoryReport] = []
-
-    for cat in categories:
-        cat_ids = {tc.id for tc in test_cases if tc.category == cat}
-        cat_results = [r for r in results if r.test_case_id in cat_ids]
-        if cat_results:
-            all_reports.extend(
-                aggregate_results(cat_results, phase=phase, category=cat)
-            )
-
-    print_full_report(all_reports)
-
-    Path("results").mkdir(exist_ok=True)
-    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
-    results_path = f"results/{phase}_{ts}.json"
-    with open(results_path, "w") as f:
-        json.dump([r.model_dump(mode="json") for r in all_reports], f, indent=2)
-    print(f"  Report saved to {results_path}")
-    return all_reports
+def _save_legacy_results_cache(phase: str, results: list) -> None:
+    """Save to legacy path so standalone --stage report still works."""
+    cache = Path("results/checkpoints") / f"{phase}_results.json"
+    cache.parent.mkdir(parents=True, exist_ok=True)
+    data = [
+        r.model_dump(mode="json") if hasattr(r, "model_dump") else r for r in results
+    ]
+    cache.write_text(json.dumps(data, indent=2))
 
 
-# ---------------------------------------------------------------------------
-# Orchestrator
-# ---------------------------------------------------------------------------
+# ── Orchestrator ──
 
-STAGES = ("insert", "evaluate", "report")
+LEGACY_STAGES = ("insert", "evaluate", "report")
 
 
 async def run_benchmark(
@@ -277,66 +204,137 @@ async def run_benchmark(
     port: int | None = None,
     stage: str | None = None,
     clean: bool = False,
-) -> list[CategoryReport]:
-    """Run a single benchmark phase with optional stage selection."""
+    experiments: list[str] | None = None,
+    params: dict | None = None,
+    run_id: str | None = None,
+) -> None:
+    """Run benchmark: shared insertion + pluggable experiments."""
     if port is None:
         port = PHASE_PORTS.get(phase, 7687)
 
-    stages_to_run = (stage,) if stage else STAGES
+    # Default to retrieval for backward compat
+    experiment_names = experiments or ["retrieval"]
+    user_params = params or {}
+
     test_cases = load_test_cases()
+    group_id = GROUP_IDS[phase]
     print(f"Loaded {len(test_cases)} test cases | phase={phase} port={port}")
 
     graphiti = await create_graphiti(neo4j_port=port)
-    group_id = GROUP_IDS[phase]
 
     try:
         if clean:
             print("Cleaning checkpoint + graph data...")
-            for s in STAGES[:2]:  # clear insert + evaluate checkpoints
-                Checkpoint(phase, s).clear()
+            Checkpoint(phase, "insert").clear()
             await wipe_graph(graphiti, group_id)
 
-        results: list[QueryResult] = []
+        # ── Shared insertion (once per phase) ──
+        should_insert = stage is None or stage == "insert"
+        if should_insert:
+            insert_ckpt = Checkpoint(phase, "insert")
+            if insert_ckpt.load()["status"] != "completed":
+                await run_insert(graphiti, phase, test_cases)
+            else:
+                print(f"  [{phase}] INSERT already complete (checkpoint)")
 
-        if "insert" in stages_to_run:
-            await run_insert(graphiti, phase, test_cases)
+        # ── Run each experiment ──
+        should_measure = stage is None or stage == "evaluate"
+        should_report = stage is None or stage == "report"
 
-        if "evaluate" in stages_to_run:
-            results = await run_evaluate(graphiti, phase, test_cases)
+        for exp_name in experiment_names:
+            experiment = get_experiment(exp_name)
+            effective_params = {**experiment.default_params(), **user_params}
+            experiment.validate_params(effective_params)
 
-        if "report" in stages_to_run:
-            if not results:
-                # Load from evaluate cache for standalone --stage report
-                cache = Path("results/checkpoints") / f"{phase}_results.json"
-                if cache.exists():
-                    results = [
-                        QueryResult.model_validate(d)
-                        for d in json.loads(cache.read_text())
-                    ]
-                    print(f"  Loaded {len(results)} results from cache")
-            if not results:
-                print("  No evaluation results — skipping report")
-                return []
-            return run_report(phase, results, test_cases)
+            started_at = datetime.now(timezone.utc)
+            rc = RunConfig(
+                experiment_type=exp_name,
+                phase=phase,
+                group_id=group_id,
+                params=effective_params,
+                run_id=run_id or "",
+            )
+
+            print(f"\n=== Experiment: {exp_name} | Run: {rc.run_id} ===")
+
+            results = []
+
+            if should_measure:
+                # Use run_id for experiment checkpoint, None for legacy compat
+                ckpt_run_id = rc.run_id if run_id else None
+                ckpt = Checkpoint(phase, exp_name, run_id=ckpt_run_id)
+                if clean:
+                    ckpt.clear()
+
+                print(f"\n--- [{phase}] {exp_name.upper()} MEASURE ---")
+                results = await experiment.measure(graphiti, test_cases, rc, ckpt)
+
+                # Persist results
+                _save_run_results(rc, results)
+                # Legacy compat: also save to old path for retrieval experiment
+                if exp_name == "retrieval":
+                    _save_legacy_results_cache(phase, results)
+
+                print(f"  {exp_name} measure complete ({len(results)} results)")
+
+            if should_report:
+                if not results:
+                    results = _load_run_results(rc)
+                    if results:
+                        print(f"  Loaded {len(results)} results from cache")
+
+                if not results:
+                    print(f"  No results for {exp_name} — skipping report")
+                    continue
+
+                print(f"\n--- [{phase}] {exp_name.upper()} REPORT ---")
+                reports = experiment.report(results, test_cases, rc)
+                experiment.print_report(reports)
+                _save_run_report(rc, reports)
+                _save_run_metadata(rc, started_at)
+
+                # Legacy compat: also save timestamped report for retrieval
+                if exp_name == "retrieval":
+                    ts = datetime.now(timezone.utc).strftime("%Y%m%d_%H%M%S")
+                    legacy_path = f"results/{phase}_{ts}.json"
+                    data = [r.model_dump(mode="json") for r in reports]
+                    Path(legacy_path).write_text(json.dumps(data, indent=2))
+                    print(f"  Report saved to {legacy_path}")
 
     finally:
         await graphiti.close()
 
-    return []
+
+def _parse_params(param_list: list[str] | None) -> dict:
+    """Parse --param key=value pairs into a dict."""
+    if not param_list:
+        return {}
+    params = {}
+    for item in param_list:
+        if "=" not in item:
+            raise ValueError(f"Invalid param format: '{item}'. Expected key=value.")
+        key, val = item.split("=", 1)
+        # Auto-convert numeric values
+        try:
+            params[key] = float(val) if "." in val else int(val)
+        except ValueError:
+            params[key] = val
+    return params
 
 
 def build_cli() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Graphiti benchmark runner with checkpoint/resume"
+        description="Graphiti benchmark runner with pluggable experiments"
     )
     parser.add_argument(
         "phase",
+        nargs="?",
         choices=list(GROUP_IDS.keys()),
         help="Benchmark phase to run",
     )
     parser.add_argument(
         "--stage",
-        choices=list(STAGES),
+        choices=list(LEGACY_STAGES),
         default=None,
         help="Run only this stage (default: all stages)",
     )
@@ -351,17 +349,56 @@ def build_cli() -> argparse.ArgumentParser:
         action="store_true",
         help="Wipe checkpoint + graph data before running",
     )
+    parser.add_argument(
+        "--experiment",
+        "-e",
+        action="append",
+        default=None,
+        help="Experiment type(s) to run (default: retrieval). Repeatable.",
+    )
+    parser.add_argument(
+        "--param",
+        "-p",
+        action="append",
+        default=None,
+        help="Parameter overrides as key=value (e.g., --param mmr_lambda=0.3)",
+    )
+    parser.add_argument(
+        "--run-id",
+        default=None,
+        help="Explicit run ID (auto-generated if omitted)",
+    )
+    parser.add_argument(
+        "--list-experiments",
+        action="store_true",
+        help="List available experiment types and exit",
+    )
     return parser
 
 
 def main():
     args = build_cli().parse_args()
+
+    if args.list_experiments:
+        print("Available experiments:")
+        for name in list_experiments():
+            exp = get_experiment(name)
+            print(f"  {name}: params={exp.default_params()}")
+        return
+
+    if not args.phase:
+        build_cli().print_help()
+        return
+
     asyncio.run(
         run_benchmark(
             phase=args.phase,
             port=args.port,
             stage=args.stage,
             clean=args.clean,
+            experiments=args.experiment,
+            params=_parse_params(args.param),
+            run_id=args.run_id,
         )
     )
 

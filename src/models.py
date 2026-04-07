@@ -3,6 +3,8 @@
 from __future__ import annotations
 
 from datetime import datetime
+from typing import Any
+
 from pydantic import BaseModel
 
 
@@ -68,3 +70,36 @@ class CategoryReport(BaseModel):
     avg_mrr: float
     temporal_accuracy_pct: float
     num_queries: int
+
+
+class RunMetadata(BaseModel):
+    run_id: str
+    experiment_type: str
+    phase: str
+    params: dict[str, Any] = {}
+    started_at: datetime
+    completed_at: datetime | None = None
+
+
+class IngestionResult(BaseModel):
+    test_case_id: str
+    category: str
+    entity_recall: float
+    entity_precision: float
+    edge_recall: float
+    edge_precision: float
+    temporal_invalidation_accuracy: float
+    dedup_score: float
+
+
+class IngestionReport(BaseModel):
+    phase: str
+    category: str
+    avg_entity_recall: float
+    avg_entity_precision: float
+    avg_edge_recall: float
+    avg_edge_precision: float
+    avg_temporal_invalidation_accuracy: float
+    avg_dedup_score: float
+    composite_score: float
+    num_cases: int
