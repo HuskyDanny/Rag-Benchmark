@@ -1,0 +1,5707 @@
+[
+  {
+    "id": "static_001",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Paris is the capital of France.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Paris and France?",
+        "expected_facts": [
+          "Paris is the capital of France."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Paris",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "France",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "capital_of",
+          "fact": "Paris is the capital of France.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_002",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Python was created by Guido van Rossum.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Python and Guido van Rossum?",
+        "expected_facts": [
+          "Python was created by Guido van Rossum."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Python",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Guido van Rossum",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "created_by",
+          "fact": "Python was created by Guido van Rossum.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_003",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Earth orbits the Sun.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Earth and Sun?",
+        "expected_facts": [
+          "Earth orbits the Sun."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Earth",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Sun",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "orbits",
+          "fact": "Earth orbits the Sun.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_004",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Water has the chemical formula H2O.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Water and H2O?",
+        "expected_facts": [
+          "Water has the chemical formula H2O."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Water",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "H2O",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "chemical_formula",
+          "fact": "Water has the chemical formula H2O.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_005",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Amazon is headquartered in Seattle.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Amazon and Seattle?",
+        "expected_facts": [
+          "Amazon is headquartered in Seattle."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Amazon",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Seattle",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "headquartered_in",
+          "fact": "Amazon is headquartered in Seattle.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_006",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Linux was created by Linus Torvalds.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Linux and Linus Torvalds?",
+        "expected_facts": [
+          "Linux was created by Linus Torvalds."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Linux",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Linus Torvalds",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "created_by",
+          "fact": "Linux was created by Linus Torvalds.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_007",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Tokyo is the capital of Japan.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Tokyo and Japan?",
+        "expected_facts": [
+          "Tokyo is the capital of Japan."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Tokyo",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Japan",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "capital_of",
+          "fact": "Tokyo is the capital of Japan.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_008",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Tesla was founded by Elon Musk.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Tesla and Elon Musk?",
+        "expected_facts": [
+          "Tesla was founded by Elon Musk."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Tesla",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Elon Musk",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "founded_by",
+          "fact": "Tesla was founded by Elon Musk.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_009",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "JavaScript was created by Brendan Eich.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between JavaScript and Brendan Eich?",
+        "expected_facts": [
+          "JavaScript was created by Brendan Eich."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "JavaScript",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Brendan Eich",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "created_by",
+          "fact": "JavaScript was created by Brendan Eich.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "static_010",
+    "category": "static_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Berlin is the capital of Germany.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the relationship between Berlin and Germany?",
+        "expected_facts": [
+          "Berlin is the capital of Germany."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Berlin",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "target": {
+          "name": "Germany",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "capital_of",
+          "fact": "Berlin is the capital of Germany.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_001",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Amy works at Google.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Amy now works at Facebook.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Amy currently works at?",
+        "expected_facts": [
+          "Amy now works at Facebook."
+        ],
+        "expected_not": [
+          "Amy works at Google."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Google",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy works at Google.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Facebook",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy now works at Facebook.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_002",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Bob lives in New York City.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Bob moved to San Francisco.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Bob currently lives in?",
+        "expected_facts": [
+          "Bob moved to San Francisco."
+        ],
+        "expected_not": [
+          "Bob lives in New York City."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "NYC",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Bob lives in New York City.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "SF",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Bob moved to San Francisco.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_003",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Carol manages Team Alpha.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Carol now manages Team Beta.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Carol currently manages?",
+        "expected_facts": [
+          "Carol now manages Team Beta."
+        ],
+        "expected_not": [
+          "Carol manages Team Alpha."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Alpha",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "manages",
+          "fact": "Carol manages Team Alpha.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Beta",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "manages",
+          "fact": "Carol now manages Team Beta.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_004",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Dave uses Python 3.9.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Dave upgraded to Python 3.12.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Dave currently uses?",
+        "expected_facts": [
+          "Dave upgraded to Python 3.12."
+        ],
+        "expected_not": [
+          "Dave uses Python 3.9."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Python 3.9",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "uses",
+          "fact": "Dave uses Python 3.9.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Python 3.12",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "uses",
+          "fact": "Dave upgraded to Python 3.12.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_005",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Eve studies at MIT.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Eve transferred to Stanford.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Eve currently studies at?",
+        "expected_facts": [
+          "Eve transferred to Stanford."
+        ],
+        "expected_not": [
+          "Eve studies at MIT."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "MIT",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "studies_at",
+          "fact": "Eve studies at MIT.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Stanford",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "studies_at",
+          "fact": "Eve transferred to Stanford.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_006",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Frank drives a Toyota.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Frank now drives a Tesla.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Frank currently drives?",
+        "expected_facts": [
+          "Frank now drives a Tesla."
+        ],
+        "expected_not": [
+          "Frank drives a Toyota."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Toyota",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "drives",
+          "fact": "Frank drives a Toyota.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Tesla",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "drives",
+          "fact": "Frank now drives a Tesla.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_007",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Grace works at Microsoft.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Grace joined Apple.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Grace currently works at?",
+        "expected_facts": [
+          "Grace joined Apple."
+        ],
+        "expected_not": [
+          "Grace works at Microsoft."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Microsoft",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace works at Microsoft.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Apple",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace joined Apple.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_008",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Henry lives in London.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Henry relocated to Berlin.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Henry currently lives in?",
+        "expected_facts": [
+          "Henry relocated to Berlin."
+        ],
+        "expected_not": [
+          "Henry lives in London."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Henry",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "London",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Henry lives in London.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Henry",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Berlin",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Henry relocated to Berlin.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_009",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Ivy reports to Manager A.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Ivy now reports to Manager B.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Ivy currently reports to?",
+        "expected_facts": [
+          "Ivy now reports to Manager B."
+        ],
+        "expected_not": [
+          "Ivy reports to Manager A."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Manager A",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "reports_to",
+          "fact": "Ivy reports to Manager A.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Manager B",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "reports_to",
+          "fact": "Ivy now reports to Manager B.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_010",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Jack owns Startup X.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Jack sold X and founded Startup Y.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Jack currently owns?",
+        "expected_facts": [
+          "Jack sold X and founded Startup Y."
+        ],
+        "expected_not": [
+          "Jack owns Startup X."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup X",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "owns",
+          "fact": "Jack owns Startup X.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup Y",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "owns",
+          "fact": "Jack sold X and founded Startup Y.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_011",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Kate works at Amazon.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Kate moved to Netflix.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Kate currently works at?",
+        "expected_facts": [
+          "Kate moved to Netflix."
+        ],
+        "expected_not": [
+          "Kate works at Amazon."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Kate",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Amazon",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Kate works at Amazon.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Kate",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Netflix",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Kate moved to Netflix.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_012",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Leo lives in Paris.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Leo relocated to Tokyo.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Leo currently lives in?",
+        "expected_facts": [
+          "Leo relocated to Tokyo."
+        ],
+        "expected_not": [
+          "Leo lives in Paris."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Leo",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Paris",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Leo lives in Paris.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Leo",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Tokyo",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "lives_in",
+          "fact": "Leo relocated to Tokyo.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_013",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Mia studies at Harvard.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Mia transferred to Oxford.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Mia currently studies at?",
+        "expected_facts": [
+          "Mia transferred to Oxford."
+        ],
+        "expected_not": [
+          "Mia studies at Harvard."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Mia",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Harvard",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "studies_at",
+          "fact": "Mia studies at Harvard.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Mia",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Oxford",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "studies_at",
+          "fact": "Mia transferred to Oxford.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_014",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Nick manages Project A.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Nick now leads Project B.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Nick currently manages?",
+        "expected_facts": [
+          "Nick now leads Project B."
+        ],
+        "expected_not": [
+          "Nick manages Project A."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Nick",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Project A",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "manages",
+          "fact": "Nick manages Project A.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Nick",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Project B",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "manages",
+          "fact": "Nick now leads Project B.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "evolving_015",
+    "category": "evolving_fact",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Olivia uses Java 11.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Olivia upgraded to Java 21.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Olivia currently uses?",
+        "expected_facts": [
+          "Olivia upgraded to Java 21."
+        ],
+        "expected_not": [
+          "Olivia uses Java 11."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Olivia",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Java 11",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "uses",
+          "fact": "Olivia uses Java 11.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Olivia",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Java 21",
+          "labels": [
+            "Entity"
+          ]
+        },
+        "edge": {
+          "name": "uses",
+          "fact": "Olivia upgraded to Java 21.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_001",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Amy works at Google as engineer.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Amy left Google and joined Facebook as product manager.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Amy work now?",
+        "expected_facts": [
+          "Amy works at Facebook as product manager."
+        ],
+        "expected_not": [
+          "Amy works at Google as engineer."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Google",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy works at Google as engineer.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Facebook",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy works at Facebook as product manager.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_002",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Bob works at New York as NYC resident.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Bob left New York and joined San Francisco as SF resident.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Bob work now?",
+        "expected_facts": [
+          "Bob works at San Francisco as SF resident."
+        ],
+        "expected_not": [
+          "Bob works at New York as NYC resident."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "New York",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Bob works at New York as NYC resident.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "San Francisco",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Bob works at San Francisco as SF resident.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_003",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Carol works at Team Alpha as Alpha lead.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Carol left Team Alpha and joined Team Beta as Beta lead.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Carol work now?",
+        "expected_facts": [
+          "Carol works at Team Beta as Beta lead."
+        ],
+        "expected_not": [
+          "Carol works at Team Alpha as Alpha lead."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Alpha",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Carol works at Team Alpha as Alpha lead.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Beta",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Carol works at Team Beta as Beta lead.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_004",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Dave works at Microsoft as developer.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Dave left Microsoft and joined Amazon as senior developer.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Dave work now?",
+        "expected_facts": [
+          "Dave works at Amazon as senior developer."
+        ],
+        "expected_not": [
+          "Dave works at Microsoft as developer."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Microsoft",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Dave works at Microsoft as developer.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Amazon",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Dave works at Amazon as senior developer.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_005",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Eve works at London as London-based analyst.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Eve left London and joined Tokyo as Tokyo-based analyst.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Eve work now?",
+        "expected_facts": [
+          "Eve works at Tokyo as Tokyo-based analyst."
+        ],
+        "expected_not": [
+          "Eve works at London as London-based analyst."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "London",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Eve works at London as London-based analyst.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Tokyo",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Eve works at Tokyo as Tokyo-based analyst.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_006",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Frank works at Startup X as CTO.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Frank left Startup X and joined Startup Y as founder.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Frank work now?",
+        "expected_facts": [
+          "Frank works at Startup Y as founder."
+        ],
+        "expected_not": [
+          "Frank works at Startup X as CTO."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup X",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Frank works at Startup X as CTO.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup Y",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Frank works at Startup Y as founder.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_007",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Grace works at MIT as MIT researcher.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Grace left MIT and joined Stanford as Stanford professor.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Grace work now?",
+        "expected_facts": [
+          "Grace works at Stanford as Stanford professor."
+        ],
+        "expected_not": [
+          "Grace works at MIT as MIT researcher."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "MIT",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace works at MIT as MIT researcher.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Stanford",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace works at Stanford as Stanford professor.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_008",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Hank works at Department A as analyst.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Hank left Department A and joined Department B as director.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Hank work now?",
+        "expected_facts": [
+          "Hank works at Department B as director."
+        ],
+        "expected_not": [
+          "Hank works at Department A as analyst."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Hank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Department A",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Hank works at Department A as analyst.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Hank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Department B",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Hank works at Department B as director.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_009",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Ivy works at Berlin as Berlin office manager.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Ivy left Berlin and joined Paris as Paris office manager.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Ivy work now?",
+        "expected_facts": [
+          "Ivy works at Paris as Paris office manager."
+        ],
+        "expected_not": [
+          "Ivy works at Berlin as Berlin office manager."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Berlin",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Ivy works at Berlin as Berlin office manager.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Paris",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Ivy works at Paris as Paris office manager.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "compound_010",
+    "category": "evolving_compound",
+    "tags": [
+      "compound",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "Jack works at Company P as intern.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Jack left Company P and joined Company Q as full-time engineer.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Jack work now?",
+        "expected_facts": [
+          "Jack works at Company Q as full-time engineer."
+        ],
+        "expected_not": [
+          "Jack works at Company P as intern."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Company P",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Jack works at Company P as intern.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Company Q",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Jack works at Company Q as full-time engineer.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_001",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Acme Corp CEO is Alice.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Acme Corp HQ is in Chicago.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Acme Corp CEO is now Bob.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Acme Corp moved HQ to Austin.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CEO of Acme Corp and where is the HQ?",
+        "expected_facts": [
+          "Acme Corp CEO is now Bob.",
+          "Acme Corp moved HQ to Austin."
+        ],
+        "expected_not": [
+          "Acme Corp CEO is Alice.",
+          "Acme Corp HQ is in Chicago."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Acme Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Alice",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Acme Corp CEO is Alice.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Acme Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Acme Corp CEO is now Bob.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Acme Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Chicago",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Acme Corp HQ is in Chicago.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Acme Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Austin",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Acme Corp moved HQ to Austin.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_002",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Beta Inc CTO is Charlie.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Beta Inc office is in Boston.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Beta Inc CTO changed to Diana.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Beta Inc opened office in Denver.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CTO of Beta Inc and where is the office?",
+        "expected_facts": [
+          "Beta Inc CTO changed to Diana.",
+          "Beta Inc opened office in Denver."
+        ],
+        "expected_not": [
+          "Beta Inc CTO is Charlie.",
+          "Beta Inc office is in Boston."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Beta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Charlie",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Beta Inc CTO is Charlie.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Beta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Diana",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Beta Inc CTO changed to Diana.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Beta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Boston",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Beta Inc office is in Boston.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Beta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Denver",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Beta Inc opened office in Denver.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_003",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Gamma LLC CEO is Ed.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Gamma LLC HQ is in Miami.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Gamma LLC appointed Fiona as CEO.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Gamma LLC relocated HQ to Portland.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CEO of Gamma LLC and where is the HQ?",
+        "expected_facts": [
+          "Gamma LLC appointed Fiona as CEO.",
+          "Gamma LLC relocated HQ to Portland."
+        ],
+        "expected_not": [
+          "Gamma LLC CEO is Ed.",
+          "Gamma LLC HQ is in Miami."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Gamma LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Ed",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Gamma LLC CEO is Ed.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Gamma LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Fiona",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Gamma LLC appointed Fiona as CEO.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Gamma LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Miami",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Gamma LLC HQ is in Miami.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Gamma LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Portland",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Gamma LLC relocated HQ to Portland.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_004",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Delta Co VP is Greg.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Delta Co office is in Seattle.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Delta Co VP is now Hannah.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Delta Co moved to Phoenix.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the VP of Delta Co and where is the office?",
+        "expected_facts": [
+          "Delta Co VP is now Hannah.",
+          "Delta Co moved to Phoenix."
+        ],
+        "expected_not": [
+          "Delta Co VP is Greg.",
+          "Delta Co office is in Seattle."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Delta Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Greg",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "VP",
+          "fact": "Delta Co VP is Greg.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Delta Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Hannah",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "VP",
+          "fact": "Delta Co VP is now Hannah.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Delta Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Seattle",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Delta Co office is in Seattle.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Delta Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Phoenix",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Delta Co moved to Phoenix.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_005",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Epsilon Ltd CEO is Ivan.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Epsilon Ltd HQ is in Dallas.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Epsilon Ltd CEO changed to Julia.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Epsilon Ltd moved HQ to Atlanta.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CEO of Epsilon Ltd and where is the HQ?",
+        "expected_facts": [
+          "Epsilon Ltd CEO changed to Julia.",
+          "Epsilon Ltd moved HQ to Atlanta."
+        ],
+        "expected_not": [
+          "Epsilon Ltd CEO is Ivan.",
+          "Epsilon Ltd HQ is in Dallas."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Epsilon Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Ivan",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Epsilon Ltd CEO is Ivan.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Epsilon Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Julia",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Epsilon Ltd CEO changed to Julia.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Epsilon Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Dallas",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Epsilon Ltd HQ is in Dallas.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Epsilon Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Atlanta",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Epsilon Ltd moved HQ to Atlanta.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_006",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Zeta Corp CTO is Kyle.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Zeta Corp office in Detroit.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Zeta Corp CTO is now Laura.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Zeta Corp opened Nashville office.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CTO of Zeta Corp and where is the office?",
+        "expected_facts": [
+          "Zeta Corp CTO is now Laura.",
+          "Zeta Corp opened Nashville office."
+        ],
+        "expected_not": [
+          "Zeta Corp CTO is Kyle.",
+          "Zeta Corp office in Detroit."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Zeta Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Kyle",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Zeta Corp CTO is Kyle.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Zeta Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Laura",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Zeta Corp CTO is now Laura.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Zeta Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Detroit",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Zeta Corp office in Detroit.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Zeta Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Nashville",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Zeta Corp opened Nashville office.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_007",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Eta Inc CEO is Mark.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Eta Inc HQ in Philadelphia.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Eta Inc appointed Nancy as CEO.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Eta Inc relocated to San Diego.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CEO of Eta Inc and where is the HQ?",
+        "expected_facts": [
+          "Eta Inc appointed Nancy as CEO.",
+          "Eta Inc relocated to San Diego."
+        ],
+        "expected_not": [
+          "Eta Inc CEO is Mark.",
+          "Eta Inc HQ in Philadelphia."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Eta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Mark",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Eta Inc CEO is Mark.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Nancy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Eta Inc appointed Nancy as CEO.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Eta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Philadelphia",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Eta Inc HQ in Philadelphia.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eta Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "San Diego",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Eta Inc relocated to San Diego.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_008",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Theta LLC VP is Oscar.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Theta LLC office in Minneapolis.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Theta LLC VP changed to Patty.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Theta LLC moved to Tampa.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the VP of Theta LLC and where is the office?",
+        "expected_facts": [
+          "Theta LLC VP changed to Patty.",
+          "Theta LLC moved to Tampa."
+        ],
+        "expected_not": [
+          "Theta LLC VP is Oscar.",
+          "Theta LLC office in Minneapolis."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Theta LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Oscar",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "VP",
+          "fact": "Theta LLC VP is Oscar.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Theta LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Patty",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "VP",
+          "fact": "Theta LLC VP changed to Patty.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Theta LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Minneapolis",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Theta LLC office in Minneapolis.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Theta LLC",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Tampa",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Theta LLC moved to Tampa.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_009",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Iota Co CEO is Quinn.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Iota Co HQ in Charlotte.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Iota Co CEO is now Rachel.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Iota Co relocated HQ to Orlando.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CEO of Iota Co and where is the HQ?",
+        "expected_facts": [
+          "Iota Co CEO is now Rachel.",
+          "Iota Co relocated HQ to Orlando."
+        ],
+        "expected_not": [
+          "Iota Co CEO is Quinn.",
+          "Iota Co HQ in Charlotte."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Iota Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Quinn",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Iota Co CEO is Quinn.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Iota Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Rachel",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CEO",
+          "fact": "Iota Co CEO is now Rachel.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Iota Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Charlotte",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Iota Co HQ in Charlotte.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Iota Co",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Orlando",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "HQ",
+          "fact": "Iota Co relocated HQ to Orlando.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "multi_entity_010",
+    "category": "multi_entity_evolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Kappa Ltd CTO is Sam.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Kappa Ltd office in Pittsburgh.",
+        "reference_time": "2023-01-01T00:00:00Z",
+        "order": 1
+      },
+      {
+        "text": "Kappa Ltd CTO changed to Tina.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 2
+      },
+      {
+        "text": "Kappa Ltd moved to Las Vegas.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 3
+      }
+    ],
+    "queries": [
+      {
+        "query": "Who is the CTO of Kappa Ltd and where is the office?",
+        "expected_facts": [
+          "Kappa Ltd CTO changed to Tina.",
+          "Kappa Ltd moved to Las Vegas."
+        ],
+        "expected_not": [
+          "Kappa Ltd CTO is Sam.",
+          "Kappa Ltd office in Pittsburgh."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Kappa Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Sam",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Kappa Ltd CTO is Sam.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Kappa Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Tina",
+          "labels": [
+            "Person"
+          ]
+        },
+        "edge": {
+          "name": "CTO",
+          "fact": "Kappa Ltd CTO changed to Tina.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Kappa Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Pittsburgh",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Kappa Ltd office in Pittsburgh.",
+          "valid_at": "2023-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Kappa Ltd",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "Las Vegas",
+          "labels": [
+            "Location"
+          ]
+        },
+        "edge": {
+          "name": "office",
+          "fact": "Kappa Ltd moved to Las Vegas.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_001",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Omega Corp revenue is $10M.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Omega Corp revenue updated to $12M.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current revenue of Omega Corp?",
+        "expected_facts": [
+          "Omega Corp revenue updated to $12M."
+        ],
+        "expected_not": [
+          "Omega Corp revenue is $10M."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Omega Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$10M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "revenue",
+          "fact": "Omega Corp revenue is $10M.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Omega Corp",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$12M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "revenue",
+          "fact": "Omega Corp revenue updated to $12M.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_002",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Alpha Inc has 500 employees.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Alpha Inc grew to 750 employees.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current employees of Alpha Inc?",
+        "expected_facts": [
+          "Alpha Inc grew to 750 employees."
+        ],
+        "expected_not": [
+          "Alpha Inc has 500 employees."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Alpha Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "500",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "employees",
+          "fact": "Alpha Inc has 500 employees.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Alpha Inc",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "750",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "employees",
+          "fact": "Alpha Inc grew to 750 employees.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_003",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Beta Labs valued at $50M.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Beta Labs valuation rose to $80M.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current valuation of Beta Labs?",
+        "expected_facts": [
+          "Beta Labs valuation rose to $80M."
+        ],
+        "expected_not": [
+          "Beta Labs valued at $50M."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Beta Labs",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$50M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "valuation",
+          "fact": "Beta Labs valued at $50M.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Beta Labs",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$80M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "valuation",
+          "fact": "Beta Labs valuation rose to $80M.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_004",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Gamma Tech has 3 offices.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Gamma Tech expanded to 5 offices.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current office_count of Gamma Tech?",
+        "expected_facts": [
+          "Gamma Tech expanded to 5 offices."
+        ],
+        "expected_not": [
+          "Gamma Tech has 3 offices."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Gamma Tech",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "3",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "office_count",
+          "fact": "Gamma Tech has 3 offices.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Gamma Tech",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "5",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "office_count",
+          "fact": "Gamma Tech expanded to 5 offices.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_005",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Delta AI raised $5M.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Delta AI closed $20M Series B.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current funding of Delta AI?",
+        "expected_facts": [
+          "Delta AI closed $20M Series B."
+        ],
+        "expected_not": [
+          "Delta AI raised $5M."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Delta AI",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$5M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "funding",
+          "fact": "Delta AI raised $5M.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Delta AI",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "$20M",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "funding",
+          "fact": "Delta AI closed $20M Series B.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_006",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Epsilon Bio holds 10 patents.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Epsilon Bio now holds 25 patents.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current patents of Epsilon Bio?",
+        "expected_facts": [
+          "Epsilon Bio now holds 25 patents."
+        ],
+        "expected_not": [
+          "Epsilon Bio holds 10 patents."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Epsilon Bio",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "10",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "patents",
+          "fact": "Epsilon Bio holds 10 patents.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Epsilon Bio",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "25",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "patents",
+          "fact": "Epsilon Bio now holds 25 patents.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_007",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Zeta Fin has 1000 customers.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Zeta Fin reached 2500 customers.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current customers of Zeta Fin?",
+        "expected_facts": [
+          "Zeta Fin reached 2500 customers."
+        ],
+        "expected_not": [
+          "Zeta Fin has 1000 customers."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Zeta Fin",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "1000",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "customers",
+          "fact": "Zeta Fin has 1000 customers.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Zeta Fin",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "2500",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "customers",
+          "fact": "Zeta Fin reached 2500 customers.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_008",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Eta Media has 50K subscribers.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Eta Media grew to 120K subscribers.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current subscribers of Eta Media?",
+        "expected_facts": [
+          "Eta Media grew to 120K subscribers."
+        ],
+        "expected_not": [
+          "Eta Media has 50K subscribers."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Eta Media",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "50K",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "subscribers",
+          "fact": "Eta Media has 50K subscribers.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eta Media",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "120K",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "subscribers",
+          "fact": "Eta Media grew to 120K subscribers.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_009",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Theta Health operates 8 clinics.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Theta Health expanded to 15 clinics.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current clinics of Theta Health?",
+        "expected_facts": [
+          "Theta Health expanded to 15 clinics."
+        ],
+        "expected_not": [
+          "Theta Health operates 8 clinics."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Theta Health",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "8",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "clinics",
+          "fact": "Theta Health operates 8 clinics.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Theta Health",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "15",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "clinics",
+          "fact": "Theta Health expanded to 15 clinics.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "contradiction_010",
+    "category": "contradiction_resolution",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Iota Energy capacity is 100MW.",
+        "reference_time": "2023-06-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Iota Energy expanded to 250MW.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What is the current capacity of Iota Energy?",
+        "expected_facts": [
+          "Iota Energy expanded to 250MW."
+        ],
+        "expected_not": [
+          "Iota Energy capacity is 100MW."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Iota Energy",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "100MW",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "capacity",
+          "fact": "Iota Energy capacity is 100MW.",
+          "valid_at": "2023-06-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Iota Energy",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "target": {
+          "name": "250MW",
+          "labels": [
+            "Value"
+          ]
+        },
+        "edge": {
+          "name": "capacity",
+          "fact": "Iota Energy expanded to 250MW.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_001",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "John Smith is a software engineer at Google.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "John Smith is a cardiologist at Mayo Clinic.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does John Smith the engineer do?",
+        "expected_facts": [
+          "John Smith is a software engineer at Google."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does John Smith the doctor do?",
+        "expected_facts": [
+          "John Smith is a cardiologist at Mayo Clinic."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "John Smith (engineer)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "engineer",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "John Smith is a software engineer at Google.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "John Smith (doctor)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "doctor",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "John Smith is a cardiologist at Mayo Clinic.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_002",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Sarah Johnson teaches math at Lincoln High.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Sarah Johnson is a patent lawyer in NYC.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Sarah Johnson the teacher do?",
+        "expected_facts": [
+          "Sarah Johnson teaches math at Lincoln High."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Sarah Johnson the lawyer do?",
+        "expected_facts": [
+          "Sarah Johnson is a patent lawyer in NYC."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Sarah Johnson (teacher)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "teacher",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Sarah Johnson teaches math at Lincoln High.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Sarah Johnson (lawyer)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "lawyer",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Sarah Johnson is a patent lawyer in NYC.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_003",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Michael Brown is a chef in Paris.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Michael Brown is a commercial pilot based in Dallas.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Michael Brown the chef do?",
+        "expected_facts": [
+          "Michael Brown is a chef in Paris."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Michael Brown the pilot do?",
+        "expected_facts": [
+          "Michael Brown is a commercial pilot based in Dallas."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Michael Brown (chef)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "chef",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Michael Brown is a chef in Paris.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Michael Brown (pilot)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "pilot",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Michael Brown is a commercial pilot based in Dallas.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_004",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Emily Davis is a painter in Brooklyn.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Emily Davis is a biochemist at Caltech.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Emily Davis the artist do?",
+        "expected_facts": [
+          "Emily Davis is a painter in Brooklyn."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Emily Davis the scientist do?",
+        "expected_facts": [
+          "Emily Davis is a biochemist at Caltech."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Emily Davis (artist)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "artist",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Emily Davis is a painter in Brooklyn.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Emily Davis (scientist)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "scientist",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Emily Davis is a biochemist at Caltech.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_005",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "James Wilson coaches basketball at Duke.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "James Wilson is a war correspondent for Reuters.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does James Wilson the coach do?",
+        "expected_facts": [
+          "James Wilson coaches basketball at Duke."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does James Wilson the journalist do?",
+        "expected_facts": [
+          "James Wilson is a war correspondent for Reuters."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "James Wilson (coach)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "coach",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "James Wilson coaches basketball at Duke.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "James Wilson (journalist)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "journalist",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "James Wilson is a war correspondent for Reuters.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_006",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Lisa Chen is an architect in Shanghai.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Lisa Chen is a concert pianist in Vienna.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Lisa Chen the architect do?",
+        "expected_facts": [
+          "Lisa Chen is an architect in Shanghai."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Lisa Chen the musician do?",
+        "expected_facts": [
+          "Lisa Chen is a concert pianist in Vienna."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Lisa Chen (architect)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "architect",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Lisa Chen is an architect in Shanghai.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Lisa Chen (musician)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "musician",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Lisa Chen is a concert pianist in Vienna.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_007",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Robert Taylor is an investment banker in London.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Robert Taylor runs a dairy farm in Vermont.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Robert Taylor the banker do?",
+        "expected_facts": [
+          "Robert Taylor is an investment banker in London."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Robert Taylor the farmer do?",
+        "expected_facts": [
+          "Robert Taylor runs a dairy farm in Vermont."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Robert Taylor (banker)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "banker",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Robert Taylor is an investment banker in London.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Robert Taylor (farmer)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "farmer",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Robert Taylor runs a dairy farm in Vermont.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_008",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Maria Garcia is a nurse at Johns Hopkins.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Maria Garcia is a frontend developer at Stripe.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Maria Garcia the nurse do?",
+        "expected_facts": [
+          "Maria Garcia is a nurse at Johns Hopkins."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Maria Garcia the developer do?",
+        "expected_facts": [
+          "Maria Garcia is a frontend developer at Stripe."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Maria Garcia (nurse)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "nurse",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Maria Garcia is a nurse at Johns Hopkins.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Maria Garcia (developer)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "developer",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Maria Garcia is a frontend developer at Stripe.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_009",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "David Lee is a physics professor at MIT.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "David Lee is an Olympic swimmer.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does David Lee the professor do?",
+        "expected_facts": [
+          "David Lee is a physics professor at MIT."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does David Lee the athlete do?",
+        "expected_facts": [
+          "David Lee is an Olympic swimmer."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "David Lee (professor)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "professor",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "David Lee is a physics professor at MIT.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "David Lee (athlete)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "athlete",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "David Lee is an Olympic swimmer.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "disambig_010",
+    "category": "entity_disambiguation",
+    "tags": [],
+    "episodes": [
+      {
+        "text": "Jennifer Martinez is a dentist in Chicago.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "Jennifer Martinez is a bestselling novelist.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "What does Jennifer Martinez the dentist do?",
+        "expected_facts": [
+          "Jennifer Martinez is a dentist in Chicago."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      },
+      {
+        "query": "What does Jennifer Martinez the author do?",
+        "expected_facts": [
+          "Jennifer Martinez is a bestselling novelist."
+        ],
+        "expected_not": [],
+        "query_time": "2024-06-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Jennifer Martinez (dentist)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "dentist",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Jennifer Martinez is a dentist in Chicago.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      },
+      {
+        "source": {
+          "name": "Jennifer Martinez (author)",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "author",
+          "labels": [
+            "Profession"
+          ]
+        },
+        "edge": {
+          "name": "profession",
+          "fact": "Jennifer Martinez is a bestselling novelist.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_001",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "typo",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "amy workz at gogle as enginere.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "amy now workz at facebok.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Amy work now?",
+        "expected_facts": [
+          "Amy now works at Facebook."
+        ],
+        "expected_not": [
+          "Amy works at Google as an engineer."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Google",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy works at Google as an engineer.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Amy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Facebook",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Amy now works at Facebook.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_002",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "typo",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "bob livs in new yrok city.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "bob movd to san fran.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Bob work now?",
+        "expected_facts": [
+          "Bob moved to San Francisco."
+        ],
+        "expected_not": [
+          "Bob lives in New York City."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "New York City",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Bob lives in New York City.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Bob",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "San Francisco",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Bob moved to San Francisco.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_003",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "typo",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "carol mngz team alpha.",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "carol now mngz team beta.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Carol work now?",
+        "expected_facts": [
+          "Carol now manages Team Beta."
+        ],
+        "expected_not": [
+          "Carol manages Team Alpha."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Alpha",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Carol manages Team Alpha.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Carol",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Team Beta",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Carol now manages Team Beta.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_004",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "abbreviation",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "dave \u2192 msft as sr. dev",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "dave \u2192 amzn as principal eng.",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Dave work now?",
+        "expected_facts": [
+          "Dave works at Amazon as a principal engineer."
+        ],
+        "expected_not": [
+          "Dave works at Microsoft as a senior developer."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Microsoft",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Dave works at Microsoft as a senior developer.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Dave",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Amazon",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Dave works at Amazon as a principal engineer.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_005",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "abbreviation",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "eve @ london office, analyst role",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "eve transferred \u2192 tokyo office",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Eve work now?",
+        "expected_facts": [
+          "Eve transferred to the Tokyo office."
+        ],
+        "expected_not": [
+          "Eve works at the London office as an analyst."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "London office",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Eve works at the London office as an analyst.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Eve",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Tokyo office",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Eve transferred to the Tokyo office.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_006",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "abbreviation",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "frank is cto @ startup x",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "frank quit & founded startup y",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Frank work now?",
+        "expected_facts": [
+          "Frank quit and founded Startup Y."
+        ],
+        "expected_not": [
+          "Frank is the CTO at Startup X."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup X",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Frank is the CTO at Startup X.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Frank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Startup Y",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Frank quit and founded Startup Y.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_007",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "informal",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "grace doing research at mit lol",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "grace moved to stanford ngl pretty cool",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Grace work now?",
+        "expected_facts": [
+          "Grace moved to Stanford."
+        ],
+        "expected_not": [
+          "Grace does research at MIT."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "MIT",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace does research at MIT.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Grace",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Stanford",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Grace moved to Stanford.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_008",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "informal",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "hank's in dept a as analyst rn",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "hank got promoted to director in dept b",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Hank work now?",
+        "expected_facts": [
+          "Hank was promoted to director in Department B."
+        ],
+        "expected_not": [
+          "Hank works in Department A as an analyst."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Hank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Department A",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Hank works in Department A as an analyst.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Hank",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Department B",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Hank was promoted to director in Department B.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_009",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "mixed",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "ivy based in berlin office mgmt",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "ivy relocated 2 paris as office mgr",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Ivy work now?",
+        "expected_facts": [
+          "Ivy relocated to Paris as office manager."
+        ],
+        "expected_not": [
+          "Ivy is based in Berlin in office management."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Berlin",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Ivy is based in Berlin in office management.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Ivy",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Paris",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Ivy relocated to Paris as office manager.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  },
+  {
+    "id": "noisy_010",
+    "category": "noisy_fact",
+    "tags": [
+      "noisy",
+      "mixed",
+      "evolving"
+    ],
+    "episodes": [
+      {
+        "text": "jack interning @ co. P prev semester",
+        "reference_time": "2024-01-01T00:00:00Z",
+        "order": 0
+      },
+      {
+        "text": "jack got ft offer frm co. Q & accepted",
+        "reference_time": "2024-06-01T00:00:00Z",
+        "order": 1
+      }
+    ],
+    "queries": [
+      {
+        "query": "Where does Jack work now?",
+        "expected_facts": [
+          "Jack got a full-time offer from Company Q and accepted."
+        ],
+        "expected_not": [
+          "Jack is interning at Company P."
+        ],
+        "query_time": "2024-07-01T00:00:00Z"
+      }
+    ],
+    "triplets": [
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Company P",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Jack is interning at Company P.",
+          "valid_at": "2024-01-01T00:00:00Z",
+          "invalid_at": "2024-06-01T00:00:00Z"
+        }
+      },
+      {
+        "source": {
+          "name": "Jack",
+          "labels": [
+            "Person"
+          ]
+        },
+        "target": {
+          "name": "Company Q",
+          "labels": [
+            "Organization"
+          ]
+        },
+        "edge": {
+          "name": "works_at",
+          "fact": "Jack got a full-time offer from Company Q and accepted.",
+          "valid_at": "2024-06-01T00:00:00Z",
+          "invalid_at": null
+        }
+      }
+    ]
+  }
+]
