@@ -9,7 +9,7 @@ from src.checkpoint import Checkpoint
 from src.experiments import ExperimentBase, RunConfig, register_experiment
 from src.graph_inspector import inspect_edges, inspect_node_duplicates, inspect_nodes
 from src.judge_cache import cached_facts_match
-from src.models import IngestionReport, IngestionResult, TestCase
+from src.models import IngestionReport, IngestionResult, StepResult, TestCase
 
 # Scoring weights — precision excluded (NaN, not computable per-case with shared group_id)
 # Remaining weights normalized to sum to 1.0
@@ -201,6 +201,13 @@ async def _validate_test_case(
     dup_count = sum(d["count"] - 1 for d in duplicates)
     dedup_score = 1.0 - (dup_count / total_nodes) if total_nodes > 0 else 1.0
 
+    # Step-by-step validation (if test case has ingestion_expectations)
+    step_results = None
+    if test_case.ingestion_expectations and test_case.ingestion_expectations.steps:
+        step_results = await _validate_steps(
+            test_case.ingestion_expectations.steps, actual_nodes, actual_edges
+        )
+
     return IngestionResult(
         test_case_id=test_case.id,
         category=test_case.category,
@@ -210,6 +217,7 @@ async def _validate_test_case(
         edge_precision=round(edge_precision, 4),
         temporal_invalidation_accuracy=round(temporal_inv_accuracy, 4),
         dedup_score=round(dedup_score, 4),
+        step_results=step_results,
     )
 
 
@@ -241,3 +249,69 @@ async def _find_matching_edge(expected: dict, actual_edges: list[dict]) -> dict 
         if await cached_facts_match(expected["fact"], actual.get("fact", "")):
             return actual
     return None
+
+
+async def _validate_steps(
+    steps: list, actual_nodes: list[dict], actual_edges: list[dict]
+) -> list[StepResult]:
+    """Validate graph state against step-by-step expectations.
+
+    Note: This validates the FINAL graph state against each step's expectations.
+    For evolving facts, earlier steps may show edges that were later invalidated.
+    """
+    results = []
+    actual_names = {n["name"].lower() for n in actual_nodes}
+
+    for step in steps:
+        nodes_found = []
+        nodes_missing = []
+        edges_found = []
+        edges_missing = []
+        edges_wrong_temporal = []
+
+        # Check expected nodes
+        for node_exp in step.nodes:
+            name_lower = node_exp.name.lower()
+            if name_lower in actual_names or any(
+                name_lower in a.lower() for a in actual_names
+            ):
+                nodes_found.append(node_exp.name)
+            else:
+                nodes_missing.append(node_exp.name)
+
+        # Check expected edges
+        for edge_exp in step.edges:
+            matched = await _find_matching_edge(
+                {
+                    "source": edge_exp.source_name.lower(),
+                    "target": edge_exp.target_name.lower(),
+                    "fact": edge_exp.fact_pattern,
+                },
+                actual_edges,
+            )
+            if matched:
+                edges_found.append(edge_exp.fact_pattern)
+                # Check temporal correctness
+                is_current = matched.get("invalid_at") is None
+                if edge_exp.should_be_current != is_current:
+                    edges_wrong_temporal.append(
+                        f"{edge_exp.fact_pattern} "
+                        f"(expected {'current' if edge_exp.should_be_current else 'invalidated'}, "
+                        f"got {'current' if is_current else 'invalidated'})"
+                    )
+            else:
+                edges_missing.append(edge_exp.fact_pattern)
+
+        results.append(
+            StepResult(
+                after_episode=step.after_episode,
+                description=step.description,
+                nodes_found=nodes_found,
+                nodes_missing=nodes_missing,
+                edges_found=edges_found,
+                edges_missing=edges_missing,
+                edges_wrong_temporal=edges_wrong_temporal,
+            )
+        )
+
+    return results

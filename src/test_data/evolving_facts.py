@@ -3,8 +3,12 @@
 from __future__ import annotations
 
 from src.test_data.common import (
+    EdgeExpectation,
     Episode,
+    IngestionExpectation,
+    NodeExpectation,
     Query,
+    StepExpectation,
     TestCase,
     Triplet,
     TripletEdge,
@@ -141,6 +145,56 @@ def make_evolving_facts() -> list[TestCase]:
     for i, (entity, rel, old_val, new_val, old_text, new_text) in enumerate(
         evolutions, 1
     ):
+        # Build step expectations for first 3 cases (representative sample)
+        ing_exp = None
+        if i <= 3:
+            ing_exp = IngestionExpectation(
+                steps=[
+                    StepExpectation(
+                        after_episode=0,
+                        description=f"After: {old_text}",
+                        nodes=[
+                            NodeExpectation(name=entity),
+                            NodeExpectation(name=old_val),
+                        ],
+                        edges=[
+                            EdgeExpectation(
+                                source_name=entity,
+                                target_name=old_val,
+                                relation_pattern=rel,
+                                fact_pattern=old_text,
+                                should_be_current=True,
+                            ),
+                        ],
+                    ),
+                    StepExpectation(
+                        after_episode=1,
+                        description=f"After: {new_text} — old edge should be invalidated",
+                        nodes=[
+                            NodeExpectation(name=entity),
+                            NodeExpectation(name=old_val),
+                            NodeExpectation(name=new_val),
+                        ],
+                        edges=[
+                            EdgeExpectation(
+                                source_name=entity,
+                                target_name=old_val,
+                                relation_pattern=rel,
+                                fact_pattern=old_text,
+                                should_be_current=False,
+                            ),
+                            EdgeExpectation(
+                                source_name=entity,
+                                target_name=new_val,
+                                relation_pattern=rel,
+                                fact_pattern=new_text,
+                                should_be_current=True,
+                            ),
+                        ],
+                    ),
+                ],
+            )
+
         cases.append(
             TestCase(
                 id=f"evolving_{i:03d}",
@@ -178,6 +232,7 @@ def make_evolving_facts() -> list[TestCase]:
                         ),
                     ),
                 ],
+                ingestion_expectations=ing_exp,
             )
         )
     return cases

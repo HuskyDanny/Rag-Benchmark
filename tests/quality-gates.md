@@ -156,21 +156,129 @@ These are anti-patterns that **automatically fail** the quality gate review:
 
 ---
 
-## 5. Gate Summary Checklist
+## 5. Ingestion Quality Gates
+
+### Gate I1: Controlled Phase Entity Recall
+
+| Metric | Threshold | Applies To |
+|--------|-----------|------------|
+| Entity Recall | >= 0.95 | `controlled` phase, all categories |
+
+**Why:** Controlled insertion uses known-good triplets — entity extraction should be near-perfect.
+
+### Gate I2: Pipeline Phase Entity Recall
+
+| Metric | Threshold | Applies To |
+|--------|-----------|------------|
+| Entity Recall | >= 0.80 | `pipeline` phase, all categories |
+
+**Why:** LLM extraction is lossy. 0.80 is a realistic floor for entity extraction from natural text.
+
+### Gate I3: Edge Recall and Temporal Invalidation
+
+| Metric | Threshold | Applies To |
+|--------|-----------|------------|
+| Edge Recall | >= 0.75 | `pipeline` phase |
+| Temporal Invalidation Accuracy | >= 0.70 | `evolving_fact` + `contradiction_resolution` categories |
+
+**Why:** Relationships are harder to extract than entities. Temporal invalidation is Graphiti's core differentiator — mirrors M3 threshold.
+
+---
+
+## 6. Search Tuning Gates
+
+### Gate T1: Parametric Variation Produces Measurable Differences
+
+| Metric | Threshold | Applies To |
+|--------|-----------|------------|
+| Score difference between runs | > 0.05 on at least one metric | Any two runs with different params |
+
+**Why:** If parameter changes produce no score difference, the tuning framework is broken or the params don't matter.
+
+### Gate T2: Reproducibility
+
+| Metric | Threshold | Applies To |
+|--------|-----------|------------|
+| Same params, same results | Within floating-point tolerance | Repeated runs |
+
+### Gate T3: No Confounds
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| Temporal filter only on hybrid | Baselines run raw, no pre-filtering |
+| No data leakage | Tuning params not derived from test data |
+
+---
+
+## 7. Framework Modularity Gates
+
+### Gate F1: Backward Compatibility
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| Existing CLI unchanged | `python -m src.benchmark_runner pipeline --stage report` produces identical output |
+
+### Gate F2: Experiment Registration
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| `--list-experiments` | Shows all 3 experiments: retrieval, ingestion, search_tuning |
+
+### Gate F3: Graph Reuse
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| Shared insertion | Multiple experiments on same phase skip duplicate insertion |
+
+### Gate F4: Judge Cache
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| Persistent cache | `results/judge_cache/judgments.json` survives across runs |
+
+### Gate F5: Run Isolation
+
+| Requirement | Pass Criteria |
+|-------------|---------------|
+| Per-run checkpoints | Each run gets isolated checkpoint file, no overwrites |
+
+---
+
+## 8. Gate Summary Checklist
 
 ```
+Retrieval Quality:
 [ ] M1: Static fact recall@5 >= 0.80 for ALL strategies
 [ ] M2: Hybrid recall@5 beats both baselines by >= 10pp on evolving_fact
 [ ] M3: Hybrid temporal accuracy >= 70% on evolving_fact + contradiction_resolution
 [ ] M4: Hybrid MRR >= 0.50 averaged across all categories
 [ ] M5: pipeline_presplit temporal accuracy beats pipeline by >= 20pp on evolving_compound
 [ ] M6: pipeline_presplit recall@5 >= 0.60 on noisy_fact
+
+Ingestion Quality:
+[ ] I1: Controlled phase entity_recall >= 0.95
+[ ] I2: Pipeline phase entity_recall >= 0.80
+[ ] I3: Edge recall >= 0.75, temporal_invalidation_accuracy >= 0.70
+
+Search Tuning:
+[ ] T1: Different params produce measurable score difference (> 0.05)
+[ ] T2: Same params reproduce within tolerance
+[ ] T3: No confounds (temporal filter only on hybrid)
+
+Framework:
+[ ] F1: Backward compat — existing CLI unchanged
+[ ] F2: --list-experiments shows all 3 experiments
+[ ] F3: Graph reuse — shared insertion across experiments
+[ ] F4: Judge cache persistent across runs
+[ ] F5: Run isolation — per-run checkpoints
+
+Quality:
 [ ] Q1-Q5: All five benchmark questions answered with numeric evidence
-[ ] NW: No workarounds (no hardcoded results, no skipped categories, no mocks in benchmarks)
-[ ] C1: Unit tests exist and pass for all modules (including sentence_splitter + presplit_inserter)
+[ ] NW: No workarounds
+[ ] C1: Unit tests pass for all modules
 [ ] C2: No dead code
-[ ] C3: Clear separation of concerns across all 11 modules
-[ ] C4: Test data is modular — registry pattern, one file per category
+[ ] C3: Clear separation of concerns
+[ ] C4: Test data modular — registry pattern
 ```
 
 **The benchmark is DONE only when every box is checked.**
