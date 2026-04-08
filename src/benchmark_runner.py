@@ -17,6 +17,7 @@ from graphiti_core.utils.maintenance.graph_data_operations import clear_data
 from src.checkpoint import Checkpoint
 from src.experiments import RunConfig, get_experiment, list_experiments
 from src.models import RunMetadata, TestCase
+from src.contradiction_resolver import resolve_contradictions
 from src import controlled_inserter, pipeline_inserter, presplit_inserter
 
 load_dotenv()
@@ -107,6 +108,13 @@ async def run_insert(
 
     ckpt.mark_stage_complete()
     print(f"  INSERT complete for {phase}")
+
+    # Post-ingestion contradiction resolution for LLM-extracted phases
+    if phase in ("pipeline", "pipeline_presplit"):
+        group_id = GROUP_IDS[phase]
+        print(f"\n  [{phase}] Resolving contradictions...")
+        count = await resolve_contradictions(graphiti.clients.driver, group_id)
+        print(f"  Resolved {count} contradictions")
 
 
 # ── Run result persistence ──
