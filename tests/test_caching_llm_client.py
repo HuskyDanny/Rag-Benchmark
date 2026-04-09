@@ -15,8 +15,11 @@ async def test_cache_hit_skips_llm_call(tmp_path):
 
     from src.caching_llm_client import CachingLLMClient
 
+    from collections import OrderedDict
+
     client = CachingLLMClient.__new__(CachingLLMClient)
-    client._memory_cache = {}
+    client._memory_cache = OrderedDict()
+    client._max_memory_entries = 2000
     client._cache_dir = tmp_path
     client._hits = 0
     client._misses = 0
