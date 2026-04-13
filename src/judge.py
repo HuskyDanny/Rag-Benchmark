@@ -34,29 +34,33 @@ async def facts_match(returned_fact: str, expected_fact: str) -> bool:
         return True
 
     client = _get_client()
-    response = await client.chat.completions.create(
-        model=JUDGE_MODEL,
-        temperature=0,
-        messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are a fact-matching judge. Determine if two facts express "
-                    "the same information. Respond with only YES or NO."
-                ),
-            },
-            {
-                "role": "user",
-                "content": (
-                    f"Fact A: {returned_fact}\n"
-                    f"Fact B: {expected_fact}\n\n"
-                    "Do these two facts express the same information?"
-                ),
-            },
-        ],
-    )
-    answer = response.choices[0].message.content or ""
-    return answer.strip().upper().startswith("YES")
+    try:
+        response = await client.chat.completions.create(
+            model=JUDGE_MODEL,
+            temperature=0,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a fact-matching judge. Determine if two facts express "
+                        "the same information. Respond with only YES or NO."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": (
+                        f"Fact A: {returned_fact}\n"
+                        f"Fact B: {expected_fact}\n\n"
+                        "Do these two facts express the same information?"
+                    ),
+                },
+            ],
+        )
+        answer = response.choices[0].message.content or ""
+        return answer.strip().upper().startswith("YES")
+    except Exception as e:
+        print(f"  WARNING: Judge API error: {e}. Falling back to exact match.")
+        return returned_fact.strip().lower() == expected_fact.strip().lower()
 
 
 async def find_matches(

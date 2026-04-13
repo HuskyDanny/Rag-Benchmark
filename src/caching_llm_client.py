@@ -87,8 +87,8 @@ class CachingLLMClient(OpenAIGenericClient):
         try:
             tmp.write_text(json.dumps(response, indent=2, default=str))
             tmp.rename(path)
-        except OSError:
-            pass  # non-critical — memory cache still works
+        except OSError as e:
+            print(f"  WARNING: LLM cache write failed for {key}: {e}")
 
     async def _generate_response(
         self,

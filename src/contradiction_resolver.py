@@ -65,7 +65,7 @@ async def resolve_contradictions(driver: Any, group_id: str) -> int:
     invalidated = 0
 
     # Step 2: For each entity with 2+ current edges, check pairs
-    for entity, edges in edges_by_entity.items():
+    for _entity, edges in edges_by_entity.items():
         if len(edges) < 2:
             continue
 
@@ -130,33 +130,39 @@ async def _facts_contradict(fact_a: str, fact_b: str) -> bool:
     meaning the newer one supersedes the older one.
     """
     client = _get_client()
-    response = await client.chat.completions.create(
-        model=_MODEL,
-        temperature=0,
-        messages=[
-            {
-                "role": "system",
-                "content": (
-                    "You are a fact contradiction detector. Two facts about the same "
-                    "entity are given. Determine if they CONTRADICT each other — meaning "
-                    "they describe the same attribute (e.g., workplace, location, role, "
-                    "quantity) but with different values, and only one can be true at a "
-                    "given time.\n\n"
-                    "Examples of contradictions:\n"
-                    '- "Alice works at Google" vs "Alice works at Meta" (same attribute: workplace)\n'
-                    '- "Company has 500 employees" vs "Company has 750 employees" (same attribute: count)\n'
-                    '- "Bob lives in NYC" vs "Bob moved to SF" (same attribute: residence)\n\n'
-                    "NOT contradictions:\n"
-                    '- "Alice works at Google" vs "Alice lives in NYC" (different attributes)\n'
-                    '- "Alice manages Team A" vs "Alice reports to Bob" (different relationships)\n\n'
-                    "Respond with only YES or NO."
-                ),
-            },
-            {
-                "role": "user",
-                "content": f"Fact A: {fact_a}\nFact B: {fact_b}\n\nDo these contradict?",
-            },
-        ],
-    )
-    answer = response.choices[0].message.content or ""
-    return answer.strip().upper().startswith("YES")
+    try:
+        response = await client.chat.completions.create(
+            model=_MODEL,
+            temperature=0,
+            messages=[
+                {
+                    "role": "system",
+                    "content": (
+                        "You are a fact contradiction detector. Two facts about the same "
+                        "entity are given. Determine if they CONTRADICT each other — meaning "
+                        "they describe the same attribute (e.g., workplace, location, role, "
+                        "quantity) but with different values, and only one can be true at a "
+                        "given time.\n\n"
+                        "Examples of contradictions:\n"
+                        '- "Alice works at Google" vs "Alice works at Meta" (same attribute: workplace)\n'
+                        '- "Company has 500 employees" vs "Company has 750 employees" (same attribute: count)\n'
+                        '- "Bob lives in NYC" vs "Bob moved to SF" (same attribute: residence)\n\n'
+                        "NOT contradictions:\n"
+                        '- "Alice works at Google" vs "Alice lives in NYC" (different attributes)\n'
+                        '- "Alice manages Team A" vs "Alice reports to Bob" (different relationships)\n\n'
+                        "Respond with only YES or NO."
+                    ),
+                },
+                {
+                    "role": "user",
+                    "content": f"Fact A: {fact_a}\nFact B: {fact_b}\n\nDo these contradict?",
+                },
+            ],
+        )
+        answer = response.choices[0].message.content or ""
+        return answer.strip().upper().startswith("YES")
+    except Exception as e:
+        print(
+            f"  WARNING: Contradiction check API error: {e}. Assuming no contradiction."
+        )
+        return False
