@@ -1,19 +1,33 @@
 """Run full pipeline benchmark with checkpoint resume support."""
+
 import asyncio
 import json
 import os
+import sys
 from datetime import datetime, timezone
 from pathlib import Path
 
+# Ensure project root is on sys.path (allows running from any directory)
+_project_root = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(_project_root))
+os.chdir(_project_root)
+
 from dotenv import load_dotenv
+
 load_dotenv()
 
 from src.benchmark_runner import (
-    create_graphiti, load_test_cases, run_insert, GROUP_IDS,
-    _save_run_results, _save_run_report, _save_run_metadata
+    create_graphiti,
+    load_test_cases,
+    run_insert,
+    GROUP_IDS,
+    _save_run_results,
+    _save_run_report,
+    _save_run_metadata,
 )
 from src.experiments import get_experiment, RunConfig
 from src.checkpoint import Checkpoint
+
 
 async def main():
     test_cases = load_test_cases()
@@ -60,5 +74,6 @@ async def main():
         await g.close()
 
     print("\n=== PIPELINE BENCHMARK COMPLETE ===")
+
 
 asyncio.run(main())
