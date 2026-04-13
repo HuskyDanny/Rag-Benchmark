@@ -33,7 +33,8 @@ def _load_disk_cache() -> None:
     if cache_file.exists():
         try:
             _memory_cache = json.loads(cache_file.read_text())
-        except (json.JSONDecodeError, OSError):
+        except (json.JSONDecodeError, OSError) as e:
+            print(f"  WARNING: Judge cache load failed: {e}. Starting fresh.")
             _memory_cache = {}
 
 
