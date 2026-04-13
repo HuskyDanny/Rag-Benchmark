@@ -11,7 +11,7 @@ from dotenv import load_dotenv
 from graphiti_core import Graphiti
 from graphiti_core.embedder.openai import OpenAIEmbedder, OpenAIEmbedderConfig
 from graphiti_core.llm_client.config import LLMConfig
-from graphiti_core.llm_client.openai_generic_client import OpenAIGenericClient
+from src.caching_llm_client import CachingLLMClient
 from graphiti_core.utils.maintenance.graph_data_operations import clear_data
 
 from src.checkpoint import Checkpoint
@@ -61,7 +61,7 @@ async def create_graphiti(neo4j_port: int = 7687) -> Graphiti:
     model = os.getenv("LLM_MODEL", "Qwen/Qwen3.5-397B-A17B")
     small_model = os.getenv("LLM_SMALL_MODEL", "Qwen/Qwen2.5-7B-Instruct")
 
-    llm_client = OpenAIGenericClient(
+    llm_client = CachingLLMClient(
         config=LLMConfig(
             api_key=api_key, base_url=base_url, model=model, small_model=small_model
         )
