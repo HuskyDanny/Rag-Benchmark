@@ -111,6 +111,34 @@ Regenerate test data:
 python -m src.data_generator
 ```
 
+## Experiment Types
+
+The benchmark supports pluggable experiment types:
+
+```bash
+# List available experiments
+python -m src.benchmark_runner --list-experiments
+
+# Run specific experiment (default: retrieval)
+python -m src.benchmark_runner controlled -e retrieval
+python -m src.benchmark_runner controlled -e ingestion
+python -m src.benchmark_runner controlled -e search_tuning --param mmr_lambda=0.3
+
+# Run multiple experiments (shared insertion)
+python -m src.benchmark_runner controlled -e retrieval -e ingestion
+
+# Compare tuning runs
+python -m src.benchmark_runner controlled -e search_tuning --param mmr_lambda=0.3 --run-id tune1
+python -m src.benchmark_runner controlled -e search_tuning --param mmr_lambda=0.7 --run-id tune2
+python -m src.benchmark_runner --compare tune1 tune2
+```
+
+| Experiment | What It Measures |
+|-----------|-----------------|
+| `retrieval` | Search quality: P@5, R@5, MRR, TempAcc per strategy |
+| `ingestion` | Graph quality: entity/edge recall, temporal invalidation accuracy, dedup |
+| `search_tuning` | Parameterized search config comparison (mmr_lambda, bfs_depth, reranker, etc.) |
+
 ## Search Strategies
 
 | Strategy | Method | Temporal Filter |
@@ -124,8 +152,11 @@ The gap between hybrid (filtered) and baselines (unfiltered) measures the tempor
 ## Results
 
 Output saved to `results/`:
-- `results/{phase}_{timestamp}.json` — aggregate metrics per category × strategy
-- `results/checkpoints/` — per-case/per-query checkpoint state
+- `results/runs/{run_id}/` — per-experiment results, reports, metadata
+- `results/{phase}_{timestamp}.json` — legacy aggregate metrics
+- `results/checkpoints/` — per-case/per-query checkpoint state (crash recovery)
+- `results/judge_cache/` — persistent LLM fact-matching cache
+- `results/llm_cache/` — LLM response cache (per-file, for crash recovery)
 
 ### Metrics
 
@@ -150,12 +181,22 @@ python -m pytest tests/ -v -k "not split_compound and not split_noisy and not sp
 
 ```
 src/
-  benchmark_runner.py       # CLI + orchestrator (insert/evaluate/report stages)
+  benchmark_runner.py       # CLI + orchestrator (insert + experiment dispatch)
+  experiments/              # Pluggable experiment modules
+    __init__.py             # ExperimentBase ABC, RunConfig, registry
+    retrieval.py            # Search quality experiment (P@5, R@5, MRR, TempAcc)
+    ingestion.py            # Graph quality experiment (entity/edge recall, temporal inv.)
+    search_tuning.py        # Parameterized search config comparison
   checkpoint.py             # Checkpoint persistence for crash recovery
-  models.py                 # Pydantic models (TestCase, QueryResult, etc.)
-  search_strategies.py      # Hybrid/BM25/cosine SearchConfig
+  models.py                 # Pydantic models (TestCase, QueryResult, IngestionResult, etc.)
+  search_strategies.py      # Hybrid/BM25/cosine SearchConfig + build_search_config()
+  search_utils.py           # Shared search + temporal filter utilities
+  graph_inspector.py        # Neo4j Cypher queries for graph state inspection
   evaluator.py              # P@5, R@5, MRR, temporal accuracy
   judge.py                  # LLM-as-judge semantic fact matching
+  judge_cache.py            # Persistent LLM judge result cache
+  caching_llm_client.py     # Prompt-level LLM response cache (LRU + disk)
+  contradiction_resolver.py # Post-ingestion contradiction detection
   reporter.py               # Aggregate + print result tables
   sentence_splitter.py      # Decompose compound/noisy text into atomic facts
   controlled_inserter.py    # Phase 1: direct Neo4j save
@@ -165,7 +206,12 @@ src/
   test_data/                # One file per category (compound.py, noisy.py, etc.)
 scripts/
   run_parallel.sh           # Parallel Docker orchestration
+  run_pipeline_benchmark.py # Long-running pipeline benchmark with resume
   spike_test.py             # Neo4j + Graphiti connectivity test
   trace_scenarios.py        # Detailed trace of scenarios with graph state
   explore_graphiti.py       # Interactive Graphiti API exploration
+tests/
+  quality-gates.md          # Quality gate definitions (hard gates)
+  functional-gates.md       # Functional scenario definitions (hard gates)
+  test_*.py                 # 73 unit tests
 ```

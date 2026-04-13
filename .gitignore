@@ -21,9 +21,13 @@ build/
 # pytest
 .pytest_cache/
 
-# Results (generated)
+# Results (generated per-run, not committed)
 results/*.json
 results/*.csv
+results/llm_cache/
+results/judge_cache/
+results/runs/
+results/checkpoints/
 
 # OS
 .DS_Store
