@@ -112,9 +112,9 @@ class CachingLLMClient(OpenAIGenericClient):
             self._hits += 1
             return cached
 
-        # Cache miss — call the actual LLM
+        # Cache miss — call the actual LLM with thinking disabled
         self._misses += 1
-        response = await super()._generate_response(
+        response = await self._call_llm(
             messages, response_model, max_tokens, model_size
         )
 
@@ -123,6 +123,47 @@ class CachingLLMClient(OpenAIGenericClient):
         self._save_to_disk(key, response)
 
         return response
+
+    async def _call_llm(
+        self,
+        messages: list[Message],
+        response_model: type[BaseModel] | None,
+        max_tokens: int,
+        model_size: ModelSize,
+    ) -> dict[str, typing.Any]:
+        """Call the LLM with enable_thinking=False to skip reasoning tokens.
+
+        Qwen3.5 is a thinking model — without this flag, it generates ~558
+        hidden reasoning tokens per call (20s+ latency, 95% wasted tokens).
+        With enable_thinking=False: ~2-5s latency, correct output.
+        """
+        openai_messages = []
+        for m in messages:
+            content = self._clean_input(m.content)
+            if m.role == "user":
+                openai_messages.append({"role": "user", "content": content})
+            elif m.role == "system":
+                openai_messages.append({"role": "system", "content": content})
+
+        response_format: dict[str, typing.Any] = {"type": "json_object"}
+        if response_model is not None:
+            schema_name = getattr(response_model, "__name__", "structured_response")
+            json_schema = response_model.model_json_schema()
+            response_format = {
+                "type": "json_schema",
+                "json_schema": {"name": schema_name, "schema": json_schema},
+            }
+
+        response = await self.client.chat.completions.create(
+            model=self.model,
+            messages=openai_messages,
+            temperature=self.temperature,
+            max_tokens=self.max_tokens,
+            response_format=response_format,
+            extra_body={"enable_thinking": False},
+        )
+        result = response.choices[0].message.content or ""
+        return json.loads(result)
 
     def _put_memory(self, key: str, value: dict) -> None:
         """Add to memory cache with LRU eviction."""
