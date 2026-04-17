@@ -162,3 +162,61 @@ async def test_facts_match_default_mode_is_llm(monkeypatch):
 
     # Exact match fast-path (doesn't require LLM)
     assert await facts_match("Amy works at Facebook", "Amy works at Facebook") is True
+
+
+# ── _looks_like_entity heuristic (auto-routing signal) ──
+
+
+def test_looks_like_entity_short_no_verb():
+    from src.judge import _looks_like_entity
+
+    assert _looks_like_entity("University of Arizona , Tucson")
+    assert _looks_like_entity("Grantham Town")
+    assert _looks_like_entity("University of California , Santa Barbara")
+
+
+def test_looks_like_entity_rejects_sentence_with_verb():
+    from src.judge import _looks_like_entity
+
+    assert not _looks_like_entity("Amy works at Facebook")
+    assert not _looks_like_entity("Amy is employed by Facebook")
+    assert not _looks_like_entity("Bob lives in NYC")
+
+
+def test_looks_like_entity_rejects_long_text():
+    """Text over 6 tokens routes to LLM regardless of verb content."""
+    from src.judge import _looks_like_entity
+
+    assert not _looks_like_entity("the Grantham Town Football Club of England in 1996")
+
+
+def test_looks_like_entity_handles_empty():
+    from src.judge import _looks_like_entity
+
+    assert not _looks_like_entity("")
+    assert not _looks_like_entity("   ")
+
+
+# ── facts_match auto-routing (llm mode, entity-style expected) ──
+
+
+@pytest.mark.asyncio
+async def test_facts_match_auto_routes_entity_to_contains(monkeypatch):
+    """Short entity-style expected should skip LLM and use contains_match.
+
+    Works even without OPENAI_API_KEY because no LLM call is made.
+    """
+    monkeypatch.delenv("FACT_MATCH_MODE", raising=False)
+    monkeypatch.delenv("OPENAI_API_KEY", raising=False)
+    from src.judge import facts_match
+
+    # Entity-style expected → contains_match (no LLM) → match succeeds
+    assert await facts_match(
+        "Hossenfelder completed a fellowship at the University of Arizona in Tucson.",
+        "University of Arizona , Tucson",
+    )
+    # Same routing rejects wrong campus
+    assert not await facts_match(
+        "Hossenfelder worked at the University of California, Berkeley.",
+        "University of California , Santa Barbara",
+    )

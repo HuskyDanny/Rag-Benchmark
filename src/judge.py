@@ -1,10 +1,16 @@
 """LLM-based semantic fact matching judge.
 
-Supports two match modes (selectable via FACT_MATCH_MODE env var):
-- "llm" (default): Qwen2.5-7B semantic equivalence judge
-- "contains": token-subset check — all normalized tokens of expected must
-  appear in returned. Free, deterministic, suitable when expected_facts
-  are short entity names and returned are long edge-fact sentences.
+Two match modes (via FACT_MATCH_MODE env var):
+- "llm" (default): exact-match fast-path → auto-route entity-style expected
+  facts to `contains_match` → Qwen judge with mention/support prompt for the
+  rest. Paraphrases and supersets count (e.g., "works at" supports "employed
+  by"); strict equivalence is not required.
+- "contains": phrase-substring check only, no LLM. Free, deterministic,
+  suitable when expected_facts are short entity names.
+
+Auto-routing: `_looks_like_entity` treats short (≤6 tokens) text with no
+common verbs as an entity name, sending it through `contains_match` even in
+"llm" mode. Avoids LLM false-negatives on entity-vs-sentence comparisons.
 """
 
 from __future__ import annotations
@@ -77,16 +83,151 @@ def _current_mode() -> str:
     return os.getenv("FACT_MATCH_MODE", "llm").lower()
 
 
+# Common verbs / auxiliaries that mark a string as a sentence (not an entity name).
+# Used by `_looks_like_entity` to auto-route short entity-style expected facts
+# through `contains_match` (free) instead of the LLM judge.
+_SENTENCE_VERBS = frozenset(
+    {
+        "is",
+        "was",
+        "are",
+        "were",
+        "be",
+        "been",
+        "being",
+        "am",
+        "has",
+        "have",
+        "had",
+        "having",
+        "do",
+        "does",
+        "did",
+        "doing",
+        "done",
+        "work",
+        "works",
+        "worked",
+        "working",
+        "live",
+        "lives",
+        "lived",
+        "living",
+        "move",
+        "moves",
+        "moved",
+        "moving",
+        "join",
+        "joins",
+        "joined",
+        "joining",
+        "leave",
+        "leaves",
+        "left",
+        "leaving",
+        "become",
+        "becomes",
+        "became",
+        "becoming",
+        "found",
+        "founds",
+        "founded",
+        "founding",
+        "own",
+        "owns",
+        "owned",
+        "owning",
+        "lead",
+        "leads",
+        "led",
+        "leading",
+        "employ",
+        "employs",
+        "employed",
+        "employing",
+        "coach",
+        "coaches",
+        "coached",
+        "coaching",
+        "complete",
+        "completes",
+        "completed",
+        "completing",
+        "study",
+        "studies",
+        "studied",
+        "studying",
+        "attend",
+        "attends",
+        "attended",
+        "attending",
+        "graduate",
+        "graduates",
+        "graduated",
+        "graduating",
+        "serve",
+        "serves",
+        "served",
+        "serving",
+        "make",
+        "makes",
+        "made",
+        "making",
+        "go",
+        "goes",
+        "went",
+        "going",
+        "take",
+        "takes",
+        "took",
+        "taking",
+        "give",
+        "gives",
+        "gave",
+        "giving",
+        "get",
+        "gets",
+        "got",
+        "getting",
+        "say",
+        "says",
+        "said",
+        "saying",
+    }
+)
+
+
+def _looks_like_entity(text: str) -> bool:
+    """Heuristic: short text with no common verbs → likely an entity name.
+
+    Entity-style expected facts ("University of Arizona, Tucson", "Grantham
+    Town") route to `contains_match` for free strict matching. Sentence-style
+    expected facts ("Amy works at Facebook") still go through the LLM judge
+    for paraphrase recognition.
+    """
+    tokens = text.lower().split()
+    if not tokens or len(tokens) > 6:
+        return False
+    return not (set(tokens) & _SENTENCE_VERBS)
+
+
 async def facts_match(returned_fact: str, expected_fact: str) -> bool:
     """Check if two facts are semantically equivalent.
 
-    Mode "contains": pure token-subset check, no LLM.
-    Mode "llm" (default): exact match fast-path, then Qwen judge.
+    Mode "contains": phrase-substring check, no LLM (see `contains_match`).
+    Mode "llm" (default):
+      1. Exact match fast-path
+      2. Auto-route: if expected looks like a short entity name, use
+         `contains_match` (free, strict). Avoids LLM false-negatives on
+         entity-vs-sentence comparisons.
+      3. Otherwise, Qwen judge with a mention/support prompt.
     """
     if _current_mode() == "contains":
         return contains_match(returned_fact, expected_fact)
     if returned_fact.strip() == expected_fact.strip():
         return True
+    if _looks_like_entity(expected_fact):
+        return contains_match(returned_fact, expected_fact)
 
     client = _get_client()
     try:
@@ -97,8 +238,11 @@ async def facts_match(returned_fact: str, expected_fact: str) -> bool:
                 {
                     "role": "system",
                     "content": (
-                        "You are a fact-matching judge. Determine if two facts express "
-                        "the same information. Respond with only YES or NO."
+                        "You are a fact-matching judge. Determine if Fact A "
+                        "mentions, paraphrases, or supports Fact B. A supports B "
+                        "when the information in B can be inferred from A — "
+                        "synonyms, paraphrases, and supersets all count. "
+                        "Respond with only YES or NO."
                     ),
                 },
                 {
@@ -106,7 +250,7 @@ async def facts_match(returned_fact: str, expected_fact: str) -> bool:
                     "content": (
                         f"Fact A: {returned_fact}\n"
                         f"Fact B: {expected_fact}\n\n"
-                        "Do these two facts express the same information?"
+                        "Does Fact A mention, paraphrase, or support Fact B?"
                     ),
                 },
             ],
