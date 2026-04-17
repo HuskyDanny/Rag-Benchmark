@@ -49,13 +49,13 @@ async def test_batch_match():
     assert matches[0][1] == "Amy is employed by Facebook"
 
 
-# ── contains mode (token-subset, no LLM) ──
+# ── contains mode (comma-split phrase substring, no LLM) ──
 
 
-def test_contains_match_punctuation_invariant():
+def test_contains_match_comma_split_each_piece():
     from src.judge import contains_match
 
-    # TimeQA-style: expected has "X , Y", returned has "X in Y"
+    # TimeQA-style: expected "X , Y", returned has both X and Y in context
     assert contains_match(
         "Hossenfelder completed a research fellowship at the University of Arizona in Tucson after moving to North America.",
         "University of Arizona , Tucson",
@@ -71,10 +71,40 @@ def test_contains_match_exact_entity():
     )
 
 
-def test_contains_match_missing_token_fails():
+def test_contains_match_rejects_wrong_campus():
+    """Comma-split avoids false positive: 'University of California' alone isn't enough."""
     from src.judge import contains_match
 
-    # Expected has "Stanford" but returned doesn't mention it
+    # UC Berkeley in returned, but expected is Santa Barbara
+    assert not contains_match(
+        "Hossenfelder worked at the University of California, Berkeley.",
+        "University of California , Santa Barbara",
+    )
+
+
+def test_contains_match_rejects_scattered_tokens():
+    """Phrase substring (not bag-of-tokens) avoids false positives on scattered words."""
+    from src.judge import contains_match
+
+    # "Arizona" and "Tucson" and "University" all appear but not as phrase
+    assert not contains_match(
+        "She lived in Tucson and studied Arizona history at a different university.",
+        "University of Arizona , Tucson",
+    )
+
+
+def test_contains_match_simple_phrase():
+    from src.judge import contains_match
+
+    assert contains_match(
+        "Gary Mills coached Grantham Town from 1996 to 1998.",
+        "Grantham Town",
+    )
+
+
+def test_contains_match_missing_phrase_fails():
+    from src.judge import contains_match
+
     assert not contains_match(
         "Hossenfelder worked at the University of Arizona.",
         "Stanford University",

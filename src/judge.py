@@ -33,28 +33,41 @@ def _get_client() -> AsyncOpenAI:
     return _client
 
 
-_PUNCT_RE = re.compile(r"[^\w\s]")
+_NONWORD_RE = re.compile(r"[^\w\s,]")  # keep commas, strip other punct
 _WS_RE = re.compile(r"\s+")
 
 
-def _tokenize(text: str) -> set[str]:
-    """Lowercase, strip punctuation, split on whitespace."""
-    norm = _PUNCT_RE.sub(" ", text.lower())
+def _normalize(text: str) -> str:
+    """Lowercase, strip non-word punctuation (keep commas), collapse whitespace."""
+    norm = _NONWORD_RE.sub(" ", text.lower())
     norm = _WS_RE.sub(" ", norm).strip()
-    return set(norm.split())
+    return norm
 
 
 def contains_match(returned_fact: str, expected_fact: str) -> bool:
-    """True if all tokens of expected appear in returned (order-independent).
+    """True if every comma-separated phrase of expected is a substring of returned.
 
     Use when expected is a short entity name ("University of Arizona, Tucson")
     and returned is a long edge-fact sentence. No LLM call.
+
+    Phrase-based (preserves word order) to avoid false positives where scattered
+    tokens coincide across unrelated parts of the returned text. Commas split
+    TimeQA-style compound names ("University of Arizona , Tucson") so each
+    piece is checked independently — rejects partial matches like a different
+    UC campus for "University of California, Santa Barbara".
     """
-    exp = _tokenize(expected_fact)
-    if not exp:
+    ret_norm = _normalize(returned_fact).replace(",", " ")
+    ret_norm = _WS_RE.sub(" ", ret_norm).strip()
+    exp_norm = _normalize(expected_fact)
+    if not exp_norm:
         return False
-    ret = _tokenize(returned_fact)
-    return exp.issubset(ret)
+    for piece in exp_norm.split(","):
+        piece = piece.strip()
+        if not piece:
+            continue
+        if piece not in ret_norm:
+            return False
+    return True
 
 
 def _current_mode() -> str:
