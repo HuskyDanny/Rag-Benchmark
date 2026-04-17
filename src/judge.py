@@ -1,8 +1,16 @@
-"""LLM-based semantic fact matching judge."""
+"""LLM-based semantic fact matching judge.
+
+Supports two match modes (selectable via FACT_MATCH_MODE env var):
+- "llm" (default): Qwen2.5-7B semantic equivalence judge
+- "contains": token-subset check — all normalized tokens of expected must
+  appear in returned. Free, deterministic, suitable when expected_facts
+  are short entity names and returned are long edge-fact sentences.
+"""
 
 from __future__ import annotations
 
 import os
+import re
 
 from dotenv import load_dotenv
 from openai import AsyncOpenAI
@@ -25,11 +33,43 @@ def _get_client() -> AsyncOpenAI:
     return _client
 
 
+_PUNCT_RE = re.compile(r"[^\w\s]")
+_WS_RE = re.compile(r"\s+")
+
+
+def _tokenize(text: str) -> set[str]:
+    """Lowercase, strip punctuation, split on whitespace."""
+    norm = _PUNCT_RE.sub(" ", text.lower())
+    norm = _WS_RE.sub(" ", norm).strip()
+    return set(norm.split())
+
+
+def contains_match(returned_fact: str, expected_fact: str) -> bool:
+    """True if all tokens of expected appear in returned (order-independent).
+
+    Use when expected is a short entity name ("University of Arizona, Tucson")
+    and returned is a long edge-fact sentence. No LLM call.
+    """
+    exp = _tokenize(expected_fact)
+    if not exp:
+        return False
+    ret = _tokenize(returned_fact)
+    return exp.issubset(ret)
+
+
+def _current_mode() -> str:
+    """Read FACT_MATCH_MODE on every call so tests/runners can override it."""
+    return os.getenv("FACT_MATCH_MODE", "llm").lower()
+
+
 async def facts_match(returned_fact: str, expected_fact: str) -> bool:
     """Check if two facts are semantically equivalent.
 
-    Short-circuits on exact string match. Falls back to GPT-4o-mini.
+    Mode "contains": pure token-subset check, no LLM.
+    Mode "llm" (default): exact match fast-path, then Qwen judge.
     """
+    if _current_mode() == "contains":
+        return contains_match(returned_fact, expected_fact)
     if returned_fact.strip() == expected_fact.strip():
         return True
 
