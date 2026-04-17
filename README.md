@@ -20,13 +20,51 @@ cp .env.example .env
 #   LLM_MODEL=Qwen/Qwen3.5-397B-A17B
 #   EMBEDDING_MODEL=Qwen/Qwen3-Embedding-0.6B
 
-# 3. Start Neo4j
-docker run -d --name neo4j-benchmark -p 7687:7687 -p 7474:7474 \
-  -e NEO4J_AUTH=neo4j/your_password neo4j:5
+# 3. Start Neo4j (shared instance — see "Shared Neo4j Instance" below)
+docker volume create neo4j-shared-data
+docker run -d --name neo4j-shared --restart unless-stopped \
+  -p 7690:7687 -p 7475:7474 \
+  -v neo4j-shared-data:/data \
+  -e NEO4J_AUTH=neo4j/shared-dev-password \
+  -e NEO4J_PLUGINS='["apoc"]' \
+  -e NEO4J_server_memory_heap_initial__size=512m \
+  -e NEO4J_server_memory_heap_max__size=1G \
+  -e NEO4J_server_memory_pagecache_size=512m \
+  neo4j:5
 
 # 4. Run a benchmark phase
 python -m src.benchmark_runner controlled --clean
 ```
+
+## Shared Neo4j Instance
+
+This project connects to a **single shared** `neo4j-shared` container on port **7690**
+rather than spinning up per-project Neo4j instances. Isolation between projects is
+enforced via Graphiti's `group_id` namespacing — every node and edge is scoped to a
+`group_id`, and searches filter by it. This project uses:
+
+| Phase | `group_id` |
+|-------|-----------|
+| controlled | `benchmark_controlled` |
+| pipeline | `benchmark_pipeline` |
+| pipeline_presplit | `benchmark_presplit` |
+
+Other projects should pick their own `group_id` prefix (e.g., `financial_agent_*`)
+to avoid collisions. Neo4j Community Edition supports only one user database, so
+true multi-database separation would require Enterprise — `group_id` is the
+pragmatic alternative and is what Graphiti is designed around.
+
+### Credentials
+
+`.env` points to `bolt://localhost:7690` with user `neo4j` / password
+`shared-dev-password`. These are the shared-dev defaults — rotate before using
+outside a trusted local environment.
+
+### Parallel Phase Runs
+
+`scripts/run_parallel.sh` still spins up per-phase containers on 7687/7688/7689
+for maximum isolation during parallel benchmark runs. The shared instance on 7690
+is for day-to-day single-phase work.
 
 ## Benchmark Phases
 
