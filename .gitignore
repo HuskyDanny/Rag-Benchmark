@@ -31,3 +31,8 @@ results/checkpoints/
 
 # OS
 .DS_Store
+
+# === RUNTIME DATA ===
+# Machine-generated state from Claude Code subsystems; not part of the project.
+.claude/scheduled_tasks.lock
+memory/
