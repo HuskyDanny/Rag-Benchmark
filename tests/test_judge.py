@@ -117,6 +117,27 @@ def test_contains_match_empty_expected():
     assert not contains_match("anything", "")
 
 
+def test_contains_match_case_insensitive():
+    """Both returned and expected are lowercased before matching."""
+    from src.judge import contains_match
+
+    # Mixed case returned, lowercase expected
+    assert contains_match(
+        "Hossenfelder worked at the UNIVERSITY OF ARIZONA in Tucson.",
+        "university of arizona , tucson",
+    )
+    # Lowercase returned, uppercase expected
+    assert contains_match(
+        "ucsb is short for university of california, santa barbara.",
+        "UNIVERSITY OF CALIFORNIA , SANTA BARBARA",
+    )
+    # Title case on both
+    assert contains_match(
+        "The Grantham Town Club Was Coached By Gary Mills.",
+        "Grantham Town",
+    )
+
+
 @pytest.mark.asyncio
 async def test_facts_match_contains_mode_routes_correctly(monkeypatch):
     monkeypatch.setenv("FACT_MATCH_MODE", "contains")

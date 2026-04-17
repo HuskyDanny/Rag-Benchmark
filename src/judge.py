@@ -50,6 +50,8 @@ def contains_match(returned_fact: str, expected_fact: str) -> bool:
     Use when expected is a short entity name ("University of Arizona, Tucson")
     and returned is a long edge-fact sentence. No LLM call.
 
+    Case-insensitive — both sides are lowercased via `_normalize` before matching.
+
     Phrase-based (preserves word order) to avoid false positives where scattered
     tokens coincide across unrelated parts of the returned text. Commas split
     TimeQA-style compound names ("University of Arizona , Tucson") so each
